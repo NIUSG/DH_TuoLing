@@ -32,7 +32,7 @@ class Blog extends Common
                      FROM ns_bloginfo AS nb
                      LEFT JOIN ns_class nc
                      ON nb.class_id = nc.class_id
-                     WHERE bloginfo_title like '%".$search_keywords."%' AND bloginfo_status = 1
+                     WHERE bloginfo_title like '%".$search_keywords."%'
                      ORDER BY bloginfo_oid,bloginfo_id DESC ".$page_condition;
         $blog_list = Db::query($blog_sql);
         $this->assign('page_res',$page_res);
@@ -111,6 +111,17 @@ class Blog extends Common
         $label_list = Db::query($label_sql);
         $this->assign("label_list",$label_list);
         return view();
+    }
+    public function statusMod()
+    { 
+        $bloginfo_id = input('get.bloginfo_id');
+        $tablename = 'bloginfo';
+        $res = $this->modify_status($tablename,$bloginfo_id);
+        if($res){ 
+            $this->redirect('Blog/index');
+        }else{ 
+            return "<h1>修改失败,请联系管理员</h1>";
+        }
     }
 
 }

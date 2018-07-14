@@ -45,7 +45,7 @@
                                 <td align="center">{$val.class_title}</td>
                                 <td align="center">{$val.bloginfo_title}</td>
                                 <td align="center">{$val.bloginfo_createtime}</td>
-                                <td align="center">{$val.bloginfo_status}</td>
+                                <td align="center"><a href="{:url('statusMod')}?bloginfo_id={$val.bloginfo_id}">{$val.bloginfo_status}</a></td>
                                 <td align="center">
                                     <a href="/admin/user/edit/id/8.html" class="btn btn-primary btn-sm shiny">
                                         <i class="fa fa-edit"></i> 编辑
