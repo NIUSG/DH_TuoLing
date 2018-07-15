@@ -101,7 +101,7 @@ class Blog extends Common
             return;
         }
         //查询分类,供博客选择
-        $class_sql = "select class_id,class_fid,class_title from ns_class where class_status = 1 order by class_oid desc";
+        $class_sql = "select class_id,class_fid,class_title from ns_class where class_status = 1  order by class_oid desc";
         $class_list = Db::query($class_sql);
         $class_list = $this->MCommon->recursionNoTree($class_list,'class_id','class_fid',0,0);
         $class_list = $this->MCommon->addStrForArr($class_list);
@@ -111,6 +111,30 @@ class Blog extends Common
         $label_list = Db::query($label_sql);
         $this->assign("label_list",$label_list);
         return view();
+    }
+
+    public function edit()
+    { 
+        if(request()->isPost()){ 
+            return;
+        }
+        $class_sql = "select class_id,class_fid,class_title from ns_class where class_status = 1  order by class_oid desc";
+        $class_list = Db::query($class_sql);
+        $class_list = $this->MCommon->recursionNoTree($class_list,'class_id','class_fid',0,0);
+        $class_list = $this->MCommon->addStrForArr($class_list);
+        $this->assign('class_list',$class_list);
+        $label_sql = "select label_id,label_title from ns_label where label_status = 1 order by label_oid,label_id desc";
+        $label_list = Db::query($label_sql);
+        $this->assign('label_list',$label_list);
+        //BLOG详情
+        $bloginfo_id = input('get.bloginfo_id');
+        $bloginfo_sql = "select * from ns_bloginfo where bloginfo_id = {$bloginfo_id}";
+        $bloginfo_list = Db::query($bloginfo_sql)[0];
+        $blogctt_sql = "select blogcontent_ctt from ns_blogcontent where bloginfo_id = {$bloginfo_id}";
+        $bloginfo_list['bloginfo_ctt'] = Db::query($blogctt_sql)[0]['blogcontent_ctt'];
+        
+        $this->assign('bloginfo_list',$bloginfo_list);
+        return $this->fetch();
     }
     public function statusMod()
     { 
