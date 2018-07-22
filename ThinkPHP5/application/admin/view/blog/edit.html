@@ -27,7 +27,7 @@
             </div>
             <div class="widget-body">
                 <div id="horizontal-form">
-                    <form class="form-horizontal" role="form" action="{:url('blog/add')}" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" action="{:url('blog/edit')}" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="group_id" class="col-sm-2 control-label no-padding-right">博客分类</label>
                             <div class="col-sm-6">
@@ -35,7 +35,11 @@
                                 <select name="class_id" style="width: 100%;">
                                 <option selected="selected" value="">--请选择--</option>
                                 {foreach name="class_list" item="val"}
-                                    <option value="{$val.class_id}">{$val.class_title}</option>
+                                    {if condition="$bloginfo_list.class_id eq $val.class_id"}
+                                         <option value="{$val.class_id}" selected>{$val.class_title}</option>
+                                    {else /}
+                                         <option value="{$val.class_id}">{$val.class_title}</option>
+                                    {/if}
                                 {/foreach}
                                 </select>
                             </div>
@@ -44,7 +48,11 @@
                             <label for="group_id" class="col-sm-2  control-label no-padding-right">选择标签</label>
                             <div class="col-sm-3">
                                 {foreach name="label_list" item="val"}
-                                <label><input type="checkbox" name="label_id[]" value="{$val.label_id}"></label>&nbsp;{$val.label_title}&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {in name="$val.label_id" value="$bloginfo_list.blog_label_list"}
+                                        <label><input type="checkbox" name="label_id[]" value="{$val.label_id}" checked></label>&nbsp;{$val.label_title}&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {else /}
+                                        <label><input type="checkbox" name="label_id[]" value="{$val.label_id}"></label>&nbsp;{$val.label_title}&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {/in}
                                 {/foreach}
                                 &nbsp;&nbsp;&nbsp;<h3><b><a href='{:url("Label/add")}'>+<a></b></h3>
                             </div>
@@ -56,6 +64,14 @@
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
+                        {foreach name="$bloginfo_list.blog_link_list" item="val"}
+                            <div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">链接文章</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" id="username" value="{$val}" name="bloginfo_link[]" type="text">
+                            </div>
+                        </div>
+                        {/foreach}
                         <div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">链接文章</label>
                             <div class="col-sm-6">
@@ -96,8 +112,8 @@
                         <div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">博客描述</label>
                             <div class="col-sm-6">
-                            <textarea rows="5" cols="20" value="{$bloginfo_list.bloginfo_describe}" name="bloginfo_describe" class="form-control">
-                                
+                            <textarea rows="5" cols="20" value="" name="bloginfo_describe" class="form-control">
+                                {$bloginfo_list.bloginfo_describe}
                             </textarea>
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>

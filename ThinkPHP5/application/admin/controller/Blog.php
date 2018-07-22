@@ -4,10 +4,12 @@ use app\admin\model;
 use think\Controller;
 use think\Db;
 use page\Pagination;
+
 //use \app\admin\model\Common;
 //分类管理控制器
 class Blog extends Common
 {
+    
     public function index()
     {
         if($_POST){
@@ -33,7 +35,7 @@ class Blog extends Common
                      LEFT JOIN ns_class nc
                      ON nb.class_id = nc.class_id
                      WHERE bloginfo_title like '%".$search_keywords."%'
-                     ORDER BY bloginfo_oid,bloginfo_id DESC ".$page_condition;
+                     ORDER BY bloginfo_id DESC ".$page_condition;
         $blog_list = Db::query($blog_sql);
         $this->assign('page_res',$page_res);
         $this->assign('blog_list',$blog_list);
@@ -85,7 +87,6 @@ class Blog extends Common
                         $data_link_blog_ins[$key]['bloginfo_id'] = $res_bloginfo;
                         $data_link_blog_ins[$key]['bloglink_url'] = $val;
                     }
-                    dump($data_link_blog_ins);
                     $res_link_blog = Db::name('blog_link')->insertAll($data_link_blog_ins);
                 }
             }
@@ -116,13 +117,16 @@ class Blog extends Common
     public function edit()
     { 
         if(request()->isPost()){ 
+            var_dump($_POST);
             return;
         }
+        //分类信息
         $class_sql = "select class_id,class_fid,class_title from ns_class where class_status = 1  order by class_oid desc";
         $class_list = Db::query($class_sql);
         $class_list = $this->MCommon->recursionNoTree($class_list,'class_id','class_fid',0,0);
         $class_list = $this->MCommon->addStrForArr($class_list);
         $this->assign('class_list',$class_list);
+        //标签信息
         $label_sql = "select label_id,label_title from ns_label where label_status = 1 order by label_oid,label_id desc";
         $label_list = Db::query($label_sql);
         $this->assign('label_list',$label_list);
@@ -132,8 +136,14 @@ class Blog extends Common
         $bloginfo_list = Db::query($bloginfo_sql)[0];
         $blogctt_sql = "select blogcontent_ctt from ns_blogcontent where bloginfo_id = {$bloginfo_id}";
         $bloginfo_list['bloginfo_ctt'] = Db::query($blogctt_sql)[0]['blogcontent_ctt'];
-        
+        //blog链接地址
+        $blog_link_sql = "select bloglink_url from ns_blog_link where bloginfo_id = {$bloginfo_id}";
+        $bloginfo_list['blog_link_list'] = array_column(Db::query($blog_link_sql),'bloglink_url');
+        //blog链接标签
+        $blog_label_sql = "select label_id from ns_label_blog where bloginfo_id = {$bloginfo_id}";
+        $bloginfo_list['blog_label_list'] = array_column(Db::query($blog_label_sql),'label_id');
         $this->assign('bloginfo_list',$bloginfo_list);
+        
         return $this->fetch();
     }
     public function statusMod()

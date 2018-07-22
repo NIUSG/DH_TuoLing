@@ -7,3 +7,4 @@ application/config.php
 application/admin/config.php
 application/index/config.php
 application/tuoling/config.php
+public/uploads/
