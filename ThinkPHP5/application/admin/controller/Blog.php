@@ -120,7 +120,7 @@ class Blog extends Common
             if($_FILES['bloginfo_img']['error'] == 0){ 
                 $data['bloginfo_img'] = $this->Uploads('bloginfo_img','BlogsImg');
                 $blog_img_path = str_replace('\\','/',dirname(dirname(dirname(__DIR__)))).'/public/uploads/BlogsImg/'.str_replace('\\','/',$data['old_img_path']);
-                if(file_exists($blog_img_path)){
+                if(file_exists($blog_img_path) && !strpos($blog_img_path,'InitializeImg')){
                     unlink($blog_img_path);
                 }
             }
