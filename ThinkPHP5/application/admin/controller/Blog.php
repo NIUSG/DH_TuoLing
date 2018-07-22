@@ -116,7 +116,54 @@ class Blog extends Common
     public function edit()
     { 
         if(request()->isPost()){ 
-            var_dump($_POST);
+            $data = input('post.');
+            if($_FILES['bloginfo_img']['error'] == 0){ 
+                $data['bloginfo_img'] = $this->Uploads('bloginfo_img','BlogsImg');
+                $blog_img_path = str_replace('\\','/',dirname(dirname(dirname(__DIR__)))).'/public/uploads/BlogsImg/'.str_replace('\\','/',$data['old_img_path']);
+                if(file_exists($blog_img_path)){
+                    unlink($blog_img_path);
+                }
+            }
+            try {
+                //进行修改
+                //清楚标签和链接表
+                Db::startTrans();
+                $where['bloginfo_id'] = $data['bloginfo_id'];
+                Db::name('label_blog')->where($where)->delete();
+                Db::name('blog_link')->where($where)->delete();
+                //添加标签表和链接表
+                $data_label_blog = "";
+                foreach($data['label_id'] as $k => $v){ 
+                    $data_label_blog[$k]['label_id'] = $v;
+                    $data_label_blog[$k]['bloginfo_id'] = $data['bloginfo_id'];
+                }
+                $data_blog_link = "";
+                foreach($data['bloginfo_link'] as $k => $v){ 
+                    if(empty($v)){ 
+                        continue;
+                    }
+                    $data_blog_link[$k]['bloglink_url'] = $v;
+                    $data_blog_link[$k]['bloginfo_id'] = $data['bloginfo_id'];
+                }
+                if(!empty($data_label_blog) && is_array($data_label_blog)) Db::name('label_blog')->insertAll($data_label_blog);
+                if(!empty($data_blog_link) && is_array($data_blog_link)) Db::name('blog_link')->insertAll($data_blog_link);
+                //修改主表
+                $bloginfo_data['class_id'] = $data['class_id'];
+                $bloginfo_data['bloginfo_title'] = $data['bloginfo_title'];
+                $bloginfo_data['bloginfo_oid'] = $data['bloginfo_oid'];
+                $bloginfo_data['bloginfo_describe'] = $data['bloginfo_describe'];
+                if(isset($data['bloginfo_img'])){ 
+                    $bloginfo_data['bloginfo_img'] = $data['bloginfo_img'];
+                }
+                Db::name('bloginfo')->where($where)->update($bloginfo_data);
+                $blogctt_data['blogcontent_ctt'] = $data['blogcontent_ctt'];
+                Db::name('blogcontent')->where($where)->update($blogctt_data);
+                Db::commit();
+            } catch (Exception $e) {
+                Db::rollback();
+                $this->error($e->getMessage());
+            }
+            $this->success('修改成功',url('index'));
             return;
         }
         //分类信息
