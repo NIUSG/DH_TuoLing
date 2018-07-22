@@ -9,7 +9,6 @@ use page\Pagination;
 //分类管理控制器
 class Blog extends Common
 {
-    
     public function index()
     {
         if($_POST){
@@ -143,7 +142,6 @@ class Blog extends Common
         $blog_label_sql = "select label_id from ns_label_blog where bloginfo_id = {$bloginfo_id}";
         $bloginfo_list['blog_label_list'] = array_column(Db::query($blog_label_sql),'label_id');
         $this->assign('bloginfo_list',$bloginfo_list);
-        
         return $this->fetch();
     }
     public function statusMod()
