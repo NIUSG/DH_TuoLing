@@ -9,3 +9,4 @@ create table if not exists `ns_visitor_log`(
 )engine=innodb default charset=utf8 comment='统计访问日志';
 
 alter table `ns_visitor_log` add `vst_url` varchar(255) not null after `vst_ip`;
+alter table `ns_visitor_log` add `vst_status` enum('1','0') not null default 1 comment '0:无效，1：有效';
