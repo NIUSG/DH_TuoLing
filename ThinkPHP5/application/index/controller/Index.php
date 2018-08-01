@@ -1,16 +1,13 @@
 <?php
 namespace app\index\controller;
 use think\Db;
-//use app\helper\controller\Visit;
+use app\helper\controller\Visit;
 class Index extends Common
 {
     public $class_fid_TechBlog = 2;
-    /*public function _initialize()
-    { 
-        Visit::write_visit_log();
-    }*/
     public function index()
     {
+         Visit::write_visit_log();
         //首页推荐
         $home_blog_list = $this->blog_home();
         //博客点击排行

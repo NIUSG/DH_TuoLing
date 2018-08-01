@@ -2,11 +2,13 @@
 namespace app\index\controller;
 use think\Db;
 use app\index\controller\Index;
+use app\helper\controller\Visit;
 class Link extends Common
 {
     public $class_id = 1;
     public function index()
     {
+         Visit::write_visit_log();
         $recommend_list = $this->sel_recommend();
         $this->assign('recommend_list',$recommend_list);
         $link_class_list = $this->selLinkClass($this->class_id);

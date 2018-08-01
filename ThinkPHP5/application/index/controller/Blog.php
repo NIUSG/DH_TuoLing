@@ -3,11 +3,13 @@ namespace app\index\controller;
 use think\Db;
 use app\index\controller\Index;
 use page\Pagination;
+use app\helper\controller\Visit;
 class Blog extends Common
 {
     public $blog_class_fid = 2;
     public function index()
     {
+        Visit::write_visit_log();
         $class_id = $this->blog_class_fid;
         $search_key = input('get.search_key');
         $bloginfo = $this->sel_bloglist($class_id,$search_key);
