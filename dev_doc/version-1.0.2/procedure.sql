@@ -10,15 +10,15 @@ $$
 delimiter ;
 
 #2
-delimiter $$
-create procedure vst_log_count()
-begin
-    declare total_vst int default "";
-    select count(*) into total_vst from ns_visitor_log where vst_status=1;
-    select total_vst;
-end;
-$$
-delimiter ;
+#delimiter $$
+#create procedure vst_log_count()
+#begin
+#    declare total_vst int default "";
+#    select count(*) into total_vst from ns_visitor_log where vst_status=1;
+#    select total_vst;
+#end;
+#$$
+#delimiter ;
 #3
 #随机输出顶级父类下子类的一个id
 delimiter $$
@@ -61,7 +61,7 @@ delimiter $$
 $$
 delimiter ;
 
-#查询ns_booginfo最后一次插入的主键id
+#查询ns_bloginfo最后一次插入的主键id
 delimiter $$
     create function sel_maxid() returns int
     reads sql data
@@ -72,10 +72,28 @@ delimiter $$
     end;
 $$
 delimiter ;
-
+#输出随机数字
+    delimiter $$
+    create function rand_num(strlen bigint) RETURNS longtext
+    no SQL
+    begin
+        declare randStr varchar(11) DEFAULT '0123456789';
+        declare i bigINT DEFAULT 0;
+        declare resultStr longtext default "";
+        repeat
+        begin
+            set resultStr = CONCAT(SUBSTR(randStr,FLOOR(RAND()*LENGTH(randStr))+1,1),resultStr);
+            set i = i+1;
+        end;
+        until i>strlen
+        end repeat;
+        RETURN resultStr;
+    end;
+    $$
+    delimiter ;
 #给blog,content,label,class,插入大数据
 delimiter $$
-    create function insert_bigdata_blog(total bigint)
+    create procedure insert_bigdata_blog(total bigint)
     begin
         declare i int default 0;
         declare title varchar(255) default "";
@@ -85,8 +103,34 @@ delimiter $$
         declare updated int default 0;
         declare click bigint default 0;
         declare content longtext default "";
-        declare bloginfo_id int default 0;
-
+        declare new_bloginfo_id int default 0;
+        declare class_id int default 0;
+        declare label_id int default 0;
+        declare a int default 0;
+        declare b int default 0;
+        while(i<total) do
+            begin
+                set i = i+1;
+                set title = rand_chinese(18);
+                set descr = rand_chinese(180);
+                set created = unix_timestamp();
+                set updated = unix_timestamp();
+                set click = rand_num(rand_num(0));
+                set class_id = rand_sel_1_children_class_id(2);
+                insert into ns_bloginfo(`bloginfo_title`,`bloginfo_describe`,`bloginfo_img`,`bloginfo_createtime`,`bloginfo_updatetime`,`class_id`,`bloginfo_click`,`bloginfo_oid`) values(title,descr,img,created,updated,class_id,click,0);
+                set new_bloginfo_id = sel_maxid();
+                set content = rand_chinese(50000);
+                insert into ns_blogcontent(`bloginfo_id`,`blogcontent_ctt`) values (new_bloginfo_id,content);
+                set b = rand_num(0);
+                while(b>a)do
+                    begin
+                        set label_id = rand_label_id();
+                        set a = a+1;
+                        insert into ns_label_blog(`label_id`,`bloginfo_id`) values(label_id,new_bloginfo_id);
+                    end;
+                end while;
+            end;
+        end while;
     end;
 $$
 delimiter ;
