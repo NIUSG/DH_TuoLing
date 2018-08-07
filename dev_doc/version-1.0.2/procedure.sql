@@ -4,7 +4,7 @@
 delimiter $$
 create procedure vst_log()
     begin
-        select vst_id,vst_ip,vst_url,ip_province,ip_city,from_unixtime(vst_at,'%Y-%m-%d %H:%i:%s') as vst_at from ns_visitor_log where vst_status=1;
+        select vst_id,vst_ip,vst_url,ip_country,ip_province,ip_city,from_unixtime(vst_at,'%Y-%m-%d %H:%i:%s') as vst_at from ns_visitor_log where vst_status=1;
     end;
 $$
 delimiter ;
