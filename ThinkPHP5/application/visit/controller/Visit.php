@@ -30,7 +30,7 @@ class Visit extends controller
         $data['microtime'] = microtime(true);
         return $data;
     }
-    public function write_db()
+    public static function write_db()
     {
         $data_cache = $this->data_cache_info();
         $data['data'] = json_encode($data_cache);
