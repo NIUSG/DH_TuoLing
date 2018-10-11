@@ -28,8 +28,8 @@ class Visit extends controller
         $data_cache = $this->data_cache_info();
         $file_obj = new File();
     $time1 = microtime(true);
-        for($i=0;$i<5000;$i++){
-            $file_obj->rm('data'.$i);
+        for($i=0;$i<8000;$i++){
+            $file_obj->set('data'.$i,$data_cache);
         }
     $time2 = microtime(true);
     echo $time2-$time1;
