@@ -2,7 +2,11 @@
 namespace app\visit\controller;
 use think\Controller;
 use think\Db;
+use app\helper\controller\GetIp;
 use app\request\controller\Request;
+use think\cache\driver\File;
+use think\cache\driver\Redis;
+use think\cache\driver\Memcached;
 //use \app\admin\model\Common;
 //分类管理控制器
 class Visit extends controller
@@ -10,53 +14,40 @@ class Visit extends controller
     public static $get_ip_url_taobao = 'http://ip.taobao.com/service/getIpInfo.php';
     public function main()
     {
-        echo self::get_ip();
+        echo GetIp::get_ip();
     }
-    public static function get_ip()
+    public function data_cache_info()
     {
-        try {
-            $realip = '';
-            if(isset($_SERVER)){
-                //如果客户端用了代理ip
-                if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
-                    $arr = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
-                    /* 取X-Forwarded-For中第一个非unknown的有效IP字符串 */
-                    foreach ($arr AS $ip){
-                        $ip = trim($ip);
-                        if ($ip != 'unknown'){
-                            $realip = $ip;
-                            break;
-                        }
-                    }
-                //代理ip
-                }elseif (isset($_SERVER['HTTP_CLIENT_IP'])){
-                    $realip = $_SERVER['HTTP_CLIENT_IP'];
-                //握手ip，有代理则是代理ip，没有代理则是真实ip
-                }else{
-                    if (isset($_SERVER['REMOTE_ADDR'])){
-                        $realip = $_SERVER['REMOTE_ADDR'];
-                    }else{
-                        $realip = '0.0.0.0';
-                    }
-                }
-            }else{
-                if (getenv('HTTP_X_FORWARDED_FOR')){
-                    $realip = getenv('HTTP_X_FORWARDED_FOR');
-                }elseif (getenv('HTTP_CLIENT_IP')){
-                    $realip = getenv('HTTP_CLIENT_IP');
-                }else{
-                    $realip = getenv('REMOTE_ADDR');
-                }
-            }
-            $code = 0;
-            $msg = 'ok';
-        } catch (\Exception $e) {
-            $code = $e->getMessage();
-            $msg = $e->getCode();
+        $data['ip'] = json_decode(GetIp::get_ip(),true)['data'];
+        $data['url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+        $data['time'] = date('Y-m-d H:i:s');
+        return $data;
+    }
+    public function write_cache()
+    {
+        $data_cache = $this->data_cache_info();
+        $file_obj = new File();
+    $time1 = microtime(true);
+        for($i=0;$i<5000;$i++){
+            $file_obj->rm('data'.$i);
         }
-        $data['code'] = $code;
-        $data['msg'] = $msg;
-        $data['data'] = $realip;
-        return json_encode($data);
+    $time2 = microtime(true);
+    echo $time2-$time1;
+
+    }
+    public function write_db()
+    {
+        $data_cache = $this->data_cache_info();
+        //Db::table('ns_visit_cache')->insert($data_cache);
+        $time1 = microtime(true);
+        $data = [];
+        for($i=0;$i<50000;$i++){
+            $data[$i] = $data_cache;
+            //Db::table('ns_visit_cache')->insert($data_cache);
+        }
+        Db::table('ns_visit_cache')->insertAll($data);
+        $time2 = microtime(true);
+        echo $time2-$time1;
+
     }
 }

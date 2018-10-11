@@ -1,11 +1,9 @@
 <?php
 namespace app\helper\controller;
 use think\Controller;
-use think\Db;
-use app\request\controller\Request;
 //use \app\admin\model\Common;
 //分类管理控制器
-class Visit extends controller
+class GetIp extends controller
 {
     public static $get_ip_url_taobao = 'http://ip.taobao.com/service/getIpInfo.php';
     public static function get_ip()
@@ -56,31 +54,4 @@ class Visit extends controller
         return json_encode($data);
 
     }
-/*    public static function visit_execute()
-    {
-        $data = self::get_ip();
-        $data = json_decode($data,true);
-        if($data['code'] != 0){
-            return 'ip获取错误';
-        }
-        $local_page_url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
-        $ip['ip'] = $data['data'];
-        $get_ip_info_url = self::$get_ip_url_taobao.'?ip='.$ip['ip'];
-        $ip_info = json_decode(Request::curl_get($get_ip_info_url),true);
-        $ip_info = json_decode($ip_info['data'],true);
-        $ip_info = $ip_info['data'];
-        $ip_info['vst_url'] = $local_page_url;
-        return $ip_info;
-    }
-    public static function write_visit_log()
-    {
-        $ip_info = self::visit_execute();
-        $ip_data['vst_ip'] = $ip_info['ip'];
-        $ip_data['ip_country'] = $ip_info['country'];
-        $ip_data['ip_province'] = $ip_info['region'];
-        $ip_data['ip_city'] = $ip_info['city'];
-        $ip_data['vst_at'] = time();
-        $ip_data['vst_url'] = $ip_info['vst_url'];
-        $res_ip = Db::name('visitor_log')->insertGetId($ip_data);
-    }*/
 }

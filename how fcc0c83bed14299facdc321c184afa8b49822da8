@@ -1,0 +1,186 @@
+[33mcommit fcc0c83bed14299facdc321c184afa8b49822da8[m[33m ([m[1;36mHEAD -> [m[1;32mfeature_1.1.1[m[33m, [m[1;31morigin/feature_1.1.1[m[33m)[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Thu Oct 11 14:35:51 2018 +0800
+
+    1.1.1改为文件形式保存
+
+[33mcommit 9b0b37b69052f8b2f04dfc82bb2b013524dd2947[m[33m ([m[1;31morigin/dev[m[33m, [m[1;32mdev[m[33m)[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sat Sep 8 09:29:01 2018 +0800
+
+    version-1.1.1配置文件和发布文档
+
+[33mcommit 5355232a0dedd1ef46a8a67f936ef7c85040bb94[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/feature_1.0.2[m[33m, [m[1;32mmaster[m[33m)[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Fri Aug 3 17:26:10 2018 +0800
+
+    修改存储函数以及存储过程,增加中文输出编码定义，兼容多版本mysql
+
+[33mcommit 0602b2ef29ad38683fb2bb2b0ac08a66777465bc[m
+Author: NiuShao.Ali <370574131@qq.com>
+Date:   Fri Aug 3 16:52:19 2018 +0800
+
+    插入blog大数据存储过程完成
+
+[33mcommit ec8825e0031af8717388bff96c5321bd7399ff62[m
+Merge: 77beee9 2963b2c
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Fri Aug 3 08:50:48 2018 +0800
+
+    Merge branch 'feature_1.0.2' of https://github.com/NIUSG/DH_TuoLing into feature_1.0.2
+
+[33mcommit 77beee92db96724d023e5d76d50517f2fdb03c98[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Fri Aug 3 08:48:36 2018 +0800
+
+    更新发布文档的错误
+
+[33mcommit 2963b2c2eaeb4a7f9a770090ef3baa4292e1af70[m
+Author: NiuShao.Ali <370574131@qq.com>
+Date:   Thu Aug 2 19:15:32 2018 +0800
+
+    存储过程，存储函数完成中
+
+[33mcommit a5ede2850d06d185b9ce04d922cdd9ddb77d55db[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Thu Aug 2 17:07:47 2018 +0800
+
+    feature_1.0.2 start.修改分页的bug,写存储过程造大数据做优化
+
+[33mcommit e9e66b98a2cac1a103b629b89ecd849ac4e1832a[m[33m ([m[1;31morigin/feature_1.1.0[m[33m, [m[1;32mread_tp[m[33m)[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Thu Aug 2 16:36:29 2018 +0800
+
+    feature_1.1.0-网站访问统计模块完成
+
+[33mcommit 9d81a0473f1fd3f18979e7dabcc4393870068e20[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Wed Aug 1 19:32:07 2018 +0800
+
+    修改访问日志表
+
+[33mcommit 79471efd0b44559fe43177faa3cad58ffdfafdd0[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Wed Aug 1 19:02:29 2018 +0800
+
+    修改bug，访问一次页面多次记录
+
+[33mcommit 1669a218331787a47cbcc7e35a9a75860574914b[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 29 22:50:26 2018 +0800
+
+    统计访问日志初步完成
+
+[33mcommit 173b4967b7dc098c23c81324ff5ea692552eb7dc[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Fri Jul 27 22:35:43 2018 +0800
+
+    建立request类，分get,post两种
+
+[33mcommit 17162f0c38c38e776966768bb914af4e3b0bd95c[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Fri Jul 27 21:43:57 2018 +0800
+
+    version-1.1.0访问日志数据表完毕，辅助类和请求类建立
+
+[33mcommit 3a963e921fc88baad92f07a086e2d3fbeef0165c[m
+Author: NiuShao.Linode <370574131@qq.com>
+Date:   Fri Jul 27 16:50:00 2018 +0800
+
+    sql_ini文件dh_tuoling.sql加入版本文档-version_1.1.0
+
+[33mcommit bbca29f8d4af3b0d6b1e2c7f5703e9992b57ae85[m
+Author: NiuShao.Linode <370574131@qq.com>
+Date:   Fri Jul 27 11:14:05 2018 +0800
+
+    访问日志sql文件建立
+
+[33mcommit 2aed956be9052a9e5ee2b0646e22e4d54c3586a6[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 22 18:38:22 2018 +0800
+
+    feature_1.1.0,增加网站访问统计模块。start......
+
+[33mcommit 39d87857fc2d575c95495d383147d00ef875d62e[m[33m ([m[1;31morigin/feature_1.0.1[m[33m)[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 22 18:26:10 2018 +0800
+
+    删除图片加条件判断,不能删除初始图片
+
+[33mcommit 582644d80b4c7ef92e2a58c307ac495ef5518feb[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 22 18:11:35 2018 +0800
+
+    修改bug，图片
+
+[33mcommit 5d0de337d7c222aacd2f9426e1c0d5c802d04bb4[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 22 17:29:47 2018 +0800
+
+    修改bug .gitignore
+
+[33mcommit 2ab8285be6907f483773a0f4ab72f14285f30d09[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 22 17:11:12 2018 +0800
+
+    Version_1.0.1 finished
+
+[33mcommit 532f54e69551bd505b874f369baa42f6b7c21f57[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 22 17:07:57 2018 +0800
+
+    BLOG修改完毕
+
+[33mcommit 19186fe126de9e54c2e263cf65d69c0bd5c17f60[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 22 15:25:59 2018 +0800
+
+    Blog修改页面完成
+
+[33mcommit ccdaa6e3e4a275af065d2457a2b5ae15aba1a794[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 22 15:15:38 2018 +0800
+
+    BLOG
+
+[33mcommit a50317642e6a0aebf4592c8646133cd94030faad[m
+Author: NiuShao.Linode <370574131@qq.com>
+Date:   Fri Jul 20 11:01:21 2018 +0800
+
+    完善发布文档，完善日志，
+
+[33mcommit 31b35b2335ac217bbc6fb56bece41724737e0c27[m
+Author: NiuShao.Linode <370574131@qq.com>
+Date:   Fri Jul 20 10:08:51 2018 +0800
+
+    后台管理界面注释删除按钮，以后不需展示只能禁用，不能删除
+
+[33mcommit b957351a0fe9caa44405a7146f84aeae8136bb6e[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 15 12:43:55 2018 +0800
+
+    BLOG修改进行中，后台查询完毕，待前台展示，post修改
+
+[33mcommit e367d193b2d230885fb3c419d30c40a7f5bf4a2b[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 15 02:21:12 2018 +0800
+
+    博客禁止功能完毕
+
+[33mcommit 1cddb8c2351f9fcee4ee5fe455e4e5617407554a[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sun Jul 15 01:57:43 2018 +0800
+
+    标签管理全部完成
+
+[33mcommit fa27173fb5f82a93ff5a8b647c96fa21aa6b02aa[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sat Jul 14 23:47:02 2018 +0800
+
+    删除管理界面公共部分无用栏目
+
+[33mcommit e8442ecab3c527e2196457d456763e5e59e7cd77[m
+Author: NiuShao.Lenovo <370574131@qq.com>
+Date:   Sat Jul 14 23:16:36 2018 +0800
+
+    first submit,version-1.0.0 finished
