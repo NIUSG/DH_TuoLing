@@ -41,13 +41,12 @@ class Visit extends controller
         //Db::table('ns_visit_cache')->insert($data_cache);
         $time1 = microtime(true);
         $data = [];
-        for($i=0;$i<50;$i++){
+        for($i=0;$i<5000;$i++){
             $data[$i] = $data_cache;
             //Db::table('ns_visit_cache')->insert($data_cache);
         }
         Db::table('ns_visit_cache')->insertAll($data);
         $time2 = microtime(true);
         echo $time2-$time1;
-
     }
 }
