@@ -13,6 +13,7 @@ use app\visit\model\VisitModel;
 class Visit extends controller
 {
     public static $get_ip_url_taobao = 'http://ip.taobao.com/service/getIpInfo.php';
+    public static $get_ipInfo_sleep_time = 10;
     public function main()
     {
         echo GetIp::get_ip();
@@ -20,6 +21,7 @@ class Visit extends controller
     public function data_cache_info()
     {
         $data['ip'] = json_decode(GetIp::get_ip(),true)['data'];
+        //$data['ip'] = '116.24.66.133';
         $data['url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
         $data['time'] = date('Y-m-d H:i:s');
         $data['microtime'] = microtime(true);
@@ -29,8 +31,43 @@ class Visit extends controller
     {
         $data_cache = $this->data_cache_info();
         $data['data'] = json_encode($data_cache);
-        $data['key'] =  md5($data_cache['microtime']);
+        $data['k'] =  md5($data_cache['microtime']);
         $res = VisitModel::write_cache_db($data);
+    }
+    public function trans_visit()
+    {
+        $visit_cache = VisitModel::sel_visit_cache();
+        foreach($visit_cache as $k=>&$v){
+            $tmp = json_decode($v['data'],true);
+            $v['data'] = $tmp;
+            $v['ip_info'] = $this->get_ipInfo($tmp['ip']);
+            sleep(self::$get_ipInfo_sleep_time);
+        };unset($v);
+        $visit_ip_info = $this->format_visit_cache($visit_cache);
+        VisitModel::trans_visit_db($visit_ip_info);
+    }
+    public function format_visit_cache($visit_cache)
+    {
+        $visit_ip_info = [];
+        foreach($visit_cache as $key => $val){
+            $visit_ip_info[$key]['k'] = $val['k'];
+            $visit_ip_info[$key]['ip_info']['vst_ip'] = $val['ip_info']['ip'];
+            $visit_ip_info[$key]['ip_info']['vst_url'] = $val['data']['url'];
+            $visit_ip_info[$key]['ip_info']['ip_country'] = $val['ip_info']['country'];
+            $visit_ip_info[$key]['ip_info']['ip_province'] = $val['ip_info']['region'];
+            $visit_ip_info[$key]['ip_info']['ip_city'] = $val['ip_info']['city'];
+            $visit_ip_info[$key]['ip_info']['vst_at'] = time();
+            $visit_ip_info[$key]['ip_info']['vst_date'] = $val['data']['time'];
+        }
+        return $visit_ip_info;
+    }
+    public function get_ipInfo($ip)
+    {
+        $ip_info_url = self::$get_ip_url_taobao.'?ip='.$ip;
+        $ip_info = json_decode(Request::curl_get($ip_info_url),true);
+        $ip_info = json_decode($ip_info['data'],true);
+        $ip_info = $ip_info['data'];
+        return $ip_info;
     }
     public function write_file()
     {
