@@ -11,6 +11,8 @@ use app\visit\model\VisitModel;
 use think\Log;
 //use \app\admin\model\Common;
 //分类管理控制器
+//use app\visit\controller\Visit
+//Visit::write_db();
 class Visit extends controller
 {
     public static $get_ip_url_taobao = 'http://ip.taobao.com/service/getIpInfo.php';
