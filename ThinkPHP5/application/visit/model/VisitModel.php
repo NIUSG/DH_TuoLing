@@ -4,7 +4,7 @@ use think\Model;
 use think\Db;
 class VisitModel extends Model
 {
-    public static $limit_num = 10;
+    public static $limit_num = 5;
     public static function write_cache_db($data)
     {
         $res = Db::table('ns_visit_cache')->insert($data);

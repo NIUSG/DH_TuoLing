@@ -8,12 +8,13 @@ use think\cache\driver\File;
 use think\cache\driver\Redis;
 use think\cache\driver\Memcached;
 use app\visit\model\VisitModel;
+use think\Log;
 //use \app\admin\model\Common;
 //分类管理控制器
 class Visit extends controller
 {
     public static $get_ip_url_taobao = 'http://ip.taobao.com/service/getIpInfo.php';
-    public static $get_ipInfo_sleep_time = 10;
+    public static $get_ipInfo_sleep_time = 2;
     public function main()
     {
         echo GetIp::get_ip();
@@ -50,6 +51,9 @@ class Visit extends controller
     {
         $visit_ip_info = [];
         foreach($visit_cache as $key => $val){
+            if($val['ip_info'] == null){
+                continue;
+            }
             $visit_ip_info[$key]['k'] = $val['k'];
             $visit_ip_info[$key]['ip_info']['vst_ip'] = $val['ip_info']['ip'];
             $visit_ip_info[$key]['ip_info']['vst_url'] = $val['data']['url'];
