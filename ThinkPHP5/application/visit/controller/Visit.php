@@ -62,7 +62,7 @@ class Visit extends controller
             $visit_ip_info[$key]['ip_info']['ip_country'] = $val['ip_info']['country'];
             $visit_ip_info[$key]['ip_info']['ip_province'] = $val['ip_info']['region'];
             $visit_ip_info[$key]['ip_info']['ip_city'] = $val['ip_info']['city'];
-            $visit_ip_info[$key]['ip_info']['vst_at'] = time();
+            $visit_ip_info[$key]['ip_info']['vst_at'] = '0';
             $visit_ip_info[$key]['ip_info']['vst_date'] = $val['data']['time'];
         }
         return $visit_ip_info;
