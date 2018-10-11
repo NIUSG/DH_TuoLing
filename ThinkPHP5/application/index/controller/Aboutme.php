@@ -6,7 +6,6 @@ class Aboutme extends Common
 {
     public function index()
     {
-         Visit::write_visit_log();
         return view();
     }
 }

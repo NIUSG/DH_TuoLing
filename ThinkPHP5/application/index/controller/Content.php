@@ -2,12 +2,10 @@
 namespace app\index\controller;
 use think\Db;
 use app\index\controller\Index;
-use app\helper\controller\Visit;
 class Content extends Common
 {
     public function index()
     {
-         Visit::write_visit_log();
         $bloginfo_id = input('get.id');
         //被访问一次浏览量+1
         $this->clickNum($bloginfo_id);

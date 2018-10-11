@@ -3,7 +3,6 @@ namespace app\index\controller;
 use think\Controller;
 use think\Db;
 use think\Url;
-use app\helper\controller\Visit;
 class Common extends controller
 {
     public function _initialize()
