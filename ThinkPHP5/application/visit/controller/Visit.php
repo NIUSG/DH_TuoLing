@@ -49,4 +49,26 @@ class Visit extends controller
         $time2 = microtime(true);
         echo $time2-$time1;
     }
+    public function write_redis()
+    {
+        $data_cache = $this->data_cache_info();
+        $redis_obj = new Redis();
+        $time1 = microtime(true);
+        for($i=0;$i<8000;$i++){
+            $redis_obj->set('data'.$i,$data_cache);
+        }
+        $time2 = microtime(true);
+        echo $time2-$time1;
+    }
+    public function write_Memcached()
+    {
+        $data_cache = $this->data_cache_info();
+        $Memcached_obj = new Redis();
+        $time1 = microtime(true);
+        for($i=0;$i<8000;$i++){
+            $Memcached_obj->set('data'.$i,$data_cache);
+        }
+        $time2 = microtime(true);
+        echo $time2-$time1;
+    }
 }
