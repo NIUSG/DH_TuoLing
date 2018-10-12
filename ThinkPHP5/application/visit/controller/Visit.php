@@ -40,6 +40,10 @@ class Visit extends controller
     public function trans_visit()
     {
         $visit_cache = VisitModel::sel_visit_cache();
+        if(empty($visit_cache)){
+            var_dump('no visit_cache_data');
+            return;
+        }
         foreach($visit_cache as $k=>&$v){
             $tmp = json_decode($v['data'],true);
             $v['data'] = $tmp;
