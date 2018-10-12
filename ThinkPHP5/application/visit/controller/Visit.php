@@ -18,7 +18,7 @@ class Visit extends controller
 {
     use LoggerTrits;
     public static $get_ip_url_taobao = 'http://ip.taobao.com/service/getIpInfo.php';
-    public static $get_ipInfo_sleep_time = 1;
+    public static $get_ipInfo_sleep_time = 3;
     public function main()
     {
         echo GetIp::get_ip();

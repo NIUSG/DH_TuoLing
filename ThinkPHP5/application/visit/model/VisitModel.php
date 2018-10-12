@@ -6,7 +6,7 @@ use app\traits\logger\LoggerTrits;
 class VisitModel extends Model
 {
     use LoggerTrits;
-    public static $limit_num = 100;
+    public static $limit_num = 50;
     public static function write_cache_db($data)
     {
         $res = Db::table('ns_visit_cache')->insert($data);
