@@ -9,12 +9,14 @@ use think\cache\driver\Redis;
 use think\cache\driver\Memcached;
 use app\visit\model\VisitModel;
 use think\Log;
+use app\traits\logger\LoggerTrits;
 //use \app\admin\model\Common;
 //分类管理控制器
 //use app\visit\controller\Visit
 //Visit::write_db();
 class Visit extends controller
 {
+    use LoggerTrits;
     public static $get_ip_url_taobao = 'http://ip.taobao.com/service/getIpInfo.php';
     public static $get_ipInfo_sleep_time = 2;
     public function main()
@@ -32,16 +34,24 @@ class Visit extends controller
     }
     public function write_db()
     {
+$this->logger_init('write_db');
+$this->info('start...');
         $data_cache = $this->data_cache_info();
         $data['data'] = json_encode($data_cache);
         $data['k'] =  md5($data_cache['microtime']);
         $res = VisitModel::write_cache_db($data);
+$this->info('[write is ok][k='.$data['k'].']');
+$this->info('end...');
     }
     public function trans_visit()
     {
+$this->logger_init('trans_visit');
+$this->info('start...');
         $visit_cache = VisitModel::sel_visit_cache();
+$this->info('[first_sel_visit_cache][count]['.count($visit_cache).']');
         if(empty($visit_cache)){
-            var_dump('no visit_cache_data');
+$this->info('[visit_cache is empty]');
+$this->info('end...');
             return;
         }
         foreach($visit_cache as $k=>&$v){
@@ -51,7 +61,9 @@ class Visit extends controller
             sleep(self::$get_ipInfo_sleep_time);
         };unset($v);
         $visit_ip_info = $this->format_visit_cache($visit_cache);
+$this->info('[visit_cache_ip_info][count]['.count($visit_ip_info).']');
         VisitModel::trans_visit_db($visit_ip_info);
+$this->info('end...');
     }
     public function format_visit_cache($visit_cache)
     {

@@ -2,8 +2,10 @@
 namespace app\visit\model;
 use think\Model;
 use think\Db;
+use app\traits\logger\LoggerTrits;
 class VisitModel extends Model
 {
+    use LoggerTrits;
     public static $limit_num = 5;
     public static function write_cache_db($data)
     {
