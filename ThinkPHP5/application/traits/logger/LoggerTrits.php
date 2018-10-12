@@ -14,7 +14,8 @@ trait LoggerTrits
             $path = $this->path.'self_Log/';
         }
         is_dir($path) or mkdir($path,0777,true);
-        $file = $path.$filename.'.log';
+        $day = date('Y-m-d');
+        $file = $path.$filename.'_'.$day.'.log';
         if(!file_exists($file)){
             $first_line = '['.date('Y-m-d H:i:s').']['.$filename.']';
             file_put_contents($file,$first_line.PHP_EOL,FILE_APPEND);
