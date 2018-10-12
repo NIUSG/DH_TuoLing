@@ -99,6 +99,7 @@ class Blog extends Common
     //按照分类检索
     public function bloglist_class()
     {
+        Write::writeDB();
         $class_id = input('get.id');
         $search_key = input('get.search_key');
         $this->assign('class_id',$class_id);
@@ -148,6 +149,7 @@ class Blog extends Common
     //点击标签查询blog,博客总页面
     public function labelBlogList()
     {
+        Write::writeDB();
         $label_id = input('get.id');
         $this->assign('label_id',$label_id);
         $search_key = input('get.search_key');
