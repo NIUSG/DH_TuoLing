@@ -54,6 +54,7 @@ class Link extends Common
     }
     public function click_num()
     {
+        Write::writeDB();
         if($_GET['url']){
             $url = input('get.url');
             $id = input('get.id');
