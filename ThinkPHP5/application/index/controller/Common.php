@@ -11,7 +11,7 @@ class Common extends controller
     private $pre_avoid_refresh = "avoid_refresh-";
     private $top_class_key = "top_class_key";
     private $top_class_expire_time = "2592000";
-    public $is_cache = true;
+    public $is_cache = false;
     public $file_obj;
     public function _initialize()
     {

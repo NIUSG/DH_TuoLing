@@ -1,5 +1,7 @@
 <?php
 namespace app\index\controller;
+use app\index\model\CommonModel;
+use app\index\model\BlogModel;
 use think\Db;
 use app\index\controller\Index;
 use page\Pagination;
@@ -10,7 +12,10 @@ class Blog extends Common
     //主页
     public function index()
     {
-        echo "abc";
+        $CommonModel = new CommonModel();
+        $BlogModel = new BlogModel();
+        $BlogModel->get_blog_list();
+        die();
     }
     //按照分类搜索
     public function index_class()
