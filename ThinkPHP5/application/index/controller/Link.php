@@ -6,6 +6,8 @@ use app\visit\controller\Write;
 class Link extends Common
 {
     public $class_id = 1;
+    private $link_info_key = "link_info_key";
+    private $link_info_key_time = 86400;
     public function index()
     {
         Write::writeDB();
@@ -16,29 +18,56 @@ class Link extends Common
         $this->right_load();
         return $this->fetch();
     }
+    public function get_link_info()
+    {
+        if($this->is_cache && $this->file_obj->has($this->link_info_key)){
+            $res = $this->file_obj->get($this->link_info_key);
+        }else{
+            $sql = "select
+                    nc.class_id as class_as_id,class_title,nl.link_id,nl.link_title,nl.link_url,nc.class_oid,nl.link_clicknum
+                from
+                    ns_class as nc
+                left join
+                    ns_link as nl
+                on
+                    nc.class_id = nl.class_id
+                where
+                    nc.class_fid=1 and nc.class_status = 1";
+            $res = Db::query($sql);
+            $res = array_map(function($v){$v['class_id'] = $v['class_as_id'];unset($v['class_as_id']);return $v;},$res);
+            $this->file_obj->set($this->link_info_key,$res,$this->link_info_key_time);
+        }
+        return $res;
+    }
     //查询推荐导航
     public function sel_recommend()
     {
-        $sql = "select link_id,link_title,link_url from ns_link where link_status = 1 order by link_clicknum desc limit 30";
-        $res = Db::query($sql);
-        return $res;
+        $link_info = $this->get_link_info();
+        $link_info_click_arr = array_column($link_info,'link_clicknum');
+        array_multisort($link_info_click_arr,SORT_DESC,$link_info);
+        $link_info = array_slice($link_info,0,30);
+        return $link_info;
     }
-    //查询导航的全部分类
+    /*//查询导航的全部分类
     public function selClass($id)
     {
         $sql = "select class_id,class_title from ns_class where class_fid = {$id} and class_status = 1 order by class_oid desc";
         $res = Db::query($sql);
         return $res;
-    }
+    }*/
     //查询导航分类下的导航
     public function selLinkClass($id)
     {
-        $link_class = $this->selClass($id);
-        foreach($link_class as $key => $val){
-            $sql = "select link_id,link_title,link_url from ns_link where link_status = 1 and class_id = {$val['class_id']} order by link_clicknum desc";
-            $link_class[$key]['link'] = Db::query($sql);
+        $link_info = $this->get_link_info();
+        $link_info_format = [];
+        foreach($link_info as $key => $val){
+            $link_info_format[$val['class_id']]['class_id'] = $val['class_id'];
+            $link_info_format[$val['class_id']]['class_title'] = $val['class_title'];
+            $link_info_format[$val['class_id']]['class_oid'] = $val['class_oid'];
+            $link_info_format[$val['class_id']]['link'][] = $val;
         }
-        return $link_class;
+        array_multisort(array_column($link_info_format,'class_oid'),SORT_DESC,$link_info_format);
+        return $link_info_format;
     }
     //加载右边栏目
     public function right_load()
