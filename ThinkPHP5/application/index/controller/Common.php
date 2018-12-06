@@ -11,14 +11,14 @@ class Common extends controller
     private $pre_avoid_refresh = "avoid_refresh-";
     private $top_class_key = "top_class_key";
     private $top_class_expire_time = "2592000";
-    private $top_class_is_cache = true;
+    private $is_cache = true;
     public $file_obj;
     public function _initialize()
     {
         $this->file_obj = new File();
         $this->avoid_refresh_by_session();
         //查询网站顶部栏标题并加载
-        if($this->top_class_is_cache && $this->file_obj->has($this->top_class_key)){
+        if($this->is_cache && $this->file_obj->has($this->top_class_key)){
             $top_class_list = $this->file_obj->get($this->top_class_key);
         }else{
             $top_class_list = $this->get_top_class_list();
