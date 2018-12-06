@@ -7,7 +7,36 @@ use app\visit\controller\Write;
 class Blog extends Common
 {
     public $blog_class_fid = 2;
+    //主页
     public function index()
+    {
+        echo "abc";
+    }
+    //按照分类搜索
+    public function index_class()
+    {
+
+    }
+    //按照标签搜索
+    public function index_label()
+    {
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function index_old()
     {
         Write::writeDB();
         $class_id = $this->blog_class_fid;
