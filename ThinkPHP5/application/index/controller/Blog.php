@@ -9,13 +9,23 @@ use app\visit\controller\Write;
 class Blog extends Common
 {
     public $blog_class_fid = 2;
+    public $M_common;
+    public $M_blog;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->M_blog = new BlogModel();
+        $this->M_common = new CommonModel();
+    }
     //主页
     public function index()
     {
-        $CommonModel = new CommonModel();
-        $BlogModel = new BlogModel();
-        $BlogModel->get_blog_list();
-        die();
+
+        $list['blog_list'] = $this->M_blog->get_blog_index_list();
+        $list['blog_class_list'] = $this->M_blog->get_blog_class_list();
+        $list['label_list'] = $this->M_blog->get_label_list();
+        $list['right_list'] = $this->M_common->get_right_list();
+
     }
     //按照分类搜索
     public function index_class()

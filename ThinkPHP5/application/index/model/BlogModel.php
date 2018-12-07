@@ -2,34 +2,33 @@
 namespace app\index\model;
 use think\Model;
 use think\Db;
-use think\cache\driver\File;
-use app\index\model\TotalModel;
 use app\index\model\CommonModel;
-class BlogModel extends TotalModel
+class BlogModel extends CommonModel
 {
-    private $common_model_obj;
-    private $all_blog_info_key = "all_blog_info_key";
-    private $all_blog_info_key_time = 86400;
-    public function __construct()
+    private $blog_class_id=2;
+    public function get_blog_index_list()
     {
-        parent::__construct();
-        $this->common_model_obj = new CommonModel();
-    }
-    public function get_all_blog_info()
-    {
-        if($this->common_index_obj->is_cache && $this->file_cache_obj->has($this->all_blog_info_key)){
-            $res = $this->file_cache_obj->get($this->all_blog_info_key);
-        }else{
-            $sql = "select * from ns_bloginfo where bloginfo_status=1";
-            $res = Db::query($sql);
-            $this->file_cache_obj->set($this->all_blog_info_key,$res,$this->all_blog_info_key_time);
+        $blog_list = $this->get_blog_latest_publish(15);
+        $class_info = array_column($this->get_class_info(),null,'class_id');
+        $blog_list_format = [];
+        foreach($blog_list as $key => $val){
+            $val['time'] = date('Y-m-d H:i:s',$val['bloginfo_createtime']);
+            $val['class_title'] = $class_info[$val['class_id']]['class_title'];
+            $blog_list_format[$key] = $val;
         }
-        return $res;
+        return $blog_list_format;
+
     }
-    public function get_blog_list()
+    public function get_blog_class_list()
     {
-        $blog_info = $this->get_all_blog_info();
-        //$class_info = $this->common_model_obj->get_class_info();
-        //var_dump($class_info);
+        $class_info = $this->get_class_info();
+        $blog_class_info = array_values(array_filter($class_info,function($v){return ($v['class_fid'] == 2);}));
+        array_multisort(array_column($blog_class_info,'class_oid'),SORT_DESC,$blog_class_info);
+        return $blog_class_info;
+    }
+    public function get_label_list()
+    {
+        $label_info = $this->get_label_info();
+        return $label_info;
     }
 }
