@@ -21,6 +21,8 @@ class CommonModel extends Model
     protected $label_info_key = "label_info_key";
     protected $label_info_key_time = 86400;
 
+    protected $link_label_info = "link_label_info_key";
+    protected $link_label_info_time = 86400;
 
     //对象
     protected $file_obj;
@@ -114,6 +116,44 @@ class CommonModel extends Model
         $right_list['link_clicknum'] = $this->get_link_clicknum();
         return $right_list;
     }
-
-
+    public function get_class_label_info()
+    {
+        $class_info = array_column($this->get_class_info(),null,'class_id');
+        $label_info = array_column($this->get_label_info(),null,'label_id');
+        $sql = "select * from ns_class_label";
+        $key = $this->link_label_info."-".base64_encode($sql);
+        if($this->is_cache && $this->file_obj->has($key)){
+            $class_label_info = $this->file_obj->get($key);
+        }else{
+            $class_label = Db::query($sql);
+            $class_label_key = [];
+            $label_class_key = [];
+            foreach($class_label as $key => $val){
+                $class_label_key[$val['class_id']][] = $val['label_id'];
+                $label_class_key[$val['label_id']][] = $val['class_id'];
+            }
+            $class_label_list = [];
+            foreach($class_label_key as $key => $val){
+                $class_tmp = $class_info[$key];
+                $class_tmp['label_info'] = [];
+                foreach($val as $k=>$v){
+                    $class_tmp['label_info'][$v] = $label_info[$v];
+                }
+                $class_label_list[$key] = $class_tmp;
+            }
+            $class_label_info['class_label_list'] = $class_label_list;
+            $label_class_list = [];
+            foreach($label_class_key as $key => $val){
+                $label_tmp = $label_info[$key];
+                $label_tmp['class_info'] = [];
+                foreach($val as $k => $v){
+                    $label_tmp['class_info'][$v] = $class_info[$v];
+                }
+                $label_class_list[$key] = $label_tmp;
+            }
+            $class_label_info['label_class_list'] = $label_class_list;
+            $this->file_obj->set($key,$class_label_info,$this->link_label_info_time);
+        }
+        return $class_label_info;
+    }
 }

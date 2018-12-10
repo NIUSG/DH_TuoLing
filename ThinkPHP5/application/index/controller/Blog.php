@@ -30,12 +30,15 @@ class Blog extends Common
     //按照分类搜索
     public function index_class()
     {
-
+        $list['blog_list'] = $this->M_blog->get_blog_index_class_list($class_id);
+        $list['blog_class_list'] = $this->M_blog->get_blog_class_list();
+        $list['label_list'] = $this->M_blog->get_class_label_list($class_id);
+        $list['right_list'] = $this->M_common->get_right_list();
     }
     //按照标签搜索
     public function index_label()
     {
-
+        $list['blog_list'] = $this->M_blog->get_blog_index_label_list($label_id);
     }
 
 

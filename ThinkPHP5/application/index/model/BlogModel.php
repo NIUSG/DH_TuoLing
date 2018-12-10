@@ -19,6 +19,25 @@ class BlogModel extends CommonModel
         return $blog_list_format;
 
     }
+    public function get_blog_index_class_list($class_id)
+    {
+
+        $blog_info_list = $this->get_blog_info();
+        $blog_info_list_class = array_values(array_filter($blog_info_list,function($v) use ($class_id) {return ($class_id == $v['class_id']);}));
+        $class_info = array_column($this->get_blog_class_list(),null,'class_id');
+        $class_info_current = $class_info[$class_id];
+        $blog_info_list_class = array_map(function($v) use ($class_info_current) {
+            $v['time'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);
+            $v['class_title'] = $class_info_current['class_title'];
+            return $v;
+        },$blog_info_list_class);
+        array_multisort(array_column($blog_info_list_class,'bloginfo_createtime'),SORT_DESC,$blog_info_list_class);
+        return $blog_info_list_class;
+    }
+    public function get_class_label_list($class_id)
+    {
+        return $this->get_class_label_info()['class_label_list'][$class_id];
+    }
     public function get_blog_class_list()
     {
         $class_info = $this->get_class_info();
