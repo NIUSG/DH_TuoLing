@@ -34,9 +34,24 @@ class BlogModel extends CommonModel
         array_multisort(array_column($blog_info_list_class,'bloginfo_createtime'),SORT_DESC,$blog_info_list_class);
         return $blog_info_list_class;
     }
+    public function get_blog_index_label_list($label_id)
+    {
+        $blog_info_list = array_column($this->get_blog_info(),null,"bloginfo_id");
+        $label_info = array_column($this->get_label_info(),null,'label_id');
+        $blog_label_info = $this->get_blog_label_info();
+        $label_blog_key = $blog_label_info['label_blog'][$label_id];
+        $blog_info_list_label = array_map(function($v) use ($blog_info_list) {$tmp = $blog_info_list[$v];return $tmp;},$label_blog_key);
+        array_multisort(array_column($blog_info_list_label,'bloginfo_createtime'),SORT_DESC,$blog_info_list_label);
+        return $blog_info_list_label;
+
+    }
     public function get_class_label_list($class_id)
     {
         return $this->get_class_label_info()['class_label_list'][$class_id];
+    }
+    public function get_label_class_list($label_id)
+    {
+        return $this->get_class_label_info()['label_class_list'][$label_id];
     }
     public function get_blog_class_list()
     {

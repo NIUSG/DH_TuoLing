@@ -24,6 +24,8 @@ class CommonModel extends Model
     protected $link_label_info = "link_label_info_key";
     protected $link_label_info_time = 86400;
 
+    protected $blog_label_info = "blog_label_info_key";
+    protected $blog_label_info_time = 86400;
     //对象
     protected $file_obj;
     public function __construct()
@@ -156,4 +158,64 @@ class CommonModel extends Model
         }
         return $class_label_info;
     }
+    public function get_blog_label_info()
+    {
+        $sql = "select * from ns_label_blog";
+        $key = $this->blog_label_info."-".base64_encode($sql);
+        if($this->is_cache && $this->file_obj->has($key)){
+            $blog_label_list = $this->file_obj->get($key);
+        }else{
+            $res = Db::query($sql);
+            $blog_label = [];
+            foreach($res as $key => $val){
+                $blog_label[$val['bloginfo_id']][] = $val['label_id'];
+                $label_blog[$val['label_id']][] = $val['bloginfo_id'];
+            }
+            $blog_label_list['blog_label'] = $blog_label;
+            $blog_label_list['label_blog'] = $label_blog;
+            $this->file_obj->set($key,$blog_label_list,$this->blog_label_info_time);
+        }
+        return $blog_label_list;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
