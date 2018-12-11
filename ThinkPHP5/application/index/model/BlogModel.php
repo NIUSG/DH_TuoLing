@@ -42,10 +42,17 @@ class BlogModel extends CommonModel
         $label_blog_key = $blog_label_info['label_blog'][$label_id];
         $blog_info_list_label = array_map(function($v) use ($blog_info_list) {$tmp = $blog_info_list[$v];return $tmp;},$label_blog_key);
         array_multisort(array_column($blog_info_list_label,'bloginfo_createtime'),SORT_DESC,$blog_info_list_label);
+        $class_info = array_column($this->get_blog_class_list(),null,'class_id');
+        $blog_info_list_label = array_map(function($v) use ($class_info) {
+            $v['time'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);
+            $v['class_title'] = $class_info[$v['class_id']]['class_title'];
+            return $v;
+        },$blog_info_list_label);
         return $blog_info_list_label;
 
+
     }
-    public function get_blog_search_list($search_key,$is_cache=true)
+    public function get_blog_search_list($search_key,$is_cache=false)
     {
         //判断搜索方式
         $time1 = microtime(true);

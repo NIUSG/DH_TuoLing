@@ -8,7 +8,7 @@
 <article class="blogs">
 <h1 class="t_nav"><span><form action="{:url('blog/index')}"　method="get"><input type="text" name="search_key"><input type="submit" value="搜索"></form></span><a href="/" class="n1">博客</a><a href="/" class="n2">列表</a></h1>
 <div class="newblog left">
-    {foreach $blog_list as $val}
+    {foreach $list.blog_list as $val}
    <h2>{$val.bloginfo_title}</h2>
    <p class="dateview"><span>发布日期:{$val.bloginfo_createtime}</span><span></span><span>类别[<a href="/news/life/">{$val.class_title}</a>]</span></p>
     <figure><img src="__BLOG_IMG__/{$val.bloginfo_img}"></figure>
@@ -21,7 +21,6 @@
     <div class="blank"></div>
     <div style="margin:0px auto">
       <!-- <a title="Total record"><b>41</b></a><b>1</b><a href="/news/s/index_2.html">2</a><a href="/news/s/index_2.html">&gt;</a><a href="/news/s/index_2.html">&gt;&gt;</a> -->
-      {$page}
     </div>
 </div>
 <aside class="right">
@@ -30,16 +29,16 @@
       <p>分类展示</p>
     </h3>
       <ul>
-      {foreach $son_class_list as $val}
-       <li class="rnav1"><a href="{:url('blog/bloglist_class')}?id={$val.class_id}" target="_blank">{$val.class_title}</a></li>
+      {foreach $list.blog_class_list as $val}
+       <li class="rnav1"><a href="{:url('blog/index_class')}?class_id={$val.class_id}" target="_blank">{$val.class_title}</a></li>
        {/foreach}
      </ul>
     </div>
     <div class="cloud">
       <h3>标签</h3>
       <ul>
-      {foreach $label_list as $val}
-        <li><a href="{:url('blog/labelBlogList')}?id={$val.label_id}">{$val.label_title}</a></li>
+      {foreach $list.label_list as $val}
+        <li><a href="{:url('blog/index_label')}?label_id={$val.label_id}">{$val.label_title}</a></li>
       {/foreach}
       </ul>
     </div>
@@ -48,7 +47,7 @@
       <p>点击<span>排行</span></p>
     </h3>
     <ul class="rank">
-    {foreach $blog_click_list as $val}
+    {foreach $list.right_list.blog_clicknum as $val}
       <li><a href="{:url('content/index')}?id={$val.bloginfo_id}" target="_blank">{$val.bloginfo_title}({$val.bloginfo_click})</a></li>
     {/foreach}
     </ul>
@@ -56,7 +55,7 @@
       <p>最新<span>发布</span></p>
     </h3>
     <ul class="paih">
-    {foreach $blog_new_list as $val}
+    {foreach $list.right_list.blog_latest_publish as $val}
       <li><a href="{:url('content/index')}?id={$val.bloginfo_id}" target="_blank">{$val.bloginfo_title}</a></li>
     {/foreach}
     </ul>
@@ -64,7 +63,7 @@
     <div class="cloud">
       <h3>导航</h3>
       <ul>
-      {foreach $link_often_list as $val}
+      {foreach $list.right_list.link_clicknum as $val}
         <li><a href="{:url('link/click_num')}?url={$val.link_url}&id={$val.link_id}">{$val.link_title}</a></li>
       {/foreach}
       </ul>
