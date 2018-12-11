@@ -52,7 +52,7 @@ class BlogModel extends CommonModel
 
 
     }
-    public function get_blog_search_list($search_key,$is_cache=false)
+    public function get_blog_search_list($search_key,$is_cache=true)
     {
         //判断搜索方式
         $time1 = microtime(true);
