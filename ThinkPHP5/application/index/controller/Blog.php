@@ -20,7 +20,16 @@ class Blog extends Common
     //主页
     public function index()
     {
-        $list['blog_list'] = $this->M_blog->get_blog_index_list();
+        if(isset($_GET['search_key'])){
+            if(empty($_GET['search_key'])){
+                $list['blog_list'] = $this->M_blog->get_blog_index_list();
+            }else{
+                $list['blog_list'] = $this->M_blog->get_blog_search_list($_GET['search_key']);
+                var_dump($list['blog_list']);
+            }
+        }else{
+            $list['blog_list'] = $this->M_blog->get_blog_index_list();
+        }
         $list['blog_class_list'] = $this->M_blog->get_blog_class_list();
         $list['label_list'] = $this->M_blog->get_label_list();
         $list['right_list'] = $this->M_common->get_right_list();
