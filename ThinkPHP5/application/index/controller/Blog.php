@@ -57,4 +57,12 @@ class Blog extends Common
         $this->assign('list',$list);
         return $this->fetch('index');
     }
+    //缓冲方法,后期删除
+    public function load_right()
+    {
+        $C_indexObj = new Index();
+        $blog_click_list = $C_indexObj->blog_click();
+        $blog_new_list = $C_indexObj->blog_new();
+        $link_home_list = $C_indexObj->link_often();
+    }
 }
