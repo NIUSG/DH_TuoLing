@@ -70,6 +70,7 @@ class CommonModel extends Model
             $res = $this->file_obj->get($key);
         }else{
             $res = Db::query($sql);
+            $res = array_map(function($v){$v['bloginfo_createtime'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);return $v;},$res);
             $this->file_obj->set($key,$res,$this->blog_info_key_time);
         }
         return $res;
@@ -92,6 +93,9 @@ class CommonModel extends Model
     {
         $blog_info = $this->get_blog_info();
         array_multisort(array_column($blog_info,'bloginfo_createtime'),SORT_DESC,$blog_info);
+        if($limit === 0){
+            return $blog_info;
+        }
         $blog_info_latest = array_slice($blog_info,0,$limit);
         return $blog_info_latest;
     }
