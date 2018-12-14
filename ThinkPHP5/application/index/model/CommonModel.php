@@ -4,183 +4,184 @@ use think\Model;
 use think\Db;
 use app\index\controller\Common;
 use think\cache\driver\File;
+use think\Config;
 class CommonModel extends Model
 {
-    //是否需要缓存
-    protected $is_cache;
-    //缓存键,时间定义
-    protected $class_info_key = "class_info_key";
-    protected $class_info_key_time = 86400;
-
-    protected $link_info_key = "link_info_key";
-    protected $link_info_key_time = 86400;
-
-    protected $blog_info_key = "blog_info_key";
-    protected $blog_info_key_time = 86400;
-
-    protected $label_info_key = "label_info_key";
-    protected $label_info_key_time = 86400;
-
-    protected $link_label_info = "link_label_info_key";
-    protected $link_label_info_time = 86400;
-
-    protected $blog_label_info = "blog_label_info_key";
-    protected $blog_label_info_time = 86400;
-    //对象
-    protected $file_obj;
+    public $Redis_obj;
+    public $File_obj;
+    //缓存配置参数
+    public $cache_config = [
+        //是否支持redis,初始值false，不用配置
+        "is_redis" =>false,
+        //是否需要缓存，以及哪种缓存
+        "if_cache" =>false,
+        "if_redis" =>false,
+        "if_file" => true
+    ];
     public function __construct()
     {
         parent::__construct();
-        $C_common = new Common();
-        $this->is_cache = $C_common->is_cache;
-        $this->file_obj = new File();
-    }
-
-    public function get_class_info()
-    {
-        $sql = "select * from ns_class where class_status=1 order by class_oid desc";
-        $key = $this->class_info_key."-".base64_encode($sql);
-        if($this->is_cache && $this->file_obj->has($key)){
-            $res = $this->file_obj->get($key);
-        }else{
-            $res = Db::query($sql);
-            $this->file_obj->set($key,$res,$this->class_info_key_time);
+        if(extension_loaded('redis')){
+            $this->Redis_obj = new \Redis();
+            $this->Redis_obj->connect('127.0.0.1', 6379);
+            $this->cache_config['is_redis'] = true;
         }
-        return $res;
-    }
-
-    public function get_link_info()
-    {
-        $sql = "select * from ns_link where link_status=1 order by link_clicknum desc";
-        $key = $this->link_info_key."-".base64_encode($sql);
-        if($this->is_cache && $this->file_obj->has($key)){
-            $res = $this->file_obj->get($key);
-        }else{
-            $res = Db::query($sql);
-            $this->file_obj->set($key,$res,$this->link_info_key_time);
+        $this->File_obj = new File();
+        if($this->cache_config['if_cache'] && $this->cache_config['if_redis'] && !$this->cache_config['is_redis']){
+            throw new \BadFunctionCallException('不支持redis');
         }
-        return $res;
-    }
-
-    public function get_blog_info()
-    {
-        $sql = "select * from ns_bloginfo where bloginfo_status=1 order by bloginfo_click desc";
-        $key = $this->blog_info_key."-".base64_encode($sql);
-        if($this->is_cache && $this->file_obj->has($key)){
-            $res = $this->file_obj->get($key);
-        }else{
-            $res = Db::query($sql);
-            $res = array_map(function($v){$v['bloginfo_createtime'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);return $v;},$res);
-            $this->file_obj->set($key,$res,$this->blog_info_key_time);
+        if($this->cache_config['if_cache'] && $this->cache_config["is_redis"] && $this->cache_config["if_redis"] && $this->cache_config["if_redis"]){
+            $this->cache_config['if_file'] = false;
         }
-        return $res;
     }
-
-    public function get_label_info()
+    //顶部栏
+    public function top_class_list()
     {
-        $sql = "select * from ns_label where label_status=1 order by label_oid desc";
-        $key = $this->label_info_key."-".base64_encode($sql);
-        if($this->is_cache && $this->file_obj->has($key)){
-            $res = $this->file_obj->get($key);
-        }else{
-            $res = Db::query($sql);
-            $this->file_obj->set($key,$res,$this->label_info_key_time);
-        }
-        return $res;
+        list(,,$class_list) = $this->get_class_info();
+        $class_list = array_filter($class_list,function($v){ return ($v['class_fid'] == 0)?true:false; });
+        return $class_list;
+
     }
     //最新发布
     public function get_blog_latest_publish($limit = 8)
     {
-        $blog_info = $this->get_blog_info();
+        list(,,$blog_info) = $this->get_blog_info();
         array_multisort(array_column($blog_info,'bloginfo_createtime'),SORT_DESC,$blog_info);
-        if($limit === 0){
-            return $blog_info;
-        }
         $blog_info_latest = array_slice($blog_info,0,$limit);
         return $blog_info_latest;
     }
     //点击排行
-    public function get_blog_clicknum()
+    public function get_blog_clicknum($limit = 12)
     {
-        $blog_info = $this->get_blog_info();
+        list(,,$blog_info) = $this->get_blog_info();
         array_multisort(array_column($blog_info,'bloginfo_click'),SORT_DESC,$blog_info);
-        $blog_info_clicknum = array_slice($blog_info,0,12);
+        $blog_info_clicknum = array_slice($blog_info,0,$limit);
         return $blog_info_clicknum;
     }
     //链接点击排行
     public function get_link_clicknum()
     {
-        $link_info = $this->get_link_info();
+        list(,,$link_info) = $this->get_link_info();
         array_multisort(array_column($link_info,'link_clicknum'),SORT_DESC,$link_info);
         $link_info_clicknum = array_slice($link_info,0,20);
         return $link_info_clicknum;
     }
-    public function get_right_list()
+    //基础数据缓存拿取
+    public function get_class_info()
     {
-        $right_list['blog_latest_publish'] = $this->get_blog_latest_publish();
-        $right_list['blog_clicknum'] = $this->get_blog_clicknum();
-        $right_list['link_clicknum'] = $this->get_link_clicknum();
-        return $right_list;
-    }
-    public function get_class_label_info()
-    {
-        $class_info = array_column($this->get_class_info(),null,'class_id');
-        $label_info = array_column($this->get_label_info(),null,'label_id');
-        $sql = "select * from ns_class_label";
-        $key = $this->link_label_info."-".base64_encode($sql);
-        if($this->is_cache && $this->file_obj->has($key)){
-            $class_label_info = $this->file_obj->get($key);
-        }else{
-            $class_label = Db::query($sql);
-            $class_label_key = [];
-            $label_class_key = [];
-            foreach($class_label as $key => $val){
-                $class_label_key[$val['class_id']][] = $val['label_id'];
-                $label_class_key[$val['label_id']][] = $val['class_id'];
+        try {
+            $cache_info = CacheKey::get_cache_key('class_info');
+            if( $this->cache_config['if_cache'] && $this->cache_config['if_redis'] && $this->Redis_obj->exists($cache_info['key']) ){
+                $res = $this->redis_get($cache_info['key']);
+            }else if( $this->cache_config['if_cache'] && $this->cache_config['if_file'] && $this->File_obj->has($cache_info['key']) ){
+                $res = $this->File_obj->get($cache_info['key']);
+            }else{
+                $res = Db::table("ns_class")->where("class_status",1)->order('class_oid,class_createtime','desc')->select();
+                //文件缓存
+                $this->File_obj->set($cache_info['key'],$res,$cache_info['time']);
+                //redis缓存
+                $this->redis_set($cache_info['key'],$res,$cache_info['time']);
             }
-            $class_label_list = [];
-            foreach($class_label_key as $key => $val){
-                $class_tmp = $class_info[$key];
-                $class_tmp['label_info'] = [];
-                foreach($val as $k=>$v){
-                    $class_tmp['label_info'][$v] = $label_info[$v];
-                }
-                $class_label_list[$key] = $class_tmp;
-            }
-            $class_label_info['class_label_list'] = $class_label_list;
-            $label_class_list = [];
-            foreach($label_class_key as $key => $val){
-                $label_tmp = $label_info[$key];
-                $label_tmp['class_info'] = [];
-                foreach($val as $k => $v){
-                    $label_tmp['class_info'][$v] = $class_info[$v];
-                }
-                $label_class_list[$key] = $label_tmp;
-            }
-            $class_label_info['label_class_list'] = $label_class_list;
-            $this->file_obj->set($key,$class_label_info,$this->link_label_info_time);
+            $code = 0;
+            $msg = "ok";
+        } catch (Exception $e) {
+            $code = $e->getCode();
+            $msg = $e->getMessage();
+            $res = [];
         }
-        return $class_label_info;
+        return [$code,$msg,$res];
     }
-    public function get_blog_label_info()
+    public function get_link_info()
     {
-        $sql = "select * from ns_label_blog";
-        $key = $this->blog_label_info."-".base64_encode($sql);
-        if($this->is_cache && $this->file_obj->has($key)){
-            $blog_label_list = $this->file_obj->get($key);
-        }else{
-            $res = Db::query($sql);
-            $blog_label = [];
-            foreach($res as $key => $val){
-                $blog_label[$val['bloginfo_id']][] = $val['label_id'];
-                $label_blog[$val['label_id']][] = $val['bloginfo_id'];
+        try {
+            $cache_info = CacheKey::get_cache_key('link_info');
+            if( $this->cache_config['if_cache'] && $this->cache_config['if_redis'] && $this->Redis_obj->exists($cache_info['key']) ){
+                $res = $this->redis_get($cache_info['key']);
+            }else if( $this->cache_config['if_cache'] && $this->cache_config['if_file'] && $this->File_obj->has($cache_info['key']) ){
+                $res = $this->File_obj->get($cache_info['key']);
+            }else{
+                $res = Db::table("ns_link")->where("link_status",1)->order('link_clicknum,link_createtime','desc')->select();
+                //文件缓存
+                $this->File_obj->set($cache_info['key'],$res,$cache_info['time']);
+                //redis缓存
+                $this->redis_set($cache_info['key'],$res,$cache_info['time']);
             }
-            $blog_label_list['blog_label'] = $blog_label;
-            $blog_label_list['label_blog'] = $label_blog;
-            $this->file_obj->set($key,$blog_label_list,$this->blog_label_info_time);
+            $code = 0;
+            $msg = "ok";
+        } catch (Exception $e) {
+            $code = $e->getCode();
+            $msg = $e->getMessage();
+            $res = [];
         }
-        return $blog_label_list;
+        return [$code,$msg,$res];
     }
+    public function get_blog_info()
+    {
+        try {
+            $cache_info = CacheKey::get_cache_key('blog_info');
+            if( $this->cache_config['if_cache'] && $this->cache_config['if_redis'] && $this->Redis_obj->exists($cache_info['key']) ){
+                $res = $this->redis_get($cache_info['key']);
+            }else if( $this->cache_config['if_cache'] && $this->cache_config['if_file'] && $this->File_obj->has($cache_info['key']) ){
+                $res = $this->File_obj->get($cache_info['key']);
+            }else{
+                $res = Db::table("ns_bloginfo")->where("bloginfo_status",1)->order('bloginfo_click','desc')->select();
+                $res = array_map(function($v){
+                    $v['created_at'] = date("Y-m-d H:i:s",$v['bloginfo_createtime']);
+                    $v['date'] = date('Y-m-d',$v['bloginfo_createtime']);
+                    $v['time'] = date("H:i:s",$v['bloginfo_createtime']);
+                    return $v;
+                },$res);
+                //文件缓存
+                $this->File_obj->set($cache_info['key'],$res,$cache_info['time']);
+                //redis缓存
+                $this->redis_set($cache_info['key'],$res,$cache_info['time']);
+            }
+            $code = 0;
+            $msg = "ok";
+        } catch (Exception $e) {
+            $code = $e->getCode();
+            $msg = $e->getMessage();
+            $res = [];
+        }
+        return [$code,$msg,$res];
+    }
+    public function get_label_info()
+    {
+        try {
+            $cache_info = CacheKey::get_cache_key('label_info');
+            if( $this->cache_config['if_cache'] && $this->cache_config['if_redis'] && $this->Redis_obj->exists($cache_info['key']) ){
+                $res = $this->redis_get($cache_info['key']);
+            }else if( $this->cache_config['if_cache'] && $this->cache_config['if_file'] && $this->File_obj->has($cache_info['key']) ){
+                $res = $this->File_obj->get($cache_info['key']);
+            }else{
+                $res = Db::table("ns_label")->where("label_status",1)->order('label_oid','desc')->select();
+                //文件缓存
+                $this->File_obj->set($cache_info['key'],$res,$cache_info['time']);
+                //redis缓存
+                $this->redis_set($cache_info['key'],$res,$cache_info['time']);
+            }
+            $code = 0;
+            $msg = "ok";
+        } catch (Exception $e) {
+            $code = $e->getCode();
+            $msg = $e->getMessage();
+            $res = [];
+        }
+        return [$code,$msg,$res];
+    }
+    //redis操作封装
+    public function redis_set($key,$val,$time=0)
+    {
+        $val = is_scalar($val)?$val:serialize($val);
+        $this->Redis_obj->set($key,$val) && $this->Redis_obj->expire($key,$time);
+    }
+    public function redis_get($key)
+    {
+        $res = unserialize($this->Redis_obj->get($key));
+        return $res;
+    }
+
+
 }
 
 

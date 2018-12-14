@@ -4,7 +4,7 @@
   <nav class="topnav" id="topnav">
     <a href="{:url('index/index')}"><span>Home</span><span class="en">Protal</span></a>
     {foreach $top_class_list as $val}
-    <a href="{$val.path_url}"><span>{$val.class_title}</span><span class="en">{$val.class_Etitle}</span></a>
+    <a href="{$val.url}"><span>{$val.class_title}</span><span class="en">{$val.class_Etitle}</span></a>
     {/foreach}
   </nav>
 </header>
