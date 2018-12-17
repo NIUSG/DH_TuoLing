@@ -10,7 +10,7 @@
 <div class="newblog left">
     {foreach $list.blog_list as $val}
    <h2>{$val.bloginfo_title}</h2>
-   <p class="dateview"><span>发布日期:{$val.bloginfo_createtime}</span><span></span><span>类别[<a href="/news/life/">{$val.class_title}</a>]</span></p>
+   <p class="dateview"><span>发布日期:{$val.created_at}</span><span></span><span>类别[<a href="/news/life/">{$val.class_title}</a>]</span></p>
     <figure><img src="__BLOG_IMG__/{$val.bloginfo_img}"></figure>
     <ul class="nlist">
       <p>{$val.bloginfo_describe}...</p>
@@ -29,7 +29,7 @@
       <p>分类展示</p>
     </h3>
       <ul>
-      {foreach $list.blog_class_list as $val}
+      {foreach $list.class_list as $val}
        <li class="rnav1"><a href="{:url('blog/index_class')}?class_id={$val.class_id}" target="_blank">{$val.class_title}</a></li>
        {/foreach}
      </ul>

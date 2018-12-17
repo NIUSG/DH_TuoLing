@@ -14,9 +14,9 @@ class CommonModel extends Model
         //是否支持redis,初始值false，不用配置
         "is_redis" =>false,
         //是否需要缓存，以及哪种缓存
-        "if_cache" =>true,
+        "if_cache" =>false,
         "if_redis" =>true,
-        "if_file" => false
+        "if_file" => true
     ];
     public function __construct()
     {
@@ -43,7 +43,7 @@ class CommonModel extends Model
 
     }
     //最新发布
-    public function get_blog_latest_publish($limit = 8)
+    public function get_blog_latest_publish($limit = 5)
     {
         list(,,$blog_info) = $this->get_blog_info();
         array_multisort(array_column($blog_info,'bloginfo_createtime'),SORT_DESC,$blog_info);
@@ -59,11 +59,15 @@ class CommonModel extends Model
         return $blog_info_clicknum;
     }
     //链接点击排行
-    public function get_link_clicknum()
+    public function get_link_clicknum($limit = 20)
     {
         list(,,$link_info) = $this->get_link_info();
         array_multisort(array_column($link_info,'link_clicknum'),SORT_DESC,$link_info);
-        $link_info_clicknum = array_slice($link_info,0,20);
+        if($limit != -1){
+            $link_info_clicknum = array_slice($link_info,0,$limit);
+        }else{
+            return $link_info;
+        }
         return $link_info_clicknum;
     }
     //基础数据缓存拿取
@@ -76,7 +80,8 @@ class CommonModel extends Model
             }else if( $this->cache_config['if_cache'] && $this->cache_config['if_file'] && $this->File_obj->has($cache_info['key']) ){
                 $res = $this->File_obj->get($cache_info['key']);
             }else{
-                $res = Db::table("ns_class")->where("class_status",1)->order('class_oid,class_createtime','desc')->select();
+                $res = Db::table("ns_class")->where("class_status",1)->order('class_oid','desc')->select();
+                $res = array_column($res,null,'class_id');
                 //文件缓存
                 $this->File_obj->set($cache_info['key'],$res,$cache_info['time']);
                 //redis缓存
@@ -155,6 +160,7 @@ class CommonModel extends Model
                 $res = $this->File_obj->get($cache_info['key']);
             }else{
                 $res = Db::table("ns_label")->where("label_status",1)->order('label_oid','desc')->select();
+                $res = array_column($res,null,"label_id");
                 //文件缓存
                 $this->File_obj->set($cache_info['key'],$res,$cache_info['time']);
                 //redis缓存

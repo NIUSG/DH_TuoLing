@@ -8,16 +8,22 @@ use app\helper\controller\GetIp;
 use think\cache\driver\File;
 use app\index\model\CommonModel;
 use app\index\model\BlogModel;
+use app\index\model\LabelModel;
+use app\index\model\ClassModel;
 
 class Common extends controller
 {
     public $M_Common;
     public $M_Blog;
+    public $M_Class;
+    public $M_Label;
     public function __construct()
     {
         parent::__construct();
         $this->M_Common = new CommonModel();
         $this->M_Blog = new BlogModel();
+        $this->M_Class = new ClassModel();
+        $this->M_Label = new LabelModel();
         $this->get_top_class_list();
     }
     public function get_top_class_list()

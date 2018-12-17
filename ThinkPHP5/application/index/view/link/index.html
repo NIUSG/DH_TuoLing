@@ -12,11 +12,11 @@
     </h3>
     <ul>
       <li><a href="http://www.github.com"  target="_blank"><img src="__HOME_STYLE__/images/01.jpg"></a><span>GitHub</span></li>
-      <li><a href="/" target="_blank"><img src="__HOME_STYLE__/images/02.jpg"></a><span>ºÚÉ«ÖÊ¸ÐÊ±¼äÖáhtml5¸öÈË²©¿ÍÄ£°å</span></li>
-      <li><a href="/"  target="_blank"><img src="__HOME_STYLE__/images/03.jpg"></a><span>GreenÂÌÉ«Ð¡ÇåÐÂµÄÏÄÌì-¸öÈË²©¿ÍÄ£°å</span></li>
-      <li><a href="/" target="_blank"><img src="__HOME_STYLE__/images/04.jpg"></a><span>Å®ÉúÇåÐÂ¸öÈË²©¿ÍÍøÕ¾Ä£°å</span></li>
-      <li><a href="/"  target="_blank"><img src="__HOME_STYLE__/images/02.jpg"></a><span>ºÚÉ«ÖÊ¸ÐÊ±¼äÖáhtml5¸öÈË²©¿ÍÄ£°å</span></li>
-      <li><a href="/"  target="_blank"><img src="__HOME_STYLE__/images/03.jpg"></a><span>GreenÂÌÉ«Ð¡ÇåÐÂµÄÏÄÌì-¸öÈË²©¿ÍÄ£°å</span></li>
+      <li><a href="/" target="_blank"><img src="__HOME_STYLE__/images/02.jpg"></a><span></span></li>
+      <li><a href="/"  target="_blank"><img src="__HOME_STYLE__/images/03.jpg"></a><span></span></li>
+      <li><a href="/" target="_blank"><img src="__HOME_STYLE__/images/04.jpg"></a><span></span></li>
+      <li><a href="/"  target="_blank"><img src="__HOME_STYLE__/images/02.jpg"></a><span></span></li>
+      <li><a href="/"  target="_blank"><img src="__HOME_STYLE__/images/03.jpg"></a><span></span></li>
     </ul>
   </div>
 </div>
@@ -26,17 +26,17 @@
   </h2>
   <div class="left">
     <div class="recommend">
-    {foreach $recommend_list as $val}
+    {foreach $list.recommend_link as $val}
     <div class="link_recommend"><a href="{:url('click_num')}?url={$val.link_url}&id={$val.link_id}" target="_blank"><p>{$val.link_title}</p></a></div>
     {/foreach}
     </div>
     <h2 class="title_tj">
     <p>分类<span>展示</span></p>
   </h2>
-  {foreach $link_class_list as $val}
+  {foreach $list.class_link_info as $val}
     <div class="class_list">
         <div class="class_name"><p>{$val.class_title}</p></div>
-        {foreach $val.link as $v}
+        {foreach $val.link_info as $v}
         <div class="link_recommend"><a href="{:url('click_num')}?url={$v.link_url}&id={$v.link_id}" target="_blank"><p>{$v.link_title}</p></a></div>
         {/foreach}
     </div>
@@ -50,7 +50,7 @@
       <p>点击<span>排行</span></p>
     </h3>
     <ul class="rank">
-    {foreach $blog_click_list as $val}
+    {foreach $list.right_list.blog_clicknum as $val}
       <li><a href="{:url('content/index')}?id={$val.bloginfo_id}" target="_blank">{$val.bloginfo_title}({$val.bloginfo_click})</a></li>
     {/foreach}
     </ul>
@@ -58,7 +58,7 @@
       <p>最新<span>发布</span></p>
     </h3>
     <ul class="paih">
-    {foreach $blog_new_list as $val}
+    {foreach $list.right_list.blog_latest_publish as $val}
       <li><a href="{:url('content/index')}?id={$val.bloginfo_id}" target="_blank">{$val.bloginfo_title}</a></li>
     {/foreach}
     </ul>
@@ -66,7 +66,7 @@
     <div class="cloud">
       <h3>导航</h3>
       <ul>
-      {foreach $link_often_list as $val}
+      {foreach $list.right_list.link_clicknum as $val}
         <li><a href="{:url('link/click_num')}?url={$val.link_url}&id={$val.link_id}">{$val.link_title}</a></li>
       {/foreach}
       </ul>

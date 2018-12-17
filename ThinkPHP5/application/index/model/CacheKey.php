@@ -23,6 +23,11 @@ class CacheKey
             'time'=>86400,
             "hash_key"=>"blog_info_hash_key",
         ],
+        'class_link_info'=>[
+            'key'=>'class_link_info_key',
+            'hash_key'=>'class_link_info_hash_key',
+            'time'=>86400,
+        ]
     ];
 
     public static function get_cache_key($type_info = null)
