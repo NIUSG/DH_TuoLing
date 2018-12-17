@@ -11,13 +11,13 @@ use app\index\model\BlogModel;
 
 class Common extends controller
 {
-    public $M_common;
-    public $M_blog;
+    public $M_Common;
+    public $M_Blog;
     public function __construct()
     {
         parent::__construct();
         $this->M_Common = new CommonModel();
-        $this->M_blog = new BlogModel();
+        $this->M_Blog = new BlogModel();
         $this->get_top_class_list();
     }
     public function get_top_class_list()

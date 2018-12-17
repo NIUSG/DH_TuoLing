@@ -39,7 +39,7 @@
     <p>首页<span>推荐</span></p>
   </h2>
   <div class="bloglist left">
-    {foreach $home_blog_list as $val}
+    {foreach $list.index_blog_list as $val}
     <h3>{$val.bloginfo_title}</h3>
     <figure><img src="__BLOG_IMG__/{$val.bloginfo_img}"></figure>
     <ul>
@@ -57,7 +57,7 @@
       <p>点击<span>排行</span></p>
     </h3>
     <ul class="rank">
-    {foreach $blog_click_list as $val}
+    {foreach $list.right_list.blog_clicknum as $val}
       <li><a href="{:url('content/index')}?id={$val.bloginfo_id}" target="_blank">{$val.bloginfo_title}({$val.bloginfo_click})</a></li>
     {/foreach}
     </ul>
@@ -65,7 +65,7 @@
       <p>最新<span>发布</span></p>
     </h3>
     <ul class="paih">
-    {foreach $blog_new_list as $val}
+    {foreach $list.right_list.blog_latest_publish as $val}
       <li><a href="{:url('content/index')}?id={$val.bloginfo_id}" target="_blank">{$val.bloginfo_title}</a></li>
     {/foreach}
     </ul>
@@ -82,7 +82,7 @@
     <div class="cloud">
       <h3>标签</h3>
       <ul>
-      {foreach $link_often_list as $val}
+      {foreach $list.right_list.link_clicknum as $val}
         <li><a href="{:url('link/click_num')}?url={$val.link_url}&id={$val.link_id}">{$val.link_title}</a></li>
       {/foreach}
       </ul>

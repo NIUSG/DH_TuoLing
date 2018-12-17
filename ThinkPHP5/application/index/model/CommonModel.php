@@ -14,9 +14,9 @@ class CommonModel extends Model
         //是否支持redis,初始值false，不用配置
         "is_redis" =>false,
         //是否需要缓存，以及哪种缓存
-        "if_cache" =>false,
-        "if_redis" =>false,
-        "if_file" => true
+        "if_cache" =>true,
+        "if_redis" =>true,
+        "if_file" => false
     ];
     public function __construct()
     {
