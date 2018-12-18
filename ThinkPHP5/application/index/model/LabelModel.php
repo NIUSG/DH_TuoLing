@@ -16,4 +16,5 @@ class LabelModel extends CommonModel
         },$cur_class_label_key['label_id']);
         return $cur_label_info;
     }
+
 }

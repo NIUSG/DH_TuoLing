@@ -10,6 +10,7 @@ use app\index\model\CommonModel;
 use app\index\model\BlogModel;
 use app\index\model\LabelModel;
 use app\index\model\ClassModel;
+use app\index\model\ContentModel;
 
 class Common extends controller
 {
@@ -17,6 +18,7 @@ class Common extends controller
     public $M_Blog;
     public $M_Class;
     public $M_Label;
+    public $M_Content;
     public function __construct()
     {
         parent::__construct();
@@ -24,6 +26,7 @@ class Common extends controller
         $this->M_Blog = new BlogModel();
         $this->M_Class = new ClassModel();
         $this->M_Label = new LabelModel();
+        $this->M_Content = new ContentModel();
         $this->get_top_class_list();
     }
     public function get_top_class_list()

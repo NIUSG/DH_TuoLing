@@ -15,7 +15,7 @@ class CommonModel extends Model
         "is_redis" =>false,
         //是否需要缓存，以及哪种缓存
         "if_cache" =>false,
-        "if_redis" =>true,
+        "if_redis" =>false,
         "if_file" => true
     ];
     public function __construct()
@@ -252,9 +252,20 @@ class CommonModel extends Model
         $val = is_scalar($val)?$val:serialize($val);
         $this->Redis_obj->set($key,$val) && $this->Redis_obj->expire($key,$time);
     }
+    //redis hash_set
+    public function redis_hset($key,$id,$val,$time)
+    {
+        $val = is_scalar($val)?$val:serialize($val);
+        $this->Redis_obj->hset($key,$id,$val) && $this->Redis_obj->expire($key,$time);
+    }
     public function redis_get($key)
     {
         $res = unserialize($this->Redis_obj->get($key));
+        return $res;
+    }
+    public function redis_hget($key,$id)
+    {
+        $res = unserialize($this->Redis_obj->hget($key,$id));
         return $res;
     }
 
