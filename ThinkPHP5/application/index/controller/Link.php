@@ -21,4 +21,10 @@ class Link extends Common
         $this->assign("list",$list);
         return $this->fetch();
     }
+    public function click_num()
+    {
+        $url = input('get.url');
+        $link_id = input('get.id');
+        $this->redirect($url);
+    }
 }
