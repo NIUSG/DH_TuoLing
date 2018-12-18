@@ -27,6 +27,7 @@ class Common extends controller
         $this->M_Class = new ClassModel();
         $this->M_Label = new LabelModel();
         $this->M_Content = new ContentModel();
+        Write::writeDB();
         $this->get_top_class_list();
     }
     public function get_top_class_list()
