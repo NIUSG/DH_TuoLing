@@ -136,6 +136,7 @@ class CommonModel extends Model
                     $v['time'] = date("H:i:s",$v['bloginfo_createtime']);
                     return $v;
                 },$res);
+                $res = array_column($res,null,"bloginfo_id");
                 //文件缓存
                 $this->File_obj->set($cache_info['key'],$res,$cache_info['time']);
                 //redis缓存
@@ -161,6 +162,76 @@ class CommonModel extends Model
             }else{
                 $res = Db::table("ns_label")->where("label_status",1)->order('label_oid','desc')->select();
                 $res = array_column($res,null,"label_id");
+                //文件缓存
+                $this->File_obj->set($cache_info['key'],$res,$cache_info['time']);
+                //redis缓存
+                $this->redis_set($cache_info['key'],$res,$cache_info['time']);
+            }
+            $code = 0;
+            $msg = "ok";
+        } catch (Exception $e) {
+            $code = $e->getCode();
+            $msg = $e->getMessage();
+            $res = [];
+        }
+        return [$code,$msg,$res];
+    }
+    public function get_class_label_info()
+    {
+        try {
+            $cache_info = CacheKey::get_cache_key('class_label_info');
+            if( $this->cache_config['if_cache'] && $this->cache_config['if_redis'] && $this->Redis_obj->exists($cache_info['key']) ){
+                $res = $this->redis_get($cache_info['key']);
+            }else if( $this->cache_config['if_cache'] && $this->cache_config['if_file'] && $this->File_obj->has($cache_info['key']) ){
+                $res = $this->File_obj->get($cache_info['key']);
+            }else{
+                $res = [];
+                $class_label = Db::table('ns_class_label')->select();
+                $class_label_key = [];
+                $label_class_key = [];
+                foreach($class_label as $key => $val){
+                    $class_label_key[$val['class_id']]['class_id'] = $val['class_id'];
+                    $class_label_key[$val['class_id']]['label_id'][] = $val['label_id'];
+                    $label_class_key[$val['label_id']]['label_id'] = $val['label_id'];
+                    $label_class_key[$val['label_id']]['class_id'][] = $val['class_id'];
+                }
+                $res['class_label_key'] = $class_label_key;
+                $res['label_class_key'] = $label_class_key;
+                //文件缓存
+                $this->File_obj->set($cache_info['key'],$res,$cache_info['time']);
+                //redis缓存
+                $this->redis_set($cache_info['key'],$res,$cache_info['time']);
+            }
+            $code = 0;
+            $msg = "ok";
+        } catch (Exception $e) {
+            $code = $e->getCode();
+            $msg = $e->getMessage();
+            $res = [];
+        }
+        return [$code,$msg,$res];
+    }
+    public function get_blog_label_info()
+    {
+        try {
+            $cache_info = CacheKey::get_cache_key('blog_label_info');
+            if( $this->cache_config['if_cache'] && $this->cache_config['if_redis'] && $this->Redis_obj->exists($cache_info['key']) ){
+                $res = $this->redis_get($cache_info['key']);
+            }else if( $this->cache_config['if_cache'] && $this->cache_config['if_file'] && $this->File_obj->has($cache_info['key']) ){
+                $res = $this->File_obj->get($cache_info['key']);
+            }else{
+                $res = [];
+                $blog_label = Db::table('ns_label_blog')->select();
+                $blog_label_key = [];
+                $label_blog_key = [];
+                foreach($blog_label as $key => $val){
+                    $blog_label_key[$val['bloginfo_id']]['bloginfo_id'] = $val['bloginfo_id'];
+                    $blog_label_key[$val['bloginfo_id']]['label_id'][] = $val['label_id'];
+                    $label_blog_key[$val['label_id']]['label_id'] = $val['label_id'];
+                    $label_blog_key[$val['label_id']]['bloginfo_id'][] = $val['bloginfo_id'];
+                }
+                $res['blog_label_key'] = $blog_label_key;
+                $res['label_blog_key'] = $label_blog_key;
                 //文件缓存
                 $this->File_obj->set($cache_info['key'],$res,$cache_info['time']);
                 //redis缓存

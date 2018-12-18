@@ -27,6 +27,16 @@ class CacheKey
             'key'=>'class_link_info_key',
             'hash_key'=>'class_link_info_hash_key',
             'time'=>86400,
+        ],
+        'class_label_info'=>[
+            'key'=>'class_label_info',
+            'hash_key'=>'class_label_info_hash_key',
+            'time'=>86400
+        ],
+        'blog_label_info'=>[
+            'key'=>'blog_label_info',
+            'hash_key'=>'blog_label_info_hash_key',
+            'time'=>86400
         ]
     ];
 

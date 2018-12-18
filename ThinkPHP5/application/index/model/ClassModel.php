@@ -15,4 +15,14 @@ class ClassModel extends CommonModel
         });
         return $class_list;
     }
+    public function get_class_list_by_label($label_id)
+    {
+        list(,,$class_label_info) = $this->get_class_label_info();
+        $class_id_arr = $class_label_info['label_class_key'][$label_id]['class_id'];
+        list(,,$class_list) = $this->get_class_info();
+        $class_info = array_map(function($v)use($class_list){
+            return $class_list[$v];
+        },$class_id_arr);
+        return $class_info;
+    }
 }
