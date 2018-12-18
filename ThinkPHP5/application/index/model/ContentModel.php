@@ -10,7 +10,7 @@ class ContentModel extends CommonModel
         try {
             $cache_info = CacheKey::get_cache_key('content_info');
             $cache_info['file_key'] = $cache_info['key']."-".$blog_id;
-            if( $this->cache_config['if_cache'] && $this->cache_config['if_redis'] && $this->Redis_obj->exists($cache_info['key']) ){
+            if( $this->cache_config['if_cache'] && $this->cache_config['if_redis'] && $this->Redis_obj->hexists($cache_info['key'],$blog_id) ){
                 $res = $this->redis_hget($cache_info['key'],$blog_id);
             }else if( $this->cache_config['if_cache'] && $this->cache_config['if_file'] && $this->File_obj->has($cache_info['key']) ){
                 $res = $this->File_obj->get($cache_info['file_key']);
@@ -43,10 +43,9 @@ class ContentModel extends CommonModel
         list(,,$label_info) = $this->get_label_info();
         list(,,$blog_label_info) = $this->get_blog_label_info();
         $blog_label_info = $blog_label_info['blog_label_key'];
-        $label_list = $blog_label_info[$blog_id]['label_id'];
+        $label_list = isset($blog_label_info[$blog_id]['label_id'])?$blog_label_info[$blog_id]['label_id'] :[];
         $label_list = array_map(function($v)use($label_info){
-            $v = $label_info[$v];
-            return $v;
+            $v = $label_info[$v];return $v;
         },$label_list);
         $blog_info['label_list'] = $label_list;
         $bloglink_url = Db::table('ns_blog_link')->where("bloginfo_id",$blog_id)->select();
