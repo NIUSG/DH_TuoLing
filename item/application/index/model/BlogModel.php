@@ -8,6 +8,8 @@ use app\tools\controller\Redis;
 use app\tools\model\CacheKeyInfo;
 class BlogModel extends CommonModel
 {
+    //配置搜索类型cache,db
+    public $search_type = 'cache';
     public function index_blog_list($limit = 15)
     {
         $blog_info_list = $this->get_blog_latest_publish($limit);
@@ -56,7 +58,7 @@ class BlogModel extends CommonModel
             $cache_info['file_key'] = $cache_info['key']."-".$blog_id;
             if( $this->cache_config['if_cache'] && $this->cache_config['if_redis'] && $this->Redis_obj->hexists($cache_info['key'],$blog_id) ){
                 $res = $this->redis_hget($cache_info['key'],$blog_id);
-            }else if( $this->cache_config['if_cache'] && $this->cache_config['if_file'] && $this->File_obj->has($cache_info['key']) ){
+            }else if( $this->cache_config['if_cache'] && $this->cache_config['if_file'] && $this->File_obj->has($cache_info['file_key']) ){
                 $res = $this->File_obj->get($cache_info['file_key']);
             }else{
                 $res = $this->content_info($blog_id);
@@ -102,7 +104,6 @@ class BlogModel extends CommonModel
         $blog_info['content'] = $content;
         return $blog_info;
     }
-
     public function record_visit_blog($blog_id)
     {
         $redis = Redis::get_instance();
@@ -111,6 +112,70 @@ class BlogModel extends CommonModel
         $hash_key = md5(microtime(true));
         $res = $redis->redis_hset($cache_key['key'],$hash_key,$blog_id,$cache_key['time']);
         return $res;
+    }
+    public function get_search_blog_list($search_keywords)
+    {
+        switch ($this->search_type) {
+            case 'db':
+                $blog_list = $this->get_search_blog_db($search_keywords);
+                break;
+            case "cache":
+                $blog_list = $this->get_search_blog_cache($search_keywords);
+                break;
+        }
+        return $blog_list;
+    }
+    public function search_blog_list($search_keywords)
+    {
+        try {
+            $cache_info = CacheKeyInfo::get_cache_key('blog_search_info');
+            $cache_info['file_key'] = $cache_info['key']."-".$search_keywords;
+            $redis = Redis::get_instance();
+            if( $this->cache_config['if_cache'] && $this->cache_config['if_redis'] && $redis->Redis_obj->hexists($cache_info['key'],$search_keywords) ){
+                $res = $this->redis_hget($cache_info['key'],$search_keywords);
+            }else if( $this->cache_config['if_cache'] && $this->cache_config['if_file'] && $this->File_obj->has($cache_info['file_key']) ){
+                $res = $this->File_obj->get($cache_info['file_key']);
+            }else{
+                $res = $this->get_search_blog_list($search_keywords);
+                //文件缓存
+                $this->File_obj->set($cache_info['file_key'],$res,$cache_info['time']);
+                //redis缓存
+                if($redis->Redis_obj != null){
+                    $this->redis_hset($cache_info['key'],$search_keywords,$res,$cache_info['time']);
+                }
+                var_dump("db");
+            }
+            $code = 0;
+            $msg = "ok";
+
+        } catch (Exception $e) {
+            $code = $e->getCode();
+            $msg = $e->getMessage();
+            $res = [];
+        }
+        return $res;
+    }
+    public function get_search_blog_db($search_keywords)
+    {
+        $search_keywords = strtolower($search_keywords);
+        $sql = "select bloginfo_id,bloginfo_oid,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_status,bloginfo_createtime,bloginfo_updatetime,nb.class_id as blog_class_id,bloginfo_like,bloginfo_hate,bloginfo_click,class_title,FROM_UNIXTIME(bloginfo_createtime,'%Y-%m-%d %H:%i:%s') as created_at,FROM_UNIXTIME(bloginfo_createtime,'%H:%i:%s') as time,FROM_UNIXTIME(bloginfo_createtime,'%Y-%m-%d') as date from ns_bloginfo as nb left join ns_class as nc on nb.class_id = nc.class_id where bloginfo_status = 1 and bloginfo_title like '%".$search_keywords."%' order by bloginfo_id desc";
+        $blog_list = Db::query($sql);
+        return $blog_list;
+    }
+    public function get_search_blog_cache($search_keywords)
+    {
+        list(,,$blog_list) = $this->get_blog_info();
+        $blog_title_list = [];
+        list(,,$class_list) = $this->get_class_info();
+        foreach($blog_list as $key => $val){
+            $title = strtolower($val['bloginfo_title']);
+            if( false !== strpos($title,$search_keywords)){
+                $blog_title_list[$key] = $val;
+                $blog_title_list[$key]['class_title'] = $class_list[$val['class_id']]['class_title'];
+            }
+        }
+        array_multisort(array_column($blog_title_list,'bloginfo_id'),SORT_DESC,$blog_title_list);
+        return $blog_title_list;
     }
 }
 

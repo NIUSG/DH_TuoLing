@@ -2,11 +2,12 @@
 namespace app\index\controller;
 
 class Blog extends Common
-{
+{   private $default_page = 15;
     public function index()
     {
         $list = [];
-        $list['blog_list'] = $this->M_Blog->blog_list();
+        $search_keywords = input('get.search_key');
+        $list['blog_list'] = $search_keywords?$this->M_Blog->search_blog_list($search_keywords):$this->M_Blog->blog_list();
         $list['right_list'] = $this->get_right_list();
         list(,,$list['label_list']) = $this->M_Common->get_label_info();
         $list['class_list'] = $this->M_Category->class_list(2);

@@ -46,6 +46,10 @@ class CacheKeyInfo extends Model
             'hash_key'=>'content_info_hash_key',
             'time'=>86400
         ],
+        'blog_search_info'=>[
+            'key'=>'blog_search_info_key',
+            'time'=>86400
+        ],
         'visit_link_info'=>[
             'key'=>'visit_link_info_key',
             'time'=>0
