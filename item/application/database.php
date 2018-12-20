@@ -13,13 +13,13 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => '127.0.0.1',
+    'hostname'        => 'ali.niushao.net',
     // 数据库名
     'database'        => 'dh_tuoling',
     // 用户名
-    'username'        => 'root',
+    'username'        => 'niushao',
     // 密码
-    'password'        => 'root',
+    'password'        => 'niushao',
     // 端口
     'hostport'        => '',
     // 连接dsn
