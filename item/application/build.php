@@ -17,8 +17,8 @@ return [
     'index'     => [
         '__file__'   => ['common.php','config.php'],
         '__dir__'    => ['controller', 'model', 'view'],
-        'controller' => ['Index','Blog','Link','Category','Common'],
-        'model'      => ['IndexModel','BlogModel','LinkModel','CategoryModel'],
+        'controller' => ['Index','Blog','Link','Category','Common','Aboutme','Label'],
+        'model'      => ['IndexModel','BlogModel','LinkModel','CategoryModel','CacheKey','CommonModel'],
     ],
     'admin'     => [
         '__file__'   => ['common.php','config.php'],
