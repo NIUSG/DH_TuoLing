@@ -1,2 +1,3 @@
-application/config_backups.php
-application/database_backups.php
+application/config.php
+application/database.php
+application/index/
