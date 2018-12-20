@@ -1,11 +1,11 @@
 <?php
-namespace app\tools\model;
+namespace app\index\model;
 
 use think\Model;
 
-class CacheKeyInfo extends Model
+class CacheKey extends Model
 {
-        private static $cache_key = [
+    private static $cache_key = [
         'class_info'=>[
             'key'=>"class_info_key",
             'time'=>86400,
@@ -46,18 +46,6 @@ class CacheKeyInfo extends Model
             'hash_key'=>'content_info_hash_key',
             'time'=>86400
         ],
-        'visit_link_info'=>[
-            'key'=>'visit_link_info_key',
-            'time'=>0
-        ],
-        'visit_blog_info'=>[
-            'key'=>'visit_blog_info_key',
-            'time'=>0
-        ],
-        'visit_web_info'=>[
-            'key'=>'visit_web_info_key',
-            'time'=>0
-        ],
     ];
 
     public static function get_cache_key($type_info = null)
@@ -65,4 +53,5 @@ class CacheKeyInfo extends Model
         if($type_info == null) return self::$cache_key;
         return self::$cache_key[$type_info];
     }
+
 }

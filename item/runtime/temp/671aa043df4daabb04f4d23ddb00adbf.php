@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:89:"/home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html";i:1545274232;s:88:"/home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html";i:1545279500;s:75:"/home/wwwroot/default/DH_TuoLing/item/application/index/view/base/base.html";i:1545274232;s:79:"/home/wwwroot/default/DH_TuoLing/item/application/index/view/public/header.html";i:1545274232;s:79:"/home/wwwroot/default/DH_TuoLing/item/application/index/view/public/footer.html";i:1545274232;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:89:"/home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html";i:1545274232;s:88:"/home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html";i:1545286099;s:75:"/home/wwwroot/default/DH_TuoLing/item/application/index/view/base/base.html";i:1545274232;s:79:"/home/wwwroot/default/DH_TuoLing/item/application/index/view/public/header.html";i:1545274232;s:79:"/home/wwwroot/default/DH_TuoLing/item/application/index/view/public/footer.html";i:1545274232;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +64,7 @@
     </h3>
     <ul class="rank">
     <?php foreach($list['right_list']['blog_clicknum'] as $val): ?>
-      <li><a href="<?php echo url('content/index'); ?>?id=<?php echo $val['bloginfo_id']; ?>" target="_blank"><?php echo $val['bloginfo_title']; ?>(<?php echo $val['bloginfo_click']; ?>)</a></li>
+      <li><a href="<?php echo url('blog/index_content'); ?>?blog_id=<?php echo $val['bloginfo_id']; ?>" target="_blank"><?php echo $val['bloginfo_title']; ?>(<?php echo $val['bloginfo_click']; ?>)</a></li>
     <?php endforeach; ?>
     </ul>
     <h3 class="ph">
@@ -72,7 +72,7 @@
     </h3>
     <ul class="paih">
     <?php foreach($list['right_list']['blog_latest_publish'] as $val): ?>
-      <li><a href="<?php echo url('content/index'); ?>?id=<?php echo $val['bloginfo_id']; ?>" target="_blank"><?php echo $val['bloginfo_title']; ?></a></li>
+      <li><a href="<?php echo url('blog/index_content'); ?>?blog_id=<?php echo $val['bloginfo_id']; ?>" target="_blank"><?php echo $val['bloginfo_title']; ?></a></li>
     <?php endforeach; ?>
     </ul>
     <h3 class="links">

@@ -10529,3 +10529,1508 @@
 ) ]
 [ info ] [ RUN ] app\index\controller\Link->click_num[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Link.php ]
 [ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T13:59:59+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=54
+[运行时间：0.303246s] [吞吐率：3.30req/s] [内存消耗：3,080.41kb] [文件加载：97]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'dnt' => '1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '54',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.119932s ] mysql:host=ali.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_bloginfo` [ RunTime:0.018636s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_bloginfo` WHERE  `bloginfo_id` = 54 [ RunTime:0.018200s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_label_blog` [ RunTime:0.018387s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_label_blog` [ RunTime:0.017947s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blog_link` [ RunTime:0.018259s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blog_link` WHERE  `bloginfo_id` = 54 [ RunTime:0.018003s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blogcontent` [ RunTime:0.018325s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blogcontent` WHERE  `bloginfo_id` = 54 LIMIT 1 [ RunTime:0.018074s ]
+---------------------------------------------------------------
+[ 2018-12-20T13:59:59+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php
+[运行时间：0.035634s] [吞吐率：28.06req/s] [内存消耗：2,990.41kb] [文件加载：96]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:00:01+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/link/index.html
+[运行时间：0.033889s] [吞吐率：29.51req/s] [内存消耗：3,062.13kb] [文件加载：97]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'link',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Link->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Link.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/link/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:00:02+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html
+[运行时间：0.037492s] [吞吐率：26.67req/s] [内存消耗：3,106.99kb] [文件加载：96]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/link/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:00:06+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=57
+[运行时间：0.196099s] [吞吐率：5.10req/s] [内存消耗：3,085.14kb] [文件加载：97]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '57',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.045195s ] mysql:host=ali.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_bloginfo` [ RunTime:0.019492s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_bloginfo` WHERE  `bloginfo_id` = 57 [ RunTime:0.018813s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blog_link` [ RunTime:0.019349s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blog_link` WHERE  `bloginfo_id` = 57 [ RunTime:0.018682s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blogcontent` [ RunTime:0.019014s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blogcontent` WHERE  `bloginfo_id` = 57 LIMIT 1 [ RunTime:0.018902s ]
+---------------------------------------------------------------
+[ 2018-12-20T14:00:55+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=57
+[运行时间：0.030380s] [吞吐率：32.92req/s] [内存消耗：2,865.20kb] [文件加载：93]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '57',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:03:21+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=57
+[运行时间：0.029655s] [吞吐率：33.72req/s] [内存消耗：2,865.61kb] [文件加载：93]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '57',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:03:21+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=57
+[运行时间：0.028989s] [吞吐率：34.50req/s] [内存消耗：2,865.61kb] [文件加载：93]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '57',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:03:22+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=57
+[运行时间：0.030510s] [吞吐率：32.78req/s] [内存消耗：2,865.61kb] [文件加载：93]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '57',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:03:22+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=57
+[运行时间：0.031875s] [吞吐率：31.37req/s] [内存消耗：2,865.61kb] [文件加载：93]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '57',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:03:22+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=57
+[运行时间：0.028986s] [吞吐率：34.50req/s] [内存消耗：2,865.61kb] [文件加载：93]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '57',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:07:03+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=57
+[运行时间：0.033404s] [吞吐率：29.94req/s] [内存消耗：3,020.41kb] [文件加载：98]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '57',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:07:10+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/content/index.html?id=49
+[运行时间：0.022595s] [吞吐率：44.26req/s] [内存消耗：1,392.55kb] [文件加载：75]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'content',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=57',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => '49',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:07:16+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.033490s] [吞吐率：29.86req/s] [内存消耗：2,992.86kb] [文件加载：96]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=57',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:07:18+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=54
+[运行时间：0.033750s] [吞吐率：29.63req/s] [内存消耗：3,016.50kb] [文件加载：98]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '54',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:09:06+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.034152s] [吞吐率：29.28req/s] [内存消耗：2,992.86kb] [文件加载：96]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:09:07+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.034930s] [吞吐率：28.63req/s] [内存消耗：2,992.86kb] [文件加载：96]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:09:09+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/link/index.html
+[运行时间：0.034712s] [吞吐率：28.81req/s] [内存消耗：3,063.96kb] [文件加载：97]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'link',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Link->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Link.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/link/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:09:10+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html
+[运行时间：0.043496s] [吞吐率：22.99req/s] [内存消耗：3,109.19kb] [文件加载：96]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/link/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:09:11+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/aboutme/index.html
+[运行时间：0.031920s] [吞吐率：31.33req/s] [内存消耗：2,910.05kb] [文件加载：97]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'aboutme',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Aboutme->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Aboutme.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/aboutme/index.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:09:12+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.034488s] [吞吐率：29.00req/s] [内存消耗：2,992.86kb] [文件加载：96]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/aboutme/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:09:14+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=34
+[运行时间：0.307143s] [吞吐率：3.26req/s] [内存消耗：3,306.28kb] [文件加载：101]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '34',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.147278s ] mysql:host=ali.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_bloginfo` [ RunTime:0.018889s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_bloginfo` WHERE  `bloginfo_id` = 34 [ RunTime:0.018299s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blog_link` [ RunTime:0.019155s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blog_link` WHERE  `bloginfo_id` = 34 [ RunTime:0.018273s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blogcontent` [ RunTime:0.018509s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blogcontent` WHERE  `bloginfo_id` = 34 LIMIT 1 [ RunTime:0.027146s ]
+---------------------------------------------------------------
+[ 2018-12-20T14:09:17+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=50
+[运行时间：0.454832s] [吞吐率：2.20req/s] [内存消耗：3,108.16kb] [文件加载：99]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '50',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.081898s ] mysql:host=ali.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_bloginfo` [ RunTime:0.231782s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_bloginfo` WHERE  `bloginfo_id` = 50 [ RunTime:0.020173s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blog_link` [ RunTime:0.020372s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blog_link` WHERE  `bloginfo_id` = 50 [ RunTime:0.020087s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blogcontent` [ RunTime:0.020431s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blogcontent` WHERE  `bloginfo_id` = 50 LIMIT 1 [ RunTime:0.020054s ]
+---------------------------------------------------------------
+[ 2018-12-20T14:09:21+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/link/click_num.html?url=http://www.orsoon.com/Mac/159463.html&id=36
+[运行时间：0.033384s] [吞吐率：29.95req/s] [内存消耗：2,935.73kb] [文件加载：99]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'link',
+    2 => 'click_num',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'url' => 'http://www.orsoon.com/Mac/159463.html',
+  'id' => '36',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Link->click_num[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Link.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:22:25+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php
+[运行时间：0.019490s] [吞吐率：51.31req/s] [内存消耗：1,545.13kb] [文件加载：78]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:22:28+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=55
+[运行时间：0.019560s] [吞吐率：51.12req/s] [内存消耗：1,550.05kb] [文件加载：78]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '55',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:26:05+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=55
+[运行时间：0.023105s] [吞吐率：43.28req/s] [内存消耗：1,731.69kb] [文件加载：85]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '55',
+)
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 2[/home/wwwroot/default/DH_TuoLing/item/application/tools/controller/Visit.php:13]
+---------------------------------------------------------------
+[ 2018-12-20T14:26:50+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=55
+[运行时间：0.019640s] [吞吐率：50.92req/s] [内存消耗：1,557.78kb] [文件加载：79]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '55',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:27:22+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=55
+[运行时间：0.019030s] [吞吐率：52.55req/s] [内存消耗：1,557.72kb] [文件加载：79]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '55',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:31:15+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=55
+[运行时间：0.025577s] [吞吐率：39.10req/s] [内存消耗：2,059.52kb] [文件加载：88]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '55',
+)
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: link_id[/home/wwwroot/default/DH_TuoLing/item/application/tools/controller/Visit.php:16]
+---------------------------------------------------------------
+[ 2018-12-20T14:31:25+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=55
+[运行时间：0.022383s] [吞吐率：44.68req/s] [内存消耗：1,894.18kb] [文件加载：82]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '55',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:33:16+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=55
+[运行时间：0.326160s] [吞吐率：3.07req/s] [内存消耗：3,170.24kb] [文件加载：101]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '55',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.164848s ] mysql:host=ali.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_bloginfo` [ RunTime:0.019387s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_bloginfo` WHERE  `bloginfo_id` = 55 [ RunTime:0.018870s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blog_link` [ RunTime:0.019028s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blog_link` WHERE  `bloginfo_id` = 55 [ RunTime:0.018782s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blogcontent` [ RunTime:0.019040s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blogcontent` WHERE  `bloginfo_id` = 55 LIMIT 1 [ RunTime:0.028132s ]
+---------------------------------------------------------------
+[ 2018-12-20T14:33:19+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/link/index.html
+[运行时间：0.034047s] [吞吐率：29.37req/s] [内存消耗：3,110.52kb] [文件加载：101]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'link',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=55',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Link->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Link.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/link/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:33:20+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html
+[运行时间：0.036794s] [吞吐率：27.18req/s] [内存消耗：3,156.05kb] [文件加载：100]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/link/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:33:21+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_label.html?label_id=15
+[运行时间：0.109277s] [吞吐率：9.15req/s] [内存消耗：3,127.27kb] [文件加载：101]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_label',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'label_id' => '15',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_label[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.031971s ] mysql:host=ali.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_class_label` [ RunTime:0.020035s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_class_label` [ RunTime:0.019466s ]
+---------------------------------------------------------------
+[ 2018-12-20T14:33:22+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/aboutme/index.html
+[运行时间：0.032400s] [吞吐率：30.86req/s] [内存消耗：2,956.91kb] [文件加载：101]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'aboutme',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_label.html?label_id=15',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Aboutme->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Aboutme.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/aboutme/index.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:33:24+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html
+[运行时间：0.034999s] [吞吐率：28.57req/s] [内存消耗：3,156.05kb] [文件加载：100]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/aboutme/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-20T14:33:26+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=53
+[运行时间：0.245070s] [吞吐率：4.08req/s] [内存消耗：3,142.47kb] [文件加载：101]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '53',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.082855s ] mysql:host=ali.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_bloginfo` [ RunTime:0.021350s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_bloginfo` WHERE  `bloginfo_id` = 53 [ RunTime:0.020951s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blog_link` [ RunTime:0.020904s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blog_link` WHERE  `bloginfo_id` = 53 [ RunTime:0.020577s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blogcontent` [ RunTime:0.020964s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blogcontent` WHERE  `bloginfo_id` = 53 LIMIT 1 [ RunTime:0.020848s ]
+---------------------------------------------------------------
+[ 2018-12-20T14:33:28+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=42
+[运行时间：0.195901s] [吞吐率：5.10req/s] [内存消耗：3,186.38kb] [文件加载：101]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=53',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '42',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.030976s ] mysql:host=ali.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_bloginfo` [ RunTime:0.019197s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_bloginfo` WHERE  `bloginfo_id` = 42 [ RunTime:0.018861s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blog_link` [ RunTime:0.018921s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blog_link` WHERE  `bloginfo_id` = 42 [ RunTime:0.018547s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blogcontent` [ RunTime:0.018857s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blogcontent` WHERE  `bloginfo_id` = 42 LIMIT 1 [ RunTime:0.027961s ]
+---------------------------------------------------------------
+[ 2018-12-20T14:33:30+08:00 ] 116.24.64.149 GET 139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=53
+[运行时间：0.035716s] [吞吐率：28.00req/s] [内存消耗：3,033.80kb] [文件加载：100]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1545276059753',
+  'connection' => 'keep-alive',
+  'referer' => 'http://139.199.230.187/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=42',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:64.0) Gecko/20100101 Firefox/64.0',
+  'host' => '139.199.230.187',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '53',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
