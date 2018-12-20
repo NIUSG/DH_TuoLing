@@ -25,7 +25,7 @@ class Redis
     //redis操作封装
     public function redis_set($key,$val,$time=0)
     {
-        $val = is_scalar($val)?$val:serialize($val);
+        $val = is_scalar($val)?$val:json_encode($val);
         if($time>0){
             $redis_res = $this->Redis_obj->set($key,$val) && $this->Redis_obj->expire($key,$time);
         }else{
@@ -36,7 +36,7 @@ class Redis
     //redis hash_set
     public function redis_hset($key,$id,$val,$time=0)
     {
-        $val = is_scalar($val)?$val:serialize($val);
+        $val = is_scalar($val)?$val:json_encode($val);
         if($time>0){
             $redis_res = $this->Redis_obj->hset($key,$id,$val) && $this->Redis_obj->expire($key,$time);
         }else{
@@ -46,17 +46,18 @@ class Redis
     }
     public function redis_get($key)
     {
-        $res = unserialize($this->Redis_obj->get($key));
+        $res = json_decode($this->Redis_obj->get($key),true);
         return $res;
     }
     public function redis_hget($key,$id)
     {
-        $res = unserialize($this->Redis_obj->hget($key,$id));
+        $res = json_decode($this->Redis_obj->hget($key,$id));
         return $res;
     }
     public function redis_hgetall($key)
     {
         $res = $this->Redis_obj->hgetall($key);
+        $res = array_map(function($v){return json_decode($v);},$res);
         return $res;
     }
 }

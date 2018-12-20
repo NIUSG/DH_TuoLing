@@ -28,9 +28,10 @@ return [
     ],
     'console'     => [
         '__file__'   => ['common.php','config.php'],
-        '__dir__'    => ['controller', 'model'],
-        'controller' => ['Index'],
-        'model'      => ['IndexModel'],
+        '__dir__'    => ['controller', 'model','service'],
+        'controller' => ['Index','Visit'],
+        'model'      => ['IndexModel','VisitModel'],
+        'service'    => ['IndexService','VisitService']
     ],
     'tools'     => [
         '__file__'   => ['common.php','config.php'],

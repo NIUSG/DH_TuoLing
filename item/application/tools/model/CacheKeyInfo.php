@@ -58,6 +58,10 @@ class CacheKeyInfo extends Model
             'key'=>'visit_web_info_key',
             'time'=>0
         ],
+        'lock_console_visit'=>[
+            'key'=>'lock_console_visit',
+            'time'=>1,
+        ],
     ];
 
     public static function get_cache_key($type_info = null)
