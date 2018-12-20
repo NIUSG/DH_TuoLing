@@ -24,4 +24,9 @@ class VisitModel extends Model
         $res = Db::execute($sql);
         return $res;
     }
+    public function add_search_log($val)
+    {
+        $res = Db::table('ns_search_log')->insertGetId($val);
+        return $res;
+    }
 }

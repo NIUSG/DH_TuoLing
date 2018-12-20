@@ -62,9 +62,13 @@ class CacheKeyInfo extends Model
             'key'=>'visit_web_info_key',
             'time'=>0
         ],
+        'visit_search_blog_log_info'=>[
+            'key'=>'visit_search_blog_log_info_key',
+            'time'=>0
+        ],
         'lock_console_visit'=>[
             'key'=>'lock_console_visit',
-            'time'=>1,
+            'time'=>599,
         ],
     ];
 

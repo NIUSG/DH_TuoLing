@@ -53,4 +53,17 @@ class VisitService
             }
         }
     }
+
+    public function search_log()
+    {
+        $cache_key = CacheKeyInfo::get_cache_key('visit_search_blog_log_info');
+        $log_info = $this->redis->redis_hgetall($cache_key['key']);
+        if(empty($log_info)) return;
+        foreach($log_info as $key => $val){
+            $db_res = $this->M_Visit->add_search_log($val);
+            if($db_res){
+                $redis_res = $this->redis->Redis_obj->hdel($cache_key['key'],$key);
+            }
+        }
+    }
 }

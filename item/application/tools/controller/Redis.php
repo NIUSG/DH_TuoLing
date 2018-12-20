@@ -57,7 +57,7 @@ class Redis
     public function redis_hgetall($key)
     {
         $res = $this->Redis_obj->hgetall($key);
-        $res = array_map(function($v){return json_decode($v);},$res);
+        $res = array_map(function($v){return json_decode($v,true);},$res);
         return $res;
     }
 }

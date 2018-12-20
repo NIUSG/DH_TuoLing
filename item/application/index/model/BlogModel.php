@@ -9,7 +9,7 @@ use app\tools\model\CacheKeyInfo;
 class BlogModel extends CommonModel
 {
     //配置搜索类型cache,db
-    public $search_type = 'cache';
+    public $search_type = 'db';
     public function index_blog_list($limit = 15)
     {
         $blog_info_list = $this->get_blog_latest_publish($limit);
@@ -123,10 +123,28 @@ class BlogModel extends CommonModel
                 $blog_list = $this->get_search_blog_cache($search_keywords);
                 break;
         }
+        //搜索日志写入redis
         return $blog_list;
+    }
+    public function record_search_log($search_keywords,$data,$search_time)
+    {
+        $redis = Redis::get_instance();
+        if($redis->Redis_obj == null) return;
+        $cache_key = CacheKeyInfo::get_cache_key('visit_search_blog_log_info');
+        $hash_key = md5(microtime(true));
+        $log_info['search_type'] = $this->search_type;
+        $log_info['is_cache'] = $this->cache_config['if_cache']?0:1;
+        $log_info['search_time'] = $search_time;
+        $log_info['search_key'] = $search_keywords;
+        $log_info['created_at'] = date('Y-m-d H:i:s');
+        $log_info['res_count'] = count($data);
+        $log_info['res_content'] = implode(',',array_column($data,'bloginfo_id'));
+        $res = $redis->redis_hset($cache_key['key'],$hash_key,$log_info,$cache_key['time']);
+        return $res;
     }
     public function search_blog_list($search_keywords)
     {
+$time_start = microtime(true);
         try {
             $cache_info = CacheKeyInfo::get_cache_key('blog_search_info');
             $cache_info['file_key'] = $cache_info['key']."-".$search_keywords;
@@ -153,6 +171,8 @@ class BlogModel extends CommonModel
             $msg = $e->getMessage();
             $res = [];
         }
+$time_end = microtime(true);
+        $this->record_search_log($search_keywords,$res,$time_end-$time_start);
         return $res;
     }
     public function get_search_blog_db($search_keywords)

@@ -36,5 +36,6 @@ class Visit extends Command
         $res_link = $visit_obj->link();
         $res_blog = $visit_obj->blog();
         $res_web = $visit_obj->web();
+        $res_web = $visit_obj->search_log();
     }
 }
