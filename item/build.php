@@ -29,9 +29,9 @@ return [
     'console'     => [
         '__file__'   => ['common.php','config.php'],
         '__dir__'    => ['controller', 'model','service'],
-        'controller' => ['Index','Visit','VisitIpLog'],
-        'model'      => ['IndexModel','VisitModel','VisitIpLogModel'],
-        'service'    => ['IndexService','VisitService','VisitIpLogService'],
+        'controller' => ['Index','Visit','VisitIpLog','Test'],
+        'model'      => ['IndexModel','VisitModel','VisitIpLogModel','TestModel'],
+        'service'    => ['IndexService','VisitService','VisitIpLogService','TestService'],
     ],
     'tools'     => [
         '__file__'   => ['common.php','config.php'],
@@ -39,4 +39,10 @@ return [
         'controller' => ['GetIp','Redis','Index','Visit','Request','Log'],
     ],
     // 其他更多的模块定义
+    'Test'     => [
+        '__file__'   => ['common.php','config.php',],
+        '__dir__'    => ['controller', 'model', 'view'],
+        'controller' => ['Test'],
+        'model'      => ['TestModel'],
+    ],
 ];
