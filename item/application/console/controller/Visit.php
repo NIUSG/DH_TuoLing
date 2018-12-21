@@ -25,7 +25,6 @@ class Visit extends Command
         $visit_obj = new VisitService();
         $res_link = $visit_obj->link();
         $res_blog = $visit_obj->blog();
-        die();
         $res_web = $visit_obj->web();
         $res_web = $visit_obj->search_log();
     }
