@@ -18,15 +18,20 @@ class Visit extends Command
 
     protected function execute(Input $input, Output $output)
     {
+trace('start...');
         $this->lock();
         //定义php执行时间
         ini_set('max_execution_time', 600);
         //执行核心逻辑
         $visit_obj = new VisitService();
         $res_link = $visit_obj->link();
+trace("link end");
         $res_blog = $visit_obj->blog();
+trace("blog_end");
         $res_web = $visit_obj->web();
+trace("web_end");
         $res_web = $visit_obj->search_log();
+trace('end...');
     }
     protected function lock()
     {

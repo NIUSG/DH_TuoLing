@@ -36,7 +36,7 @@ return [
     'tools'     => [
         '__file__'   => ['common.php','config.php'],
         '__dir__'    => ['controller', 'model'],
-        'controller' => ['GetIp','Redis','Index','Visit','Request'],
+        'controller' => ['GetIp','Redis','Index','Visit','Request','Log'],
     ],
     // 其他更多的模块定义
 ];
