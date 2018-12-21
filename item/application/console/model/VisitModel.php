@@ -13,6 +13,7 @@ class VisitModel extends Model
     }
      public function add_blog_clicknum($blog_id)
     {
+        if(empty($blog_id)) return true;
         $sql = "update ns_bloginfo set bloginfo_click = bloginfo_click+1 where bloginfo_id = ".$blog_id;
         $res = Db::execute($sql);
         return $res;

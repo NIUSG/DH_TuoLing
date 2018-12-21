@@ -29,14 +29,14 @@ return [
     'console'     => [
         '__file__'   => ['common.php','config.php'],
         '__dir__'    => ['controller', 'model','service'],
-        'controller' => ['Index','Visit'],
-        'model'      => ['IndexModel','VisitModel'],
-        'service'    => ['IndexService','VisitService']
+        'controller' => ['Index','Visit','VisitIpLog'],
+        'model'      => ['IndexModel','VisitModel','VisitIpLogModel'],
+        'service'    => ['IndexService','VisitService','VisitIpLogService'],
     ],
     'tools'     => [
         '__file__'   => ['common.php','config.php'],
         '__dir__'    => ['controller', 'model'],
-        'controller' => ['GetIp','Redis','Index','Visit'],
+        'controller' => ['GetIp','Redis','Index','Visit','Request'],
     ],
     // 其他更多的模块定义
 ];

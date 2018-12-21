@@ -11,4 +11,5 @@
 
 return [
     'app\console\controller\Visit',
+    'app\console\controller\VisitIpLog',
 ];
