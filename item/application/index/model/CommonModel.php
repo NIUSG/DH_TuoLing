@@ -26,7 +26,8 @@ class CommonModel extends Model
         }
         $this->File_obj = new File();
         if($this->cache_config['if_cache'] && $this->cache_config['if_redis'] && !$this->cache_config['is_redis']){
-            throw new \BadFunctionCallException('不支持redis');
+            //throw new \BadFunctionCallException('不支持redis');
+            $this->cache_config['if_redis'] = false;
         }
         if($this->cache_config['if_cache'] && $this->cache_config["is_redis"] && $this->cache_config["if_redis"] && $this->cache_config["if_redis"]){
             $this->cache_config['if_file'] = false;
