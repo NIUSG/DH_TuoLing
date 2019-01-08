@@ -3,3 +3,4 @@ application/database.php
 runtime/
 .tags
 .tags_sorted_by_file
+application/console/database.php
