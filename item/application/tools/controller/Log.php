@@ -6,14 +6,22 @@ use Monolog\Handler\StreamHandler;
 class Log
 {
     public $log_path_monogo = LOG_PATH.'monolog/';
-    public function init()
+    public $log_obj;
+    public function init($log_name)
     {
-        $log = new Logger('abc');
-        var_dump($this->log_path_monogo);
-        $log->pushHandler(new StreamHandler($this->log_path_monogo.'/abc.log', Logger::WARNING));
-        // add records to the log
-        $log->warning('Foo');
-        $log->error('Bar');
-        $log->info('abc');
+        $this->log_obj = new Logger($log_name);
+        $this->log_obj->pushHandler(new StreamHandler($this->log_path_monogo.'/'.$log_name.'.log', Logger::WARNING));
+    }
+    public function warning($str)
+    {
+        $this->log_obj->warning($str);
+    }
+    public function error($str)
+    {
+        $this->log_obj->error($str);
+    }
+    public function info($str)
+    {
+        $this->log_obj->info($str);
     }
 }

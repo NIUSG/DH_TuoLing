@@ -29,9 +29,9 @@ return [
     'console'     => [
         '__file__'   => ['common.php','config.php'],
         '__dir__'    => ['controller', 'model','service'],
-        'controller' => ['Index','Visit','VisitIpLog','Test'],
-        'model'      => ['IndexModel','VisitModel','VisitIpLogModel','TestModel'],
-        'service'    => ['IndexService','VisitService','VisitIpLogService','TestService'],
+        'controller' => ['Index','Visit','VisitIpLog','Test','Demo'],
+        'model'      => ['IndexModel','VisitModel','VisitIpLogModel','TestModel','DemoModel'],
+        'service'    => ['IndexService','VisitService','VisitIpLogService','TestService','DemoService'],
     ],
     'tools'     => [
         '__file__'   => ['common.php','config.php'],

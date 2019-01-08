@@ -1,14 +1,13 @@
 <?php
 namespace app\console\controller;
-
 use think\console\Command;
 use think\console\Input;
 use think\console\Output;
+use think\Log;
 
+use app\console\service\VisitIpLogService;
 use app\tools\model\CacheKeyInfo;
 use app\tools\controller\Redis;
-use app\console\service\VisitService;
-use app\tools\controller\Logger;
 class Visit extends Command
 {
     protected function configure()
