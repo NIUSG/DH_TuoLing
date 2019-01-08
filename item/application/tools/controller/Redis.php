@@ -12,7 +12,7 @@ class Redis
     {
         if(extension_loaded('redis')){
             $this->Redis_obj = new \Redis();
-            $this->Redis_obj->connect('127.0.0.1', 6379);
+            $this->Redis_obj->connect($host, 6379);
         }
     }
     public static function get_instance($host = '127.0.0.1',$port='6379')
