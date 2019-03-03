@@ -5,6 +5,7 @@ use think\console\Input;
 use think\console\Output;
 use think\Log;
 
+use app\console\service\VisitService;
 use app\console\service\VisitIpLogService;
 use app\tools\model\CacheKeyInfo;
 use app\tools\controller\Redis;
