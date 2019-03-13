@@ -409,3 +409,1462 @@
 )
 [ info ] [ LOG ] INIT File
 [ error ] [0]MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error.[/home/wwwroot/default/DH_TuoLing/item/application/tools/controller/Redis.php:43]
+---------------------------------------------------------------
+[ 2019-03-13T16:48:22+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.118962s] [吞吐率：8.41req/s] [内存消耗：2,363.72kb] [文件加载：44]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.072624s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_id,class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.016781s ]
+---------------------------------------------------------------
+[ 2019-03-13T16:49:02+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.100286s] [吞吐率：9.97req/s] [内存消耗：2,363.72kb] [文件加载：44]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.054576s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_id,class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.016853s ]
+---------------------------------------------------------------
+[ 2019-03-13T16:51:07+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.101683s] [吞吐率：9.83req/s] [内存消耗：2,363.02kb] [文件加载：44]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.053973s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.018674s ]
+---------------------------------------------------------------
+[ 2019-03-13T16:55:06+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.078054s] [吞吐率：12.81req/s] [内存消耗：2,363.23kb] [文件加载：44]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.030630s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.018829s ]
+---------------------------------------------------------------
+[ 2019-03-13T16:57:01+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.076303s] [吞吐率：13.11req/s] [内存消耗：2,415.91kb] [文件加载：45]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.028745s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.018171s ]
+---------------------------------------------------------------
+[ 2019-03-13T16:57:21+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.077920s] [吞吐率：12.83req/s] [内存消耗：2,415.60kb] [文件加载：45]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.029356s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.019025s ]
+---------------------------------------------------------------
+[ 2019-03-13T16:57:35+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.072826s] [吞吐率：13.73req/s] [内存消耗：2,415.84kb] [文件加载：45]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.026788s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.016668s ]
+---------------------------------------------------------------
+[ 2019-03-13T16:59:28+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.076229s] [吞吐率：13.12req/s] [内存消耗：2,416.63kb] [文件加载：45]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.029582s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.017310s ]
+---------------------------------------------------------------
+[ 2019-03-13T16:59:39+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.071104s] [吞吐率：14.06req/s] [内存消耗：2,416.63kb] [文件加载：45]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.025486s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.016291s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:00:09+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.075438s] [吞吐率：13.26req/s] [内存消耗：2,479.32kb] [文件加载：49]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.026303s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.016850s ]
+[ error ] [2]A non-numeric value encountered[/home/wwwroot/default/DH_TuoLing/item/application/index/controller/Common.php:19]
+---------------------------------------------------------------
+[ 2019-03-13T17:01:13+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.078375s] [吞吐率：12.76req/s] [内存消耗：2,416.75kb] [文件加载：45]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.030016s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.018849s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:01:37+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.076912s] [吞吐率：13.00req/s] [内存消耗：2,416.75kb] [文件加载：45]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.028720s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.018244s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:25:31+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.079062s] [吞吐率：12.65req/s] [内存消耗：2,449.40kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.031028s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.017784s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:29:01+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.086288s] [吞吐率：11.59req/s] [内存消耗：2,449.40kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.035257s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.020830s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:30:10+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.099938s] [吞吐率：10.01req/s] [内存消耗：2,462.20kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.030841s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.018957s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,FROM_UNIXTIME(bloginfo_createtime,'%Y-%m-%d') AS craete_at
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.019264s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:32:04+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.097452s] [吞吐率：10.26req/s] [内存消耗：2,461.57kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.028781s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.018820s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.019028s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:34:11+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.089189s] [吞吐率：11.21req/s] [内存消耗：2,462.52kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.026719s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.015995s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.016373s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:34:13+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.097540s] [吞吐率：10.25req/s] [内存消耗：2,462.52kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.030548s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.018453s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.018609s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:34:31+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.097157s] [吞吐率：10.29req/s] [内存消耗：2,462.66kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.028441s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.018560s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.018837s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:34:51+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.128062s] [吞吐率：7.81req/s] [内存消耗：2,462.66kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.058747s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.019184s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.019450s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:35:18+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.089155s] [吞吐率：11.22req/s] [内存消耗：2,462.52kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.025355s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.016463s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.016714s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:35:20+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.099616s] [吞吐率：10.04req/s] [内存消耗：2,462.52kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.029953s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.019636s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.019769s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:35:20+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.096586s] [吞吐率：10.35req/s] [内存消耗：2,462.52kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.028874s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.018839s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.019126s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:35:21+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.098017s] [吞吐率：10.20req/s] [内存消耗：2,462.52kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.028998s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.019802s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.019194s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:35:22+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.090116s] [吞吐率：11.10req/s] [内存消耗：2,462.52kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.025976s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.016957s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.017061s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:35:47+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.089443s] [吞吐率：11.18req/s] [内存消耗：2,435.73kb] [文件加载：46]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.026585s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.017349s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.017532s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:36:08+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.128896s] [吞吐率：7.76req/s] [内存消耗：2,526.00kb] [文件加载：52]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.024790s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.015940s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.016057s ]
+[ error ] [2]date() expects parameter 2 to be integer, string given[/home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php:17]
+---------------------------------------------------------------
+[ 2019-03-13T17:36:28+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.093560s] [吞吐率：10.69req/s] [内存消耗：2,435.80kb] [文件加载：46]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.028238s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.018513s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.018662s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:37:22+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.104177s] [吞吐率：9.60req/s] [内存消耗：2,462.90kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.031862s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.020622s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.020871s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:37:43+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.090284s] [吞吐率：11.08req/s] [内存消耗：2,473.39kb] [文件加载：48]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.025661s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.016858s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.016894s ]
+---------------------------------------------------------------
+[ 2019-03-13T17:37:57+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.094893s] [吞吐率：10.54req/s] [内存消耗：2,544.53kb] [文件加载：53]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.026001s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.016862s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        bloginfo_status=1
+                ORDER BY
+                        bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.017065s ]
+[ error ] [8]未定义数组索引: class_title[/home/wwwroot/default/DH_TuoLing/item/runtime/temp/109153f3c0f2abf4e559dcdf5401e892.php:76]
+---------------------------------------------------------------
+[ 2019-03-13T17:38:44+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.096563s] [吞吐率：10.36req/s] [内存消耗：2,546.00kb] [文件加载：53]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.027189s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.017477s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime,class_title
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        nb.bloginfo_status=1
+                ORDER BY
+                        nb.bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.017924s ]
+[ error ] [8]未定义数组索引: right_list[/home/wwwroot/default/DH_TuoLing/item/runtime/temp/109153f3c0f2abf4e559dcdf5401e892.php:87]
+---------------------------------------------------------------
+[ 2019-03-13T18:06:59+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.151945s] [吞吐率：6.58req/s] [内存消耗：2,548.23kb] [文件加载：53]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.080747s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.017881s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime,class_title
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        nb.bloginfo_status=1
+                ORDER BY
+                        nb.bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.017989s ]
+[ error ] [8]未定义数组索引: right_list[/home/wwwroot/default/DH_TuoLing/item/runtime/temp/109153f3c0f2abf4e559dcdf5401e892.php:87]
+---------------------------------------------------------------
+[ 2019-03-13T18:16:05+08:00 ] 112.74.31.36 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.098912s] [吞吐率：10.11req/s] [内存消耗：2,526.02kb] [文件加载：51]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '112.74.31.36',
+  'user-agent' => 'curl/7.29.0',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.030131s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SELECT
+                        class_title,class_Etitle
+                FROM
+                        ns_class
+                WHERE
+                        class_fid = 0 and class_status=1
+                ORDER BY
+                        class_oid DESC [ RunTime:0.017657s ]
+[ sql ] [ SQL ] SELECT
+                        bloginfo_id,bloginfo_title,bloginfo_describe,bloginfo_img,bloginfo_createtime,class_title
+                FROM
+                        ns_bloginfo AS nb
+                LEFT JOIN
+                        ns_class AS nc on nb.class_id = nc.class_id
+                WHERE
+                        nb.bloginfo_status=1
+                ORDER BY
+                        nb.bloginfo_click DESC
+                LIMIT 15 [ RunTime:0.017878s ]
+[ error ] [0]method not exist:think\db\Query->get_blog_latest_publish[/home/wwwroot/default/DH_TuoLing/item/thinkphp/library/think/db/Query.php:103]

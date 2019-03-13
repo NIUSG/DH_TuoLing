@@ -1,21 +1,25 @@
 <?php
 namespace app\index\controller;
-use think\Db;
-
+use app\index\model\BlogModel;
 use app\index\controller\Common;
 class Index extends Common
 {
     public function index()
     {
         $list = [];
-        $index_blog_list = $this->M_Blog->index_blog_list(15);
-        list(,,$class_info) = $this->M_Common->get_class_info();
-        $class_info = array_column($class_info,'class_title','class_id');
-        $index_blog_list = array_map(function($v)use($class_info){$v['class_title'] = $class_info[$v['class_id']];return $v;},$index_blog_list);
-        $right_list = $this->get_right_list();
-        $list['index_blog_list'] = $index_blog_list;
-        $list['right_list'] = $right_list;
+        $list['index_blog_list'] = $this->get_index_blog_list();
+        $list['get_right_list'] = $this->get_right_list();
+        die();
         $this->assign("list",$list);
         return $this->fetch();
+    }
+    public function get_index_blog_list()
+    {
+        $M_blog = new BlogModel;
+        $index_blog_list = $M_blog->get_index_blog_list();
+        $index_blog_list = array_map(function($v){
+            $v['created_at'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);unset($v['bloginfo_createtime']);return $v;
+        },$index_blog_list);
+        return $index_blog_list;
     }
 }
