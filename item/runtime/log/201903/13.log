@@ -1,0 +1,411 @@
+---------------------------------------------------------------
+[ 2019-03-13T14:53:58+08:00 ] 14.153.48.125 GET 112.74.31.36/DH_TuoLing/item/public/
+[运行时间：17.572891s] [吞吐率：0.06req/s] [内存消耗：2,993.80kb] [文件加载：59]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0',
+  'host' => '112.74.31.36',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:17.420626s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_class` [ RunTime:0.016648s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_class` WHERE  `class_status` = 1 ORDER BY `class_oid` DESC [ RunTime:0.016189s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_bloginfo` [ RunTime:0.016604s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_bloginfo` WHERE  `bloginfo_status` = 1 ORDER BY `bloginfo_click` DESC [ RunTime:0.024327s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_link` [ RunTime:0.016534s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_link` WHERE  `link_status` = 1 ORDER BY `link_clicknum`,`link_createtime` [ RunTime:0.016172s ]
+---------------------------------------------------------------
+[ 2019-03-13T14:54:12+08:00 ] 14.153.48.125 GET 112.74.31.36/DH_TuoLing/item/public/index.php
+[运行时间：0.038647s] [吞吐率：25.88req/s] [内存消耗：2,705.50kb] [文件加载：56]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1552460039493',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0',
+  'host' => '112.74.31.36',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-03-13T14:54:13+08:00 ] 14.153.48.125 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/link/index.html
+[运行时间：0.046510s] [吞吐率：21.50req/s] [内存消耗：2,953.15kb] [文件加载：59]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'link',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1552460039493',
+  'connection' => 'keep-alive',
+  'referer' => 'http://112.74.31.36/DH_TuoLing/item/public/index.php',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0',
+  'host' => '112.74.31.36',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Link->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Link.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/link/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-03-13T14:54:15+08:00 ] 14.153.48.125 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/blog/index.html
+[运行时间：0.147371s] [吞吐率：6.79req/s] [内存消耗：3,116.43kb] [文件加载：59]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1552460039493',
+  'connection' => 'keep-alive',
+  'referer' => 'http://112.74.31.36/DH_TuoLing/item/public/index.php/index/link/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0',
+  'host' => '112.74.31.36',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.066831s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_label` [ RunTime:0.018167s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_label` WHERE  `label_status` = 1 ORDER BY `label_oid` DESC [ RunTime:0.017545s ]
+---------------------------------------------------------------
+[ 2019-03-13T14:54:15+08:00 ] 14.153.48.125 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/aboutme/index.html
+[运行时间：0.038177s] [吞吐率：26.19req/s] [内存消耗：2,776.38kb] [文件加载：59]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'aboutme',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1552460039493',
+  'connection' => 'keep-alive',
+  'referer' => 'http://112.74.31.36/DH_TuoLing/item/public/index.php/index/blog/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0',
+  'host' => '112.74.31.36',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Aboutme->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Aboutme.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/aboutme/index.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-03-13T14:54:20+08:00 ] 14.153.48.125 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.038442s] [吞吐率：26.01req/s] [内存消耗：2,705.98kb] [文件加载：56]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1552460039493',
+  'connection' => 'keep-alive',
+  'referer' => 'http://112.74.31.36/DH_TuoLing/item/public/index.php/index/aboutme/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0',
+  'host' => '112.74.31.36',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-03-13T14:54:22+08:00 ] 14.153.48.125 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/blog/index_content.html?blog_id=43
+[运行时间：0.286518s] [吞吐率：3.49req/s] [内存消耗：3,080.80kb] [文件加载：59]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'blog',
+    2 => 'index_content',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1552460039493',
+  'connection' => 'keep-alive',
+  'referer' => 'http://112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0',
+  'host' => '112.74.31.36',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'blog_id' => '43',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Blog->index_content[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Blog.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/blog/content.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.028126s ] mysql:host=tc.niushao.net;dbname=dh_tuoling;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_bloginfo` [ RunTime:0.017936s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_bloginfo` WHERE  `bloginfo_id` = 43 [ RunTime:0.074356s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_label_blog` [ RunTime:0.017812s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_label_blog` [ RunTime:0.025824s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blog_link` [ RunTime:0.017684s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blog_link` WHERE  `bloginfo_id` = 43 [ RunTime:0.017177s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ns_blogcontent` [ RunTime:0.017658s ]
+[ sql ] [ SQL ] SELECT * FROM `ns_blogcontent` WHERE  `bloginfo_id` = 43 LIMIT 1 [ RunTime:0.026034s ]
+---------------------------------------------------------------
+[ 2019-03-13T15:04:25+08:00 ] 14.153.48.125 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.041824s] [吞吐率：23.91req/s] [内存消耗：2,889.51kb] [文件加载：58]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1552460039493',
+  'connection' => 'keep-alive',
+  'referer' => 'http://112.74.31.36/DH_TuoLing/item/public/index.php/index/aboutme/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0',
+  'host' => '112.74.31.36',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/public/header.html [ array (
+  0 => 'top_class_list',
+) ]
+[ info ] [ RUN ] app\index\controller\Index->index[ /home/wwwroot/default/DH_TuoLing/item/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /home/wwwroot/default/DH_TuoLing/item/public/../application/index/view/index/index.html [ array (
+  0 => 'top_class_list',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-03-13T15:30:40+08:00 ] 14.153.48.125 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.024171s] [吞吐率：41.37req/s] [内存消耗：1,633.66kb] [文件加载：42]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'dnt' => '1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0',
+  'host' => '112.74.31.36',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [0]MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error.[/home/wwwroot/default/DH_TuoLing/item/application/tools/controller/Redis.php:43]
+---------------------------------------------------------------
+[ 2019-03-13T15:30:42+08:00 ] 14.153.48.125 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.022292s] [吞吐率：44.86req/s] [内存消耗：1,633.59kb] [文件加载：42]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1552460039493',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0',
+  'host' => '112.74.31.36',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [0]MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error.[/home/wwwroot/default/DH_TuoLing/item/application/tools/controller/Redis.php:43]
+---------------------------------------------------------------
+[ 2019-03-13T15:30:54+08:00 ] 14.153.48.125 GET 112.74.31.36/DH_TuoLing/item/public/index.php/index/index/index.html
+[运行时间：0.024076s] [吞吐率：41.54req/s] [内存消耗：1,633.59kb] [文件加载：42]
+[ info ] [ LANG ] /home/wwwroot/default/DH_TuoLing/item/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'bdshare_firstime=1552460039493',
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0',
+  'host' => '112.74.31.36',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [0]MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error.[/home/wwwroot/default/DH_TuoLing/item/application/tools/controller/Redis.php:43]
