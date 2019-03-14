@@ -34,6 +34,20 @@ class BlogModel extends CommonModel
         $res = Db::query($sql);
         return $res;
     }
+    public function get_blog_latest_publish()
+    {
+        $sql = "SELECT
+                        bloginfo_id,bloginfo_title
+                FROM
+                        ns_bloginfo
+                WHERE
+                        bloginfo_status = 1
+                ORDER BY
+                        bloginfo_createtime DESC
+                LIMIT 5";
+        $res = Db::query($sql);
+        return $res;
+    }
 }
 
 

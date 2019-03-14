@@ -8,8 +8,7 @@ class Index extends Common
     {
         $list = [];
         $list['index_blog_list'] = $this->get_index_blog_list();
-        $list['get_right_list'] = $this->get_right_list();
-        die();
+        $list['right_list'] = $this->get_right_list();
         $this->assign("list",$list);
         return $this->fetch();
     }

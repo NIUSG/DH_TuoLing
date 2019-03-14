@@ -6,15 +6,15 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta name="keywords" content="NiuShao Blog" />
     <meta name="description" content="NiuShao Blog" />
-    <link href="http://127.0.0.1/DH_TuoLing/item/public/static/IndexStyle/css/base.css" rel="stylesheet">
+    <link href="http://112.74.31.36/DH_TuoLing/item/public/static/IndexStyle/css/base.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <!--[if lt IE 9]>
-    <script src="http://127.0.0.1/DH_TuoLing/item/public/static/IndexStyle/js/modernizr.js"></script>
+    <script src="http://112.74.31.36/DH_TuoLing/item/public/static/IndexStyle/js/modernizr.js"></script>
     <![endif]-->
     
-    <link href="http://127.0.0.1/DH_TuoLing/item/public/static/IndexStyle/css/index.css" rel="stylesheet">
+    <link href="http://112.74.31.36/DH_TuoLing/item/public/static/IndexStyle/css/index.css" rel="stylesheet">
 
-    <script src="http://127.0.0.1/DH_TuoLing/item/public/static/IndexStyle/js/silder.js"></script>
+    <script src="http://112.74.31.36/DH_TuoLing/item/public/static/IndexStyle/js/silder.js"></script>
     
 
 </head>
@@ -68,7 +68,7 @@
   <div class="bloglist left">
     <?php foreach($list['index_blog_list'] as $val): ?>
     <h3><?php echo $val['bloginfo_title']; ?></h3>
-    <figure><img src="http://127.0.0.1/DH_TuoLing/item/public/uploads/BlogsImg/<?php echo $val['bloginfo_img']; ?>"></figure>
+    <figure><img src="http://112.74.31.36/DH_TuoLing/item/public/uploads/BlogsImg/<?php echo $val['bloginfo_img']; ?>"></figure>
     <ul>
       <p><?php echo $val['bloginfo_describe']; ?>...</p>
       <a title="/" href="<?php echo url('blog/index_content'); ?>?blog_id=<?php echo $val['bloginfo_id']; ?>" target="_blank" class="readmore">查看更多</a>

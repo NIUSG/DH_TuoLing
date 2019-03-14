@@ -4,5 +4,4 @@ application/database.php
 .tags_sorted_by_file
 application/console/database.php
 application/index/config.php
-runtime/log
-runtime/temp
+runtime/
