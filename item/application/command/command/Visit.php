@@ -6,15 +6,18 @@ use think\console\Input;
 use think\console\Output;
 use app\command\model\VisitModel;
 use app\tools\controller\Curl;
+use think\cache\driver\Redis;
 class Visit extends Command
 {
     private $taobao_ip = 'http://ip.taobao.com/service/getIpInfo.php?ip=';
     private $M_visit;
     private $T_curl;
+    private $Redis_obj;
     public function __construct()
     {
         parent::__construct();
         $this->M_visit = new VisitModel;
+        $this->Redis_obj = new Redis;
     }
     protected function configure()
     {
@@ -23,6 +26,7 @@ class Visit extends Command
 
     protected function execute(Input $input, Output $output)
     {
+        $this->lock();
         //查询缓存数据
         $cache_list = $this->format_visit_log_cache();
         $visit_info = $this->trans_ip($cache_list);
@@ -30,6 +34,17 @@ class Visit extends Command
         //入库
         $res = $this->insert_log($insert_data);
     }
+
+    private function lock(){
+        $key = "command_Visit";
+        if($this->Redis_obj->has($key)){
+            var_dump("Visit脚本正在执行，不可重新开启");
+            die();
+        }else{
+            $this->Redis_obj->set($key,1,300);
+        }
+    }
+
     private function format_visit_log_cache()
     {
         $cache_list = $this->M_visit->get_visit_log_cache();
@@ -41,6 +56,7 @@ class Visit extends Command
         },$cache_list);
         return $cache_list;
     }
+
     private function trans_ip($cache_list)
     {
         $cache_list = array_map(function($v){
@@ -49,6 +65,7 @@ class Visit extends Command
         },$cache_list);
         return $cache_list;
     }
+
     private function format_ip($ip)
     {
         if( !isset($ip) || empty($ip) ) return [];
@@ -57,6 +74,7 @@ class Visit extends Command
         if( isset($res['code']) && $res['code'] == 0 )return $res['data'];
         return [];
     }
+
     private function format_visit_info($visit_info)
     {
         $insert_data = [];
@@ -67,11 +85,11 @@ class Visit extends Command
         }
         return $insert_data;
     }
+
     private function insert_log($insert_data)
     {
         foreach($insert_data as $val){
             $res = $this->M_visit->insert_log($val);
-            var_dump($res);
         }
     }
 }

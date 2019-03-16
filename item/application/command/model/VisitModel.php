@@ -7,7 +7,7 @@ class VisitModel extends Model
 {
     public function get_visit_log_cache()
     {
-        $sql = "select * from ns_visit_log_cache where status = 'n' limit 50";
+        $sql = "select * from ns_visit_log_cache where status = 'n' limit 2";
         $res = Db::query($sql);
         return $res;
     }
@@ -30,7 +30,7 @@ class VisitModel extends Model
     {
         $data['ip'] = $ip_info['ip'];
         $data['url'] = $ip_info['url'];
-        $data['contury'] = $ip_info['ip_info']['country'];
+        $data['country'] = $ip_info['ip_info']['country'];
         $data['province'] = $ip_info['ip_info']['region'];
         $data['city'] = $ip_info['ip_info']['city'];
         $data['time'] = date("Y-m-d H:i:s",$ip_info['time']);
