@@ -22,7 +22,14 @@ return [
     // ]
         'tools' => [
             '__dir__'    => ['controller', 'model'],
-            'controller' => ['Visit'],
+            'controller' => ['Visit','Curl'],
             'model' => ['VisitModel'],
+        ],
+
+        'command'     => [
+            '__file__'   => ['common.php','config.php',],
+            '__dir__'    => ['command', 'model'],
+            'command' => ['Visit'],
+            'model'      => ['VisitModel'],
         ],
 ];
