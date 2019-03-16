@@ -6,6 +6,7 @@ use app\index\model\BlogModel;
 use app\index\model\LinkModel;
 use think\Url;
 use app\tools\controller\GetIp;
+use app\tools\controller\Visit;
 use think\cache\driver\Redis;
 class Common extends controller
 {
@@ -15,6 +16,9 @@ class Common extends controller
     {
 
         parent::__construct();
+        //监听访问信息
+        Visit::listen();
+
         $this->get_ip_obj = new GetIp;
         $this->frame_cache_redis_obj = new Redis;
         $this->access_restrictions();
