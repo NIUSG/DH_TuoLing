@@ -45,6 +45,6 @@ class GetIp
             $code = $e->getMessage();
             $msg = $e->getCode();
         }
-        return [$code,$msg,$realip];
+        return ['code' => $code,'msg' => $msg,'ip' => $realip];
     }
 }

@@ -5,11 +5,19 @@ use app\index\model\CategoryModel;
 use app\index\model\BlogModel;
 use app\index\model\LinkModel;
 use think\Url;
+use app\tools\controller\GetIp;
+use think\cache\driver\Redis;
 class Common extends controller
 {
+    protected $get_ip_obj;
+    protected $frame_cache_redis_obj;
     public function __construct()
     {
+
         parent::__construct();
+        $this->get_ip_obj = new GetIp;
+        $this->frame_cache_redis_obj = new Redis;
+        $this->access_restrictions();
         $this->get_top_class_list();
     }
     public function get_top_class_list()
@@ -29,6 +37,21 @@ class Common extends controller
         $right_list['blog_latest_publish'] = $M_blog->get_blog_latest_publish();
         $right_list['link_clicknum'] = $M_link->get_link_clicknum();
         return $right_list;
+    }
+    //访问控制
+    public function access_restrictions()
+    {
+        //获取ip,作为redis的key
+        $ip_info = $this->get_ip_obj->get_ip();
+        $ip = $ip_info['ip'];
+        if($this->frame_cache_redis_obj->has($ip)){
+            if( $this->frame_cache_redis_obj->get($ip)>6 ){
+                $this->error("点击过快，请慢点刷新");
+            }
+            $this->frame_cache_redis_obj->inc($ip);
+        }else{
+            $this->frame_cache_redis_obj->set($ip,'1',5);
+        }
     }
 
 }
