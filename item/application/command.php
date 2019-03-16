@@ -10,8 +10,5 @@
 // +----------------------------------------------------------------------
 
 return [
-    'app\console\controller\Visit',
-    'app\console\controller\VisitIpLog',
-    'app\console\controller\Test',
-    'app\console\controller\Demo',
+
 ];

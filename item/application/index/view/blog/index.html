@@ -8,7 +8,7 @@
 <article class="blogs">
 <h1 class="t_nav"><span><form action="{:url('blog/index')}"　method="get"><input type="text" name="search_key"><input type="submit" value="搜索"></form></span><a href="/" class="n1">博客</a><a href="/" class="n2">列表</a></h1>
 <div class="newblog left">
-    {foreach $list.blog_list as $val}
+    {foreach $list.blog_list.blog_list as $val}
    <h2>{$val.bloginfo_title}</h2>
    <p class="dateview"><span>发布日期:{$val.created_at}</span><span></span><span>类别[<a href="/news/life/">{$val.class_title}</a>]</span></p>
     <figure><img src="__BLOG_IMG__/{$val.bloginfo_img}"></figure>
@@ -20,6 +20,7 @@
     {/foreach}
     <div class="blank"></div>
     <div style="margin:0px auto">
+      {$list.blog_list.page_info}
       <!-- <a title="Total record"><b>41</b></a><b>1</b><a href="/news/s/index_2.html">2</a><a href="/news/s/index_2.html">&gt;</a><a href="/news/s/index_2.html">&gt;&gt;</a> -->
     </div>
 </div>

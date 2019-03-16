@@ -35,4 +35,12 @@ class Link extends Common
         } ,$class_info);
         return $class_link_info;
     }
+    public function click_num()
+    {
+        $url = input('url');
+        $id = input('id');
+        //记录点击次数
+        $res = $this->M_link->set_click_num($id);
+        return $this->redirect($url);
+    }
 }

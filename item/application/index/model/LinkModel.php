@@ -31,4 +31,15 @@ class LinkModel extends CommonModel
         $res = Db::query($sql);
         return $res;
     }
+    public function set_click_num($id)
+    {
+        $sql = "UPDATE
+                    ns_link
+                SET
+                    link_clicknum = link_clicknum+1
+                WHERE
+                    link_id = {$id}";
+        $res = Db::execute($sql);
+        return $res;
+    }
 }
