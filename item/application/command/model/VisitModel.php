@@ -7,7 +7,7 @@ class VisitModel extends Model
 {
     public function get_visit_log_cache()
     {
-        $sql = "select * from ns_visit_log_cache where status = 'n' limit 2";
+        $sql = "select * from ns_visit_log_cache where status = 'n' limit 50";
         $res = Db::query($sql);
         return $res;
     }
@@ -22,6 +22,12 @@ class VisitModel extends Model
             $res = true;
         } catch (\Exception $e) {
             Db::rollback();
+            $error['code'] = $e->getCode();
+            $error['msg'] = $e->getMessage();
+            $error['file'] = $e->getFile();
+            $error['line'] = $e->getLine();
+            $log_data = '[Error][insert_log]['.json_encode($error).']';
+            WL($log_data,'Visit_Command');
         }
         return $res;
 

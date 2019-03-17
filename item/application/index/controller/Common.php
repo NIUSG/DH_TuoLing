@@ -50,6 +50,10 @@ class Common extends controller
         $ip = $ip_info['ip'];
         if($this->frame_cache_redis_obj->has($ip)){
             if( $this->frame_cache_redis_obj->get($ip)>6 ){
+                $log_arr['ip'] = $ip;
+                $log_arr['msg'] = 'this ip click too rapid';
+                $log = '[Common][click_num]['.json_encode($log_arr).']';
+                WL($log,'Common');
                 $this->error("点击过快，请慢点刷新");
             }
             $this->frame_cache_redis_obj->inc($ip);

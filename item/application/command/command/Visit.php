@@ -26,19 +26,38 @@ class Visit extends Command
 
     protected function execute(Input $input, Output $output)
     {
+
         $this->lock();
-        //查询缓存数据
-        $cache_list = $this->format_visit_log_cache();
-        $visit_info = $this->trans_ip($cache_list);
-        $insert_data = $this->format_visit_info($visit_info);
-        //入库
-        $res = $this->insert_log($insert_data);
+        try {
+            WL('start...','Visit_Command');
+            //查询缓存数据
+            $time1 = microtime(true);
+            $cache_list = $this->format_visit_log_cache();
+            $visit_info = $this->trans_ip($cache_list);
+            $insert_data = $this->format_visit_info($visit_info);
+            //入库
+            $res = $this->insert_log($insert_data);
+            $time5 = microtime(true);
+            $total_time = $time5-$time1;
+            WL('total_time ['.$total_time.']','Visit_Command');
+            WL('end...','Visit_Command');
+        } catch (\Exception $e) {
+            $error['code'] = $e->getCode();
+            $error['msg'] = $e->getMessage();
+            $error['file'] = $e->getFile();
+            $error['line'] = $e->getLine();
+            $log_data = '[Error][Visit_execute]['.json_encode($error).']';
+            WL($log_data,'Visit_Command');
+
+        }
+
     }
 
     private function lock(){
         $key = "command_Visit";
         if($this->Redis_obj->has($key)){
             var_dump("Visit脚本正在执行，不可重新开启");
+            WL('[locked] Visit execute is locked,end','Visit_Command');
             die();
         }else{
             $this->Redis_obj->set($key,1,300);
@@ -54,20 +73,30 @@ class Visit extends Command
             $v = array_merge($v,$tmp);
             return $v;
         },$cache_list);
+        //log
+        $log_data = 'cache_list count ['.count($cache_list).']';
+        WL($log_data,'Visit_Command');
         return $cache_list;
     }
 
     private function trans_ip($cache_list)
     {
+        $time1 = microtime(true);
         $cache_list = array_map(function($v){
+            sleep(1);
             $v['ip_info'] = $this->format_ip($v['ip']);
             return $v;
         },$cache_list);
+        $time2 = microtime(true);
+        $time = $time2-$time1;
+        $log_data = 'curl ip time ['.$time.']';
+        WL($log_data,'Visit_Command');
         return $cache_list;
     }
 
     private function format_ip($ip)
     {
+
         if( !isset($ip) || empty($ip) ) return [];
         $url = $this->taobao_ip.$ip;
         $res = json_decode(Curl::curl_get($url),true);
@@ -83,12 +112,15 @@ class Visit extends Command
                 $insert_data[] = $val;
             }
         }
+        $log_data1 = 'format_ip count ['.count($insert_data).']';
+        WL($log_data1,'Visit_Command');
         return $insert_data;
     }
 
     private function insert_log($insert_data)
     {
         foreach($insert_data as $val){
+            usleep(100);
             $res = $this->M_visit->insert_log($val);
         }
     }
