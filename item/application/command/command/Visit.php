@@ -15,6 +15,7 @@ class Visit extends Command
     private $T_curl;
     private $Redis_obj;
     private $File_obj;
+    private $lock_key = "command_Visit";
     public function __construct()
     {
         parent::__construct();
@@ -53,23 +54,32 @@ class Visit extends Command
             WL($log_data,'Visit_Command');
 
         }
-
+        $this->un_lock();
+        return;
     }
 
     private function lock(){
-        $key = "command_Visit";
-        if($this->File_obj->has($key)){
+        if($this->File_obj->has($this->lock_key)){
             var_dump("Visit脚本正在执行，不可重新开启");
             WL('[locked] Visit execute is locked,end','Visit_Command');
-            die();
+            return;
         }else{
-            $this->File_obj->set($key,1,300);
+            $this->File_obj->set($this->lock_key,1);
         }
+    }
+    private function un_lock()
+    {
+        $this->File_obj->rm($this->lock_key);
     }
 
     private function format_visit_log_cache()
     {
         $cache_list = $this->M_visit->get_visit_log_cache();
+        if(count($cache_list) == 0){
+            WL('Visit_log_cache_list id [0]','Visit_Command');
+            $this->un_lock();
+            die();
+        }
         $cache_list = array_map(function($v){
             $tmp = json_decode($v['data'],true);
             unset($v['data']);
