@@ -8,10 +8,13 @@ use think\Url;
 use app\tools\controller\GetIp;
 use app\tools\controller\Visit;
 use think\cache\driver\Redis;
+use think\cache\driver\File;
+
 class Common extends controller
 {
     protected $get_ip_obj;
     protected $frame_cache_redis_obj;
+    protected $frame_cache_file_obj;
     public function __construct()
     {
 
@@ -21,6 +24,7 @@ class Common extends controller
 
         $this->get_ip_obj = new GetIp;
         $this->frame_cache_redis_obj = new Redis;
+        $this->frame_cache_file_obj = new File;
         $this->access_restrictions();
         $this->get_top_class_list();
     }
@@ -48,17 +52,17 @@ class Common extends controller
         //获取ip,作为redis的key
         $ip_info = $this->get_ip_obj->get_ip();
         $ip = $ip_info['ip'];
-        if($this->frame_cache_redis_obj->has($ip)){
-            if( $this->frame_cache_redis_obj->get($ip)>6 ){
+        if($this->frame_cache_file_obj->has($ip)){
+            if( $this->frame_cache_file_obj->get($ip)>6 ){
                 $log_arr['ip'] = $ip;
                 $log_arr['msg'] = 'this ip click too rapid';
                 $log = '[Common][click_num]['.json_encode($log_arr).']';
                 WL($log,'Common');
                 $this->error("点击过快，请慢点刷新");
             }
-            $this->frame_cache_redis_obj->inc($ip);
+            $this->frame_cache_file_obj->inc($ip);
         }else{
-            $this->frame_cache_redis_obj->set($ip,'1',5);
+            $this->frame_cache_file_obj->set($ip,'1',5);
         }
     }
 

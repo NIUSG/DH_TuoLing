@@ -7,17 +7,20 @@ use think\console\Output;
 use app\command\model\VisitModel;
 use app\tools\controller\Curl;
 use think\cache\driver\Redis;
+use think\cache\driver\File;
 class Visit extends Command
 {
     private $taobao_ip = 'http://ip.taobao.com/service/getIpInfo.php?ip=';
     private $M_visit;
     private $T_curl;
     private $Redis_obj;
+    private $File_obj;
     public function __construct()
     {
         parent::__construct();
         $this->M_visit = new VisitModel;
         $this->Redis_obj = new Redis;
+        $this->File_obj = new File;
     }
     protected function configure()
     {
@@ -55,12 +58,12 @@ class Visit extends Command
 
     private function lock(){
         $key = "command_Visit";
-        if($this->Redis_obj->has($key)){
+        if($this->File_obj->has($key)){
             var_dump("Visit脚本正在执行，不可重新开启");
             WL('[locked] Visit execute is locked,end','Visit_Command');
             die();
         }else{
-            $this->Redis_obj->set($key,1,300);
+            $this->File_obj->set($key,1,300);
         }
     }
 
