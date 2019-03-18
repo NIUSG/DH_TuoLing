@@ -22,7 +22,7 @@ return [
     // ]
         'tools' => [
             '__dir__'    => ['controller', 'model'],
-            'controller' => ['Visit','Curl'],
+            'controller' => ['Visit','Curl','Encrypt'],
             'model' => ['VisitModel'],
         ],
 
