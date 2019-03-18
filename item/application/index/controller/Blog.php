@@ -4,6 +4,7 @@ use app\index\model\BlogModel;
 use app\index\model\CategoryModel;
 use app\index\model\LabelModel;
 use app\tools\controller\Pagination;
+use app\tools\controller\Encrypt;
 class Blog extends Common
 {   private $default_page = 15;
     private $M_blog;
@@ -95,7 +96,9 @@ class Blog extends Common
     }
     public function get_index_content()
     {
-        $blog_id = input('blog_id');
+        $param = input('param');
+        $param = Encrypt::un_encryption($param);
+
         //记录点击量
         $res_click = $this->M_blog->add_scan_num($blog_id);
         $index_content_list = $this->M_blog->get_content_info($blog_id);

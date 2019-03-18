@@ -12,6 +12,11 @@ class Test extends Command
     }
     protected function execute(Input $input, Output $output)
     {
-        var_dump("test");
+        $param = Encrypt::encryption(['id'=>5,'page'=>1]);
+
+        sleep(1);
+
+        $data = Encrypt::un_encryption($param);
+        var_dump($data);
     }
 }
