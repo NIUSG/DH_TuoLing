@@ -29,7 +29,7 @@ return [
         'command'     => [
             '__file__'   => ['common.php','config.php',],
             '__dir__'    => ['command', 'model'],
-            'command' => ['Visit'],
+            'command' => ['Visit','Test'],
             'model'      => ['VisitModel'],
         ],
 ];

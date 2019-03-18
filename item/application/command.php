@@ -11,4 +11,5 @@
 
 return [
     'app\command\command\Visit',
+    'app\command\command\Test',
 ];
