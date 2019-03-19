@@ -27,7 +27,7 @@
   <div class="left">
     <div class="recommend">
     {foreach $list.recommend_link as $val}
-    <div class="link_recommend"><a href="{:url('click_num')}?url={$val.link_url}&id={$val.link_id}" target="_blank"><p>{$val.link_title}</p></a></div>
+    <div class="link_recommend"><a href="{:url('click_num')}?param={$val.param}" target="_blank"><p>{$val.link_title}</p></a></div>
     {/foreach}
     </div>
     <h2 class="title_tj">
@@ -37,7 +37,7 @@
     <div class="class_list">
         <div class="class_name"><p>{$val.class_title}</p></div>
         {foreach $val.link_info as $v}
-        <div class="link_recommend"><a href="{:url('click_num')}?url={$v.link_url}&id={$v.link_id}" target="_blank"><p>{$v.link_title}</p></a></div>
+        <div class="link_recommend"><a href="{:url('click_num')}?param={$v.param}" target="_blank"><p>{$v.link_title}</p></a></div>
         {/foreach}
     </div>
     {/foreach}

@@ -23,7 +23,7 @@ class Encrypt
     }
     public static function un_encryption($data)
     {
-        if(empty($data)) throw new  \Exception("待解析url数据为空", 100000);
+        if(empty($data)) throw new  \Exception("待解析url参数为空", 100000);
         $md51_local = md5(self::$param_key);
         $param_url = base64_decode($data);
         $md51_data = substr($param_url,0,32);

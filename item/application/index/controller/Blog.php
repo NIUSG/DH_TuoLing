@@ -108,10 +108,10 @@ class Blog extends Common
             $blog_id = $param['blog_id'];
         } catch (\Exception   $e) {
             $error['code'] = $e->getCode();
-            $error['msg'] = $e->getMessage();
+            $msg = $e->getMessage();
             $error['file'] = $e->getFile();
             $error['line'] = $e->getLine();
-            $log_data = "[Error-Param][".json_encode($error)."]";
+            $log_data = "[Error-Param][".$msg."][".json_encode($error)."]";
             WL($log_data,'index_content');
             die("参数不正确，请重新访问<a href='http://www.niushao.net'>点击重新访问</a>");
         }

@@ -1,7 +1,10 @@
 <?php
 namespace app\index\validate;
-
-class LinkValidate
+use \think\Validate;
+class LinkValidate extends Validate
 {
-
+    protected $rule = [
+        'url'     => 'require',
+        'link_id' => 'require|number',
+    ];
 }
