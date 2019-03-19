@@ -5,6 +5,7 @@ use app\index\model\CategoryModel;
 use app\index\model\LabelModel;
 use app\tools\controller\Pagination;
 use app\tools\controller\Encrypt;
+use \think\Validate;
 class Blog extends Common
 {   private $default_page = 15;
     private $M_blog;
@@ -96,9 +97,24 @@ class Blog extends Common
     }
     public function get_index_content()
     {
-        $param = input('param');
-        $param = Encrypt::un_encryption($param);
-
+        try {
+            //加密参数解析
+            $param = input('param');
+            $param = Encrypt::un_encryption($param);
+            //参数验证
+            $rule = ['blog_id'=>'require|number'];
+            $validate = new Validate($rule);
+            if( !$validate->check($param) ) throw new   \Exception( $validate->getError(),200001);
+            $blog_id = $param['blog_id'];
+        } catch (\Exception   $e) {
+            $error['code'] = $e->getCode();
+            $error['msg'] = $e->getMessage();
+            $error['file'] = $e->getFile();
+            $error['line'] = $e->getLine();
+            $log_data = "[Error-Param][".json_encode($error)."]";
+            WL($log_data,'index_content');
+            die("参数不正确，请重新访问<a href='http://www.niushao.net'>点击重新访问</a>");
+        }
         //记录点击量
         $res_click = $this->M_blog->add_scan_num($blog_id);
         $index_content_list = $this->M_blog->get_content_info($blog_id);

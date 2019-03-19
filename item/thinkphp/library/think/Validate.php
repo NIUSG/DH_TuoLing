@@ -275,7 +275,6 @@ class Validate
                 }
             }
         }
-
         foreach ($rules as $key => $item) {
             // field => rule1|rule2... field=>['rule1','rule2',...]
             if (is_numeric($key)) {
@@ -297,7 +296,6 @@ class Validate
             } else {
                 $title = isset($this->field[$key]) ? $this->field[$key] : $key;
             }
-
             // 场景检测
             if (!empty($scene)) {
                 if ($scene instanceof \Closure && !call_user_func_array($scene, [$key, $data])) {
@@ -311,10 +309,8 @@ class Validate
                     }
                 }
             }
-
             // 获取数据 支持二维数组
             $value = $this->getDataValue($data, $key);
-
             // 字段验证
             if ($rule instanceof \Closure) {
                 // 匿名函数验证 支持传入当前字段和所有字段两个数据
@@ -401,7 +397,6 @@ class Validate
             } else {
                 // 判断验证类型
                 list($type, $rule, $info) = $this->getValidateType($key, $rule);
-
                 // 如果不是require 有数据才会行验证
                 if (0 === strpos($info, 'require') || (!is_null($value) && '' !== $value)) {
                     // 验证类型
@@ -1342,7 +1337,6 @@ class Validate
             // 读取指定场景
             $scene = $this->currentScene;
         }
-
         if (!empty($scene) && isset($this->scene[$scene])) {
             // 如果设置了验证适用场景
             $scene = $this->scene[$scene];
