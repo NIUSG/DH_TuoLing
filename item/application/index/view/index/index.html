@@ -58,7 +58,7 @@
     </h3>
     <ul class="rank">
     {foreach $list.right_list.blog_clicknum as $val}
-      <li><a href="{:url('blog/index_content')}?blog_id={$val.bloginfo_id}" target="_blank">{$val.bloginfo_title}({$val.bloginfo_click})</a></li>
+      <li><a href="{:url('blog/index_content')}?param={$val.param}" target="_blank">{$val.bloginfo_title}({$val.bloginfo_click})</a></li>
     {/foreach}
     </ul>
     <h3 class="ph">
@@ -66,7 +66,7 @@
     </h3>
     <ul class="paih">
     {foreach $list.right_list.blog_latest_publish as $val}
-      <li><a href="{:url('blog/index_content')}?blog_id={$val.bloginfo_id}" target="_blank">{$val.bloginfo_title}</a></li>
+      <li><a href="{:url('blog/index_content')}?param={$val.param}" target="_blank">{$val.bloginfo_title}</a></li>
     {/foreach}
     </ul>
     <h3 class="links">
@@ -83,10 +83,11 @@
       <h3>标签</h3>
       <ul>
       {foreach $list.right_list.link_clicknum as $val}
-        <li><a href="{:url('link/click_num')}?url={$val.link_url}&id={$val.link_id}">{$val.link_title}</a></li>
+        <li><a href="{:url('link/click_num')}?param={$val.param}">{$val.link_title}</a></li>
       {/foreach}
       </ul>
     </div>
+  </aside>
     <!-- Baidu Button BEGIN -->
     <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"><a class="bds_tsina"></a><a class="bds_qzone"></a><a class="bds_tqq"></a><a class="bds_renren"></a><span class="bds_more"></span><a class="shareCount"></a></div>
     <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6574585" ></script>

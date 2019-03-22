@@ -45,13 +45,14 @@
 
 <!--==============================右边栏目================================-->
   <aside class="right">
-     <div class="news">
+    <div class="weather"><iframe width="250" scrolling="no" height="60" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=1"></iframe></div>
+    <div class="news">
     <h3>
       <p>点击<span>排行</span></p>
     </h3>
     <ul class="rank">
     {foreach $list.right_list.blog_clicknum as $val}
-      <li><a href="{:url('blog/index_content')}?blog_id={$val.bloginfo_id}" target="_blank">{$val.bloginfo_title}({$val.bloginfo_click})</a></li>
+      <li><a href="{:url('blog/index_content')}?param={$val.param}" target="_blank">{$val.bloginfo_title}({$val.bloginfo_click})</a></li>
     {/foreach}
     </ul>
     <h3 class="ph">
@@ -59,24 +60,28 @@
     </h3>
     <ul class="paih">
     {foreach $list.right_list.blog_latest_publish as $val}
-      <li><a href="{:url('blog/index_content')}?blog_id={$val.bloginfo_id}" target="_blank">{$val.bloginfo_title}</a></li>
+      <li><a href="{:url('blog/index_content')}?param={$val.param}" target="_blank">{$val.bloginfo_title}</a></li>
     {/foreach}
+    </ul>
+    <h3 class="links">
+      <p>常用<span>链接</span></p>
+    </h3>
+    <ul class="website">
+      <li><a href="http://www.github.com" target="_blank">GITHUB</a></li>
+      <li><a href="http://www.linode.com" target="_blank">Linode</a></li>
+      <li><a href="http://www.aliyun.com" target="_blank">阿里云</a></li>
+      <li><a href="http://www.baiduc.com" target="_blank">百度</a></li>
     </ul>
     </div>
     <div class="cloud">
-      <h3>导航</h3>
+      <h3>标签</h3>
       <ul>
       {foreach $list.right_list.link_clicknum as $val}
-        <li><a href="{:url('link/click_num')}?url={$val.link_url}&id={$val.link_id}">{$val.link_title}</a></li>
+        <li><a href="{:url('link/click_num')}?param={$val.param}">{$val.link_title}</a></li>
       {/foreach}
       </ul>
     </div>
-    <div class="visitors">
-      <h3><p>访问量</p></h3>
-      <ul>
-
-      </ul>
-    </div>
+  </aside>
      <!-- Baidu Button BEGIN -->
     <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"><a class="bds_tsina"></a><a class="bds_qzone"></a><a class="bds_tqq"></a><a class="bds_renren"></a><span class="bds_more"></span><a class="shareCount"></a></div>
     <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6574585" ></script>

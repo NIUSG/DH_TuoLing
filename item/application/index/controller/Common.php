@@ -9,7 +9,7 @@ use app\tools\controller\GetIp;
 use app\tools\controller\Visit;
 use think\cache\driver\Redis;
 use think\cache\driver\File;
-
+use app\tools\controller\Encrypt;
 class Common extends controller
 {
     protected $get_ip_obj;
@@ -39,13 +39,45 @@ class Common extends controller
     public function get_right_list()
     {
         $right_list = [];
-        $M_blog = new BlogModel;
-        $M_link = new LinkModel;
-        $right_list['blog_clicknum'] = $M_blog->get_blog_clicknum();
-        $right_list['blog_latest_publish'] = $M_blog->get_blog_latest_publish();
-        $right_list['link_clicknum'] = $M_link->get_link_clicknum();
+        $right_list['blog_clicknum'] = $this->format_blog_clicknum();
+        $right_list['blog_latest_publish'] = $this->format_blog_latest_publish();
+        $right_list['link_clicknum'] = $this->format_link_clicknum();
         return $right_list;
     }
+    public function format_blog_clicknum()
+    {
+        $M_blog = new BlogModel;
+        $blog_clicknum = $M_blog->get_blog_clicknum();
+        $blog_clicknum = array_map(function($v){
+            $v['param'] = Encrypt::encryption(['blog_id'=>$v['bloginfo_id']]);
+            return $v;
+        },$blog_clicknum);
+        return $blog_clicknum;
+    }
+    public function format_blog_latest_publish()
+    {
+        $M_blog = new BlogModel;
+        $blog_latest_publish = $M_blog->get_blog_latest_publish();
+        $blog_latest_publish = array_map(function($v){
+            $v['param'] = Encrypt::encryption(['blog_id'=>$v['bloginfo_id']]);
+            return $v;
+        },$blog_latest_publish);
+        return $blog_latest_publish;
+    }
+    public function format_link_clicknum()
+    {
+        $M_link = new LinkModel;
+        $link_clicknum = $M_link->get_link_clicknum();
+        $link_clicknum = array_map(function($val){
+            $tmp['link_id'] = $val['link_id'];
+            $tmp['url'] = $val['link_url'];
+            $val['param'] = Encrypt::encryption($tmp);
+            return $val;
+        },$link_clicknum);
+        return $link_clicknum;
+    }
+
+
     //访问控制
     public function access_restrictions()
     {
