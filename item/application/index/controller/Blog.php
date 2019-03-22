@@ -42,7 +42,9 @@ class Blog extends Common
         $blog_list = $this->M_blog->get_blog_list($search_key,$limit);
         $page_info = $page_obj->page($page_id,$this->M_blog->get_blog_count());
         $blog_list = array_map(function($v){
-            $v['created_at'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);unset($v['bloginfo_createtime']);return $v;
+            $v['created_at'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);unset($v['bloginfo_createtime']);
+            $v['param'] = Encrypt::encryption(['blog_id'=>$v['bloginfo_id']]);
+            return $v;
         },$blog_list);
         $blog_list['blog_list'] = $blog_list;
         $blog_list['page_info'] = $page_info;
@@ -71,7 +73,9 @@ class Blog extends Common
         $class_id = input('class_id');
         $index_class_blog = $this->M_blog->get_blog_by_class($class_id);
         $index_class_blog = array_map(function($v){
-            $v['created_at'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);unset($v['bloginfo_createtime']);return $v;
+            $v['created_at'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);unset($v['bloginfo_createtime']);
+            $v['param'] = Encrypt::encryption(['blog_id'=>$v['bloginfo_id']]);
+            return $v;
         },$index_class_blog);
         $blog_list['blog_list'] = $index_class_blog;
         $blog_list['page_info'] = "";
@@ -82,7 +86,9 @@ class Blog extends Common
         $label_id = input('label_id');
         $index_label_blog = $this->M_blog->get_blog_by_label($label_id);
         $index_label_blog = array_map(function($v){
-            $v['created_at'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);unset($v['bloginfo_createtime']);return $v;
+            $v['created_at'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);unset($v['bloginfo_createtime']);
+            $v['param'] = Encrypt::encryption(['blog_id'=>$v['bloginfo_id']]);
+            return $v;
         },$index_label_blog);
         $blog_list['blog_list'] = $index_label_blog;
         $blog_list['page_info'] = "";
@@ -95,6 +101,12 @@ class Blog extends Common
         $this->assign('list',$list);
         return $this->fetch('content');
     }
+    /**
+     * [get_index_content description]
+     * @Author   NiuShao                  370574131@qq.com
+     * @DateTime 2019-03-22T18:23:04+0800
+     * @return   [type]                   [description]
+     */
     public function get_index_content()
     {
         try {

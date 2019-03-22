@@ -14,7 +14,7 @@
     <figure><img src="__BLOG_IMG__/{$val.bloginfo_img}"></figure>
     <ul class="nlist">
       <p>{$val.bloginfo_describe}...</p>
-      <a title="/" href="{:url('blog/index_content')}?blog_id={$val.bloginfo_id}" target="_blank" class="readmore">查看更多</a>
+      <a title="/" href="{:url('blog/index_content')}?param={$val.param}" target="_blank" class="readmore">查看更多</a>
     </ul>
     <div class="line"></div>
     {/foreach}
