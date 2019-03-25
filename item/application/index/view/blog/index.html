@@ -31,7 +31,7 @@
     </h3>
       <ul>
       {foreach $list.class_list as $val}
-       <li class="rnav1"><a href="{:url('blog/index_class')}?class_id={$val.class_id}" target="_blank">{$val.class_title}</a></li>
+       <li class="rnav1"><a href="{:url('blog/index_class')}?param={$val.param}" target="_blank">{$val.class_title}</a></li>
        {/foreach}
      </ul>
     </div>
@@ -39,7 +39,7 @@
       <h3>标签</h3>
       <ul>
       {foreach $list.label_list as $val}
-        <li><a href="{:url('blog/index_label')}?label_id={$val.label_id}">{$val.label_title}</a></li>
+        <li><a href="{:url('blog/index_label')}?param={$val.param}">{$val.label_title}</a></li>
       {/foreach}
       </ul>
     </div>

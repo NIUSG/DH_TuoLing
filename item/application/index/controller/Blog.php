@@ -24,8 +24,8 @@ class Blog extends Common
     {
         //blog按照时间排序所有展示出来
         $list['blog_list'] = $this->get_blog_list();
-        $list['class_list'] = $this->M_class->get_class_list_by_fid($this->blog_class_fid,'class_id,class_title');
-        $list['label_list'] = $this->M_label->get_label_list('label_id,label_title');
+        $list['class_list'] = $this->getClassList();
+        $list['label_list'] = $this->getLabelList();
         $list['right_list'] = $this->get_right_list();
         $this->assign('list',$list);
         return $this->fetch();
@@ -53,24 +53,62 @@ class Blog extends Common
     public function index_class()
     {
         $list['blog_list'] = $this->get_index_class();
-        $list['class_list'] = $this->M_class->get_class_list_by_fid($this->blog_class_fid,'class_id,class_title');
-        $list['label_list'] = $this->M_label->get_label_list('label_id,label_title');
+        $list['class_list'] = $this->getClassList();
+        $list['label_list'] = $this->getLabelList();
         $list['right_list'] = $this->get_right_list();
         $this->assign('list',$list);
         return $this->fetch('index');
     }
+    public function getClassList()
+    {
+        $class_list = $this->M_class->get_class_list_by_fid($this->blog_class_fid,'class_id,class_title');
+        $class_list = array_map(function($v){
+            $v['param'] = Encrypt::encryption(['class_id'=>$v['class_id']]);
+            return $v;
+        },$class_list);
+        return $class_list;
+    }
+    public function getLabelList()
+    {
+        $label_list = $this->M_label->get_label_list('label_id,label_title');
+        $label_list = array_map(function($v){
+            $v['param'] = Encrypt::encryption(['label_id'=>$v['label_id']]);
+            return $v;
+        },$label_list);
+        return $label_list;
+    }
     public function index_label()
     {
         $list['blog_list'] = $this->get_index_label();
-        $list['class_list'] = $this->M_class->get_class_list_by_fid($this->blog_class_fid,'class_id,class_title');
-        $list['label_list'] = $this->M_label->get_label_list('label_id,label_title');
+        $list['class_list'] = $this->getClassList();
+        $list['label_list'] = $this->getLabelList();
         $list['right_list'] = $this->get_right_list();
         $this->assign('list',$list);
         return $this->fetch('index');
     }
     public function get_index_class()
     {
-        $class_id = input('class_id');
+        try {
+            //参数解密
+            $param = input('param');
+            $data = Encrypt::un_encryption($param);
+            //参数验证
+            $rule = ['class_id'=>'require|number'];
+            $validate = new Validate($rule);
+            if(!$validate->check($data)) throw new   \Exception( $validate->getError(),200001);
+            $class_id = $data['class_id'];
+        } catch (\Exception $e) {
+            $error['code'] = $e->getCode();
+            $msg = $e->getMessage();
+            $error['file'] = $e->getFile();
+            $error['line'] = $e->getLine();
+            $log_data = "[Error-Param][".$msg."][".json_encode($error)."]";
+            WL($log_data,'index_class');
+            die("参数不正确，请重新访问<a href='http://www.niushao.net'>点击重新访问</a>");
+        }
+        $param = input('param');
+        $data = Encrypt::un_encryption($param);
+
         $index_class_blog = $this->M_blog->get_blog_by_class($class_id);
         $index_class_blog = array_map(function($v){
             $v['created_at'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);unset($v['bloginfo_createtime']);
@@ -83,7 +121,25 @@ class Blog extends Common
     }
     public function get_index_label()
     {
-        $label_id = input('label_id');
+        try {
+            //参数解密
+            $param = input('param');
+            $data = Encrypt::un_encryption($param);
+            //参数验证
+            $rule = ['label_id'=>'require|number'];
+            $validate = new Validate($rule);
+            if(!$validate->check($data)) throw new Exception($validate->getError(),200001);
+            $label_id = $data['label_id'];
+        } catch (\Exception $e) {
+            $error['code'] = $e->getCode();
+            $msg = $e->getMessage();
+            $error['file'] = $e->getFile();
+            $error['line'] = $e->getLine();
+            $log_data = "[Error-Param][".$msg."][".json_encode($error)."]";
+            WL($log_data,'index_label');
+            die("参数不正确，请重新访问<a href='http://www.niushao.net'>点击重新访问</a>");
+        }
+
         $index_label_blog = $this->M_blog->get_blog_by_label($label_id);
         $index_label_blog = array_map(function($v){
             $v['created_at'] = date('Y-m-d H:i:s',$v['bloginfo_createtime']);unset($v['bloginfo_createtime']);
