@@ -36,5 +36,12 @@ return [
             '__file__'   => ['common.php','config.php',],
             '__dir__'    => ['controller', 'model', 'view','validate'],
             'validate'   => ['LinkValidate'],
-        ]
+        ],
+        'test' => [
+            '__file__'   => ['common.php','config.php',],
+            '__dir__'    => ['controller', 'model', 'view','validate'],
+            'validate'   => ['ValidateTest'],
+            'controller' => ['Test']
+        ],
+
 ];
