@@ -140,11 +140,18 @@ class Validate
      * @param mixed         $rule  验证规则
      * @return Validate
      */
+
+    /**
+     *rule方法,注册验证规则。和构造方法,check方法注册rule同理。验证规则写入属性$rule中
+     *两种传参：单个字段单个验证规则。或者name为数组,直接写入验证规则
+     */
     public function rule($name, $rule = '')
     {
         if (is_array($name)) {
+            //可以补加验证规则
             $this->rule = array_merge($this->rule, $name);
         } else {
+            //rule数组加字段,可以补充添加规则
             $this->rule[$name] = $rule;
         }
         return $this;
@@ -251,17 +258,24 @@ class Validate
      * @param string    $scene 验证场景
      * @return bool
      */
+    /**
+     * check，验证类的核心方法,用来验证字段。支持传入验证规则,验证场景
+     */
     public function check($data, $rules = [], $scene = '')
     {
+        //验证失败,错误信息清零
         $this->error = [];
 
+        //验证规则,为空取默认
         if (empty($rules)) {
             // 读取验证规则
             $rules = $this->rule;
         }
 
         // 分析验证规则
+        //获取验证场景，传参验证场景
         $scene = $this->getScene($scene);
+        //如果场景为空,输出空数组,也是按照场景的规则走
         if (is_array($scene)) {
             // 处理场景验证字段
             $change = [];
@@ -274,9 +288,11 @@ class Validate
                     $change[$k] = $val;
                 }
             }
+            //场景为空,场景验证字段都为空
         }
+        //开始验证,遍历验证规则
         foreach ($rules as $key => $item) {
-            // field => rule1|rule2... field=>['rule1','rule2',...]
+//=======================判断验证规则的两种写法,取验证=================================
             if (is_numeric($key)) {
                 // [field,rule1|rule2,msg1|msg2]
                 $key  = $item[0];
@@ -286,16 +302,22 @@ class Validate
                 } else {
                     $msg = [];
                 }
+            //字段对规则默认无法写报错信息，拿到了验证规则
             } else {
                 $rule = $item;
                 $msg  = [];
             }
+//======================================取字段描述==================================
+//两个过程，先取规则定义中的写法,如果没有,取当前注册的，如果没注册,取当前key
             if (strpos($key, '|')) {
                 // 字段|描述 用于指定属性名称
+                //$title字段描述
                 list($key, $title) = explode('|', $key);
             } else {
                 $title = isset($this->field[$key]) ? $this->field[$key] : $key;
             }
+//===================================场景验证=======================================
+//也就是利用场景,从许多规则中取出当前的场景需要的验证规则
             // 场景检测
             if (!empty($scene)) {
                 if ($scene instanceof \Closure && !call_user_func_array($scene, [$key, $data])) {
@@ -309,8 +331,11 @@ class Validate
                     }
                 }
             }
+//============================之前的准备工作完成,开始验证============================
             // 获取数据 支持二维数组
+            //获取需要验证的数据
             $value = $this->getDataValue($data, $key);
+            //$rule这个验证规则是不是回调函数,如果是回调函数直接调用函数,如果不是,其他验证方法验证
             // 字段验证
             if ($rule instanceof \Closure) {
                 // 匿名函数验证 支持传入当前字段和所有字段两个数据
@@ -385,31 +410,39 @@ class Validate
      */
     protected function checkItem($field, $value, $rules, $data, $title = '', $msg = [])
     {
-        // 支持多规则验证 require|in:a,b,c|... 或者 ['require','in'=>'a,b,c',...]
+        // rule，当前数据的验证规则,支持多个规则,所以要利用|分开
         if (is_string($rules)) {
             $rules = explode('|', $rules);
         }
         $i = 0;
+        //rule数组,便利验证每一个规则
         foreach ($rules as $key => $rule) {
+            //规则是回调函数,则调用函数
             if ($rule instanceof \Closure) {
                 $result = call_user_func_array($rule, [$value, $data]);
                 $info   = is_numeric($key) ? '' : $key;
             } else {
+            //规则不是回调函数,则默认按照本类的验证
                 // 判断验证类型
                 list($type, $rule, $info) = $this->getValidateType($key, $rule);
                 // 如果不是require 有数据才会行验证
+                //info中是否包含require.             //验证的值非null且不等于空
+                //也就是有值，或者有require,必须验证。如果没有require或者没有值，则不验证
                 if (0 === strpos($info, 'require') || (!is_null($value) && '' !== $value)) {
                     // 验证类型
+                    //如果没有自定义的验证类型,取当前的验证类型,本类中的is方法
                     $callback = isset(self::$type[$type]) ? self::$type[$type] : [$this, $type];
+
                     // 验证数据
                     $result = call_user_func_array($callback, [$value, $rule, $data, $field, $title]);
                 } else {
+                    //如果有require，则全部验证
                     $result = true;
                 }
             }
-
             if (false === $result) {
                 // 验证失败 返回错误信息
+                //如果定义了错误信息,
                 if (isset($msg[$i])) {
                     $message = $msg[$i];
                     if (is_string($message) && strpos($message, '{%') === 0) {
@@ -440,11 +473,11 @@ class Validate
      */
     protected function getValidateType($key, $rule)
     {
-        // 判断验证类型
+        // 如果key是整形数字,也就是说规则的另一种写法
         if (!is_numeric($key)) {
             return [$key, $rule, $key];
         }
-
+        //规则中有没有:类似于正则表达式验证这种
         if (strpos($rule, ':')) {
             list($type, $rule) = explode(':', $rule, 2);
             if (isset($this->alias[$type])) {
@@ -452,6 +485,7 @@ class Validate
                 $type = $this->alias[$type];
             }
             $info = $type;
+        //本类中是否存在方法,rule中的验证规则如果是方法
         } elseif (method_exists($this, $rule)) {
             $type = $rule;
             $info = $rule;
@@ -460,7 +494,8 @@ class Validate
             $type = 'is';
             $info = $rule;
         }
-
+        //配合语言包的报错
+        //      is  当前小规则  当前小规则
         return [$type, $rule, $info];
     }
 
@@ -579,6 +614,7 @@ class Validate
         switch ($rule) {
             case 'require':
                 // 必须
+                //后面加0,是因为empty判断不出来0.看是否是非空,如果为空,有为0的情况,在检查
                 $result = !empty($value) || '0' == $value;
                 break;
             case 'accepted':
@@ -1274,6 +1310,7 @@ class Validate
             list($name1, $name2) = explode('.', $key);
             $value               = isset($data[$name1][$name2]) ? $data[$name1][$name2] : null;
         } else {
+            //利用key去除当前需要验证的数据，同key
             $value = isset($data[$key]) ? $data[$key] : null;
         }
         return $value;
@@ -1303,7 +1340,6 @@ class Validate
         } else {
             $msg = $title . Lang::get('not conform to the rules');
         }
-
         if (is_string($msg) && 0 === strpos($msg, '{%')) {
             $msg = Lang::get(substr($msg, 2, -1));
         } elseif (Lang::has($msg)) {
@@ -1333,10 +1369,12 @@ class Validate
      */
     protected function getScene($scene = '')
     {
+        //场景为空,取当前场景，如果当前场景为空,则取空数组
         if (empty($scene)) {
             // 读取指定场景
             $scene = $this->currentScene;
         }
+        //场景非空且当前场景已定义
         if (!empty($scene) && isset($this->scene[$scene])) {
             // 如果设置了验证适用场景
             $scene = $this->scene[$scene];
@@ -1346,6 +1384,7 @@ class Validate
         } else {
             $scene = [];
         }
+        //如果没有定义场景,输出空数组
         return $scene;
     }
 
