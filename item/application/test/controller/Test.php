@@ -28,4 +28,14 @@ class Test extends Controller
         $err_msg = $this->Vali->getError();
         var_dump($err_msg);
     }
+    //验证器验证
+    //?name=niushaogang&email=370574131@qq.com
+    public function Validator()
+    {
+        var_dump($_GET);
+        $res = $this->ValiTest->check($_GET);
+        $err = $this->ValiTest->getError();
+        var_dump($err);
+        var_dump($res);
+    }
 }

@@ -265,7 +265,6 @@ class Validate
     {
         //验证失败,错误信息清零
         $this->error = [];
-
         //验证规则,为空取默认
         if (empty($rules)) {
             // 读取验证规则
