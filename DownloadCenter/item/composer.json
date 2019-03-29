@@ -1,0 +1,5 @@
+{
+    "require": {
+        "appbolaget/dd": "^1.1"
+    }
+}
