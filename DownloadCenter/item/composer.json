@@ -1,5 +1,12 @@
 {
     "require": {
         "appbolaget/dd": "^1.1"
+    },
+    "autoload":{
+        "psr-4":{
+            "app\\":"app/",
+            "command\\":"command/",
+            "core\\":"core/"
+        }
     }
 }
