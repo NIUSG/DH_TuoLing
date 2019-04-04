@@ -13,3 +13,5 @@ create table if not exists `ns_download_center`(
 alter table ns_download_center drop cur_path;
 alter table ns_download_center add `cur_path` varchar(255) not null default "";
 create unique index idx_name on ns_download_center(name);
+
+alter table ns_class add `url` varchar(255) not null default "" comment "顶级分类链接的url,没有的从英文标识中拼接";

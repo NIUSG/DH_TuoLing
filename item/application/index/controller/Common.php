@@ -31,8 +31,13 @@ class Common extends controller
     public function get_top_class_list()
     {
         $M_category = new CategoryModel;
-        $top_class_list = $M_category->get_class_list_by_fid(0,'class_title,class_Etitle');
-        $top_class_list = array_map(function($v){$v['url'] = "http://".$_SERVER['HTTP_HOST'].Url::build("".$v['class_Etitle']."/index");return $v;},$top_class_list);
+        $top_class_list = $M_category->get_class_list_by_fid(0,'class_title,class_Etitle,url');
+        $top_class_list = array_map(function($v){
+            if(empty($v['url'])){
+                $v['url'] = "http://".$_SERVER['HTTP_HOST'].Url::build("".$v['class_Etitle']."/index");
+            }
+            return $v;
+        },$top_class_list);
         $this->assign('top_class_list',$top_class_list);
         return $this->fetch('public/header');
     }
