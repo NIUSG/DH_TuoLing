@@ -9,6 +9,4 @@ return array(
     'core\\' => array($baseDir . '/core'),
     'command\\' => array($baseDir . '/command'),
     'app\\' => array($baseDir . '/app'),
-    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
-    'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
 );
