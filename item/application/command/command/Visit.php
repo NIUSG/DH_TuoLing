@@ -62,7 +62,7 @@ class Visit extends Command
         if($this->File_obj->has($this->lock_key)){
             var_dump("Visit脚本正在执行，不可重新开启");
             WL('[locked] Visit execute is locked,end','Visit_Command');
-            return;
+            die();
         }else{
             $this->File_obj->set($this->lock_key,1);
         }
