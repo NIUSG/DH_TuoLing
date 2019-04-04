@@ -4,32 +4,8 @@
   <title>Download</title>
 </head>
 <body>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-  <p align="center"><a href="https:www.baidu.com">baidu</a></p>
-
+  <?php foreach($sourceList as $key => $val){ ?>
+  <p align='center'><a href="<?php echo $val['download_path'] ?>"><?php echo $val['name'] ?></a></p>
+  <?php }?>
 </body>
 </html>
