@@ -20,7 +20,7 @@ class Common
 
     }
     /**
-     * [cursionDir 递归目录]
+     * [cursionDir 递归目录，树状图显示]
      * @Author   NiuShao                  370574131@qq.com
      * @DateTime 2019-04-04T20:11:22+0800
      * @param    [type]                   $dir             [description]
@@ -42,6 +42,27 @@ class Common
                     $fileArray[] = $dir.'/'.$val;
                   }
 
+                }
+            }
+        }
+        return $fileArray;
+    }
+    /**
+     * 便利目录中所有文件
+     */
+    public static function cursionDirAllFile(&$fileArray,$dir=RESOURCE_CENTER,$type=1)
+    {
+        $files = scandir($dir);
+        foreach($files as $key => $val){
+            if($val != '.' && $val != ".."){
+                if(is_dir($dir.'/'.$val)){
+                   self::cursionDirAllFile($fileArray,$dir.'/'.$val,$type);
+                }else{
+                    if($type == 1){
+                        $fileArray[] = $val;
+                    }elseif($type == 2){
+                        $fileArray[] = $dir.'/'.$val;
+                    }
                 }
             }
         }

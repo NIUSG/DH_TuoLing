@@ -8,3 +8,8 @@ create table if not exists `ns_download_center`(
   `download_num` int not null default 0,
   `status` enum('0','1') not null default 1 COMMENT "0：禁用1：启用"
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='软件下载模块的表,下载表';
+
+
+alter table ns_download_center drop cur_path;
+alter table ns_download_center add `cur_path` varchar(255) not null default "";
+create unique index idx_name on ns_download_center(name);
