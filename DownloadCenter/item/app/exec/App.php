@@ -11,7 +11,7 @@ class App
     public function run()
     {
         WL('[start...]','download_page_log');
-        if( is_file(VIEW_PATH.'/cache/cache.html') && (time()-filemtime(VIEW_PATH.'/cache/cache.html'))<3600 ){
+        if( is_file(VIEW_PATH.'/cache/cache.html') && (time()-filemtime(VIEW_PATH.'/cache/cache.html'))<18000 ){
             WL('[cachePage]','download_page_log');
             require_once VIEW_PATH.'/cache/cache.html';
         }else{
