@@ -10,8 +10,18 @@ class App
     }
     public function run()
     {
-        $sourceList = $this->getSource();
-        require_once VIEW_PATH.'download.html';
+        WL('[start...]','download_page_log');
+        if( is_file(VIEW_PATH.'/cache/cache.html') && (time()-filemtime(VIEW_PATH.'/cache/cache.html'))<3600 ){
+            WL('[cachePage]','download_page_log');
+            require_once VIEW_PATH.'/cache/cache.html';
+        }else{
+            WL('[refreshPage]','download_page_log');
+            $sourceList = $this->getSource();
+            ob_start();
+            require_once VIEW_PATH.'download.html';
+            file_put_contents(VIEW_PATH.'/cache/cache.html',ob_get_contents());
+        }
+        WL('[end...]','download_page_log');
     }
     /**
      * [getSource 获取数据库中的资源]
