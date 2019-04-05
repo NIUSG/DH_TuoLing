@@ -4,8 +4,10 @@
   <title>Download</title>
 </head>
 <body>
+    <h1 align='center' >Download Center</h1>
+    <h3 align='center' >(资源按照首字母排序)</h3>
   <?php foreach($sourceList as $key => $val){ ?>
-  <p align='center'><a href="<?php echo $val['download_path'] ?>"><?php echo $val['name'] ?></a></p>
+  <p align='center' ><i style="color:red"><?php echo $val['name'] ?></i>&nbsp&nbsp<a href="<?php echo $val['download_path'] ?>">点击下载(click Download)</a>&nbsp</p>
   <?php }?>
 </body>
 </html>
