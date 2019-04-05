@@ -21,7 +21,7 @@ class App
      */
     public function getSource()
     {
-        $sql = "select name,cur_path from ns_download_center where status = 1";
+        $sql = "select name,cur_path,name_cn from ns_download_center where status = 1";
         $sourceList = $this->db->getAllArray($sql);
         $sourceList = array_map(function($v){
             $v['download_path'] = RESOURCE_DOMAIN.$v['cur_path'];

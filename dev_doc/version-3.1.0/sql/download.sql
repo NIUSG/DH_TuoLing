@@ -18,3 +18,6 @@ alter table ns_class add `url` varchar(255) not null default "" comment "顶级�
 
 update ns_class set url="http://download.niushao.net" where class_title='Download';
 create unique index idx_class_title on ns_class (class_title);
+
+alter table ns_download_center add `name_cn` varchar(255) not null default "--";
+alter table ns_download_center add `remark` varchar(225) not null default "--";

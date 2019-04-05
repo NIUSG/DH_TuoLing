@@ -6,8 +6,19 @@
 <body>
     <h1 align='center' >Download Center</h1>
     <h3 align='center' >(资源按照首字母排序)</h3>
-  <?php foreach($sourceList as $key => $val){ ?>
-  <p align='center' ><i style="color:red"><?php echo $val['name'] ?></i>&nbsp&nbsp<a href="<?php echo $val['download_path'] ?>">点击下载(click Download)</a>&nbsp</p>
-  <?php }?>
+    <table align='center' border=0 cellpadding="1" cellspacing="1">
+      <tr>
+        <th>资源名称</th>
+        <th>sourceName</th>
+        <th>下载链接(Click Download)</th>
+      </tr>
+      <?php foreach($sourceList as $key => $val){ ?>
+      <tr>
+        <td><i style="color:red"><?php echo $val['name_cn'] ?></i></td>
+        <td><i style="color:red"><?php echo $val['name'] ?></i></td>
+        <td><a href="<?php echo $val['download_path'] ?>">点击下载(click Download)</a></td>
+      </tr>
+      <?php }?>
+    </table>
 </body>
 </html>
