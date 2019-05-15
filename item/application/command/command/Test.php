@@ -4,6 +4,7 @@ use think\console\Command;
 use think\console\Input;
 use think\console\Output;
 use app\tools\controller\Encrypt;
+use think\Db;
 class Test extends Command
 {
     protected function configure()
@@ -12,11 +13,9 @@ class Test extends Command
     }
     protected function execute(Input $input, Output $output)
     {
-        $param = Encrypt::encryption(['id'=>5,'page'=>1]);
-
-        sleep(1);
-
-        $data = Encrypt::un_encryption($param);
-        var_dump($data);
+        while (true) {
+            $sql = "select count(*) from abandon_ns_visitor_log where ip_city='深圳'";
+            $res = Db::query($sql);
+        }
     }
 }
