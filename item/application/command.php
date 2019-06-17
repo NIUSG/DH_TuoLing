@@ -12,4 +12,5 @@
 return [
     'app\command\command\Visit',
     'app\command\command\Test',
+    'app\command\command\Process',
 ];
